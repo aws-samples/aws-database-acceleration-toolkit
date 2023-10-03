@@ -28,7 +28,7 @@ Key features of DAT include automation of initial aurora setup and provisioning 
    5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
    6. Restore cluster from S3
 
-## DAT Blueprint Examples
+## Blueprint Examples
 
 DAT comprises of below examples. Click each link to get more details on running these examples.
 1. [aurora-postgres-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-existing-vpc) - Creates new Aurora Postgres Cluster. 
@@ -68,18 +68,19 @@ Review the Terraform variable definition file called `terraform.tfvars` and upda
 
 ```
 # (mandatory) AWS Region where your resources will be located
-region = "us-east-2"
+region = "<AWS_REGION>"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-04d0cfc912221b272"
+vpc_id = "<VPC_ID>"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
-instance_class ="db.r6g.large"
+instance_class ="<DB_INSTANCE_CLASS>"
 
 # (mandatory) Database Engine for your Aurora Cluster. Options: "aurora-postgresql" or "aurora-mysql" 
-engine = "aurora-postgresql"
+# For example: "aurora-postgresql"
+engine = "<DB_ENGINE>"
 
 # (mandatory) Number of instances 
 instances = {
@@ -87,26 +88,31 @@ instances = {
     two   = {}
 }
 
-# (optional) Default is provisioned database cluster; For serverless, select "serverless"
-engine_mode = "provisioned"
+# (optional) Default is "provisioned" database cluster; For serverless, select "serverless"
+engine_mode = "<DB_ENGINE_MODE>"
 
-# (optional) The database engine version. Updating this argument results in an outage" 
-engine_version = "15.3"
+# (optional) The database engine version. Note -Updating this argument results in an outage" 
+# For example: "15.3"
+engine_version = "<DB_ENGINE_VERSION>"
 
-# (optional) Database cluster name
-name = "aurora-pg-poc"
+# (optional) Database cluster name, for example 'aurora-pg-poc'
+# For example: "aurora-pg-poc"
+name = "<DB_CLUSTER_NAME>"
 
 # (optional) Database environment
-environment = "dev"
+# For example: "dev"
+environment = "<ENVIRONMENT>"
 
 # (optional) Tagging : Team/Group Name
-groupname = "dev"
+# For example: "dev"
+groupname = "<TEAM_GROUP_NAME>"
 
 # (optional) Tagging : Project or Application Name
-project = "dev"
+# For example: "dev"
+project = "<PROJECT_NAME>"
 
 ```
-The following shows an example for the `region` variable to specify AWS region for your database related resources. 
+The example below illustrates how to use the 'region' variable to define the AWS region for your database-related resources.
 ```shell script
 region = "us-east-2"
 ```
