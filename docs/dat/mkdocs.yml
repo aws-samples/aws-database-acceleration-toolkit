@@ -3,7 +3,7 @@ docs_dir: "docs"
 copyright: "Copyright © Amazon 2023"
 site_author: "AWS"
 site_url: "https://aws-samples.github.io/aws-database-acceleration-toolkit/"
-repo_url: https://github.com/aws-samples/aws-database-acceleration-toolkit
+repo_url: https://github.com/mythilias/aws-database-acceleration-toolkit/tree/readme-update
 theme:
   logo: images/aws-logo.png
   favicon: images/aws-favicon.png
@@ -39,7 +39,6 @@ theme:
 nav:
   - Introduction: 'index.md'
   - Getting Started: 'getstarted.md'
-  - Deploy the solution: 'deploy.md'
   - FAQ: 'faq.md'
   - Contributors: 'contributors.md'  
   - Get Involved: 'contributing.md'   
