@@ -1,7 +1,7 @@
 # Database Acceleration Toolkit (DAT) 
 Welcome to the **Database Acceleration Toolkit (DAT)** !!! 
 
-The **Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based (Terraform) on-click solution to simplify and automate initial setup and provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
+The **Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based (Terraform) single click solution to simplify and automate initial setup, provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
 
 It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
 
@@ -13,12 +13,10 @@ To be done
 
 The intended audiences for DAT are AWS customers who are migrating from commercial databases such as SQL Server to Amazon Aurora.
 
-### Note: 
-We are in alpha state currently and updates may introduce breaking changes. Solution is not recommended for production use at this time.
+## Key Features
 
-## DAT Features
+Key features of DAT include automation of initial aurora setup and provisioning and on-going maintenance activities:
 
-Some of the key features of DAT include automation of initial aurora setup and provisioning and on-going maintenance activities:
    1. Provisioning of new Aurora cluster
    2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
    3. Monitoring Aurora database 
@@ -61,7 +59,12 @@ git clone https://github.com/awsdabra/aurora-accelerator-for-terraform
 ```
 
 ### Step 2: Review and update the terraform.tfvars
-Navigate to `aurora-postgres-cluster-existing-vpc` under `examples` folder. Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
+Navigate to `aurora-postgres-cluster-existing-vpc` under `examples` folder. 
+
+```shell script
+cd examples/aurora-postgres-cluster-existing-vpc
+```
+Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
 
 The following shows an example for the `region` variable to specify AWS region for your database related resources. 
 ```shell script
@@ -72,7 +75,6 @@ region = "us-east-2"
 Initialize a working directory with configuration files by running `terraform init` 
 
 ```shell script
-cd examples/aurora-postgres-cluster-existing-vpc
 terraform init
 ```
 
