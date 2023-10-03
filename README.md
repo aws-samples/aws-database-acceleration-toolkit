@@ -1,7 +1,7 @@
 # Database Acceleration Toolkit (DAT) 
-Welcome to the Database Acceleration Toolkit (DAT) !!! 
+Welcome to the **Database Acceleration Toolkit (DAT)** !!! 
 
-The Database Acceleration Toolkit(DAT) is an open-source Infrastructure-as-a-code based (Terraform) on-click solution to simplify and automate initial setup and provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
+The **Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based (Terraform) on-click solution to simplify and automate initial setup and provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
 
 It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
 
@@ -61,7 +61,7 @@ git clone https://github.com/awsdabra/aurora-accelerator-for-terraform
 ```
 
 ### Step 2: Review and update the terraform.tfvars
-Navigate to `aurora-postgres-cluster-existing-vpc` under example folder. Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
+Navigate to `aurora-postgres-cluster-existing-vpc` under `examples` folder. Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
 
 The following shows an example for the variable to specify AWS region for your database related resources.
 ```shell script
@@ -71,9 +71,11 @@ region = "us-east-2"
 ### Step 3: Run Terraform INIT
 Initialize a working directory with configuration files by running `terraform init` 
 
-
 ```shell script
 cd examples/aurora-postgres-cluster-existing-vpc
+```
+
+```shell script
 terraform init
 ```
 
@@ -106,7 +108,6 @@ DAT is an open-source solution and is completely free to use. However, you will 
 ## Support 
 
 DAT is supported by Solution Architects of AWS on best effort basis. However, users are encouraged to ask questions, open issues, contribute and provide feedback on DAT.
-
 
 ## Next Steps
 
