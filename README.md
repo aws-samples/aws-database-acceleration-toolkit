@@ -1,24 +1,24 @@
 # Database Acceleration Toolkit (DAT) 
 Welcome to the Database Acceleration Toolkit (DAT) !!! 
 
-The Database Acceleration Toolkit(DAT) is a open-source Infrastrucrure-as-a-code based (Terraform) on-click solution to simplify and automate initial setup and provisioning (day 1) and on-going maintainance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
+The Database Acceleration Toolkit(DAT) is an open-source Infrastructure-as-a-code based (Terraform) on-click solution to simplify and automate initial setup and provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
 
 It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
 
 ## Architecture: 
 
-
+To be done 
 
 ## Intended audience
 
-The intended audience for DAT are AWS customers who are migrating from commercial databases such as SQL Server to Amazon Aurora.
+The intended audiences for DAT are AWS customers who are migrating from commercial databases such as SQL Server to Amazon Aurora.
 
 ### Note: 
 We are in alpha state currently and updates may introduce breaking changes. Solution is not recommended for production use at this time.
 
-## Database Acceleration Toolkit Features
+## DAT Features
 
-Some of the key features of DAT include automation of common tasks:
+Some of the key features of DAT include automation of initial aurora setup and provisioning (day 1) and on-going maintenance (day2) activities:
    1. Provisioning of new Aurora cluster
    2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
    3. Monitoring Aurora database 
@@ -30,16 +30,16 @@ Some of the key features of DAT include automation of common tasks:
    5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
    6. Restore cluster from S3
 
-## Database Acceleration Toolkit Examples
+## DAT Blueprint Examples
 DAT comprises of below examples. Click each link to get more details on running these examples.
 1. [aurora-postgres-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-existing-vpc) - Creates new Aurora Postgres Cluster. 
 2. [db-proxy-to-existing-postgres-cluster](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/db-proxy-to-existing-postgres-cluster) - Creates proxy to existing Aurora Postgres. 
-3. aurora-postgres-cluster-global-db - CreatesCreates new Aurora Postgres Clusters in pirmary and secondary region. (TODO: Add link)
-4. aurora-monitoring - Setup monoitoring dashboard for aurora. (TODO: Add link)
+3. aurora-postgres-cluster-global-db - Creates new Aurora Postgres Clusters in Primary and Secondary region. (TODO: Add link)
+4. aurora-monitoring - Setup monitoring dashboard for aurora. (TODO: Add link)
 
 ## Getting Started
 
-Below sample example demonstrate how you can leverage DAT to provision new cluster.
+This section demonstrate how you can leverage DAT to provision new cluster.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ First, ensure that you have installed the following tools locally.
 
 ## Deployment Steps
 
-The following steps will walk you through the deployment of an example blueprint. This example expect you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. You can customize it however:
+The following steps will walk you through the deployment of `aurora-postgres-cluster-existing-vpc` example blueprint. This example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances:
 
 ### Step 1: Clone the repo using the command below
 
@@ -60,7 +60,9 @@ git clone https://github.com/awsdabra/aurora-accelerator-for-terraform
 ```
 
 ### Step 2: Review and update the terraform.tfvars
-Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. The following shows an example for the variable to specify AWS region for your database related resources.
+Navigate to `aurora-postgres-cluster-existing-vpc` under example folder. Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
+
+The following shows an example for the variable to specify AWS region for your database related resources.
 ```shell script
 region = "us-east-2"
 ```
@@ -96,13 +98,13 @@ To clean up your environment, destroy the AWS resources created
 terraform destroy -var-file terraform.tfvars
 ```
 
-## Cost Assocaited
+## Cost Associated
 
-A: No, DAT is an open-source solution and is completely free to use. However, you will be responsible for any AWS costs associated with running your Aurora clusters and other AWS services.
+DAT is an open-source solution and is completely free to use. However, you will be responsible for any AWS costs associated with running your Aurora clusters and other AWS services.
 
 ## Support 
 
-A: DAT is supported by Solution Architects of AWS on best effort basis. However, users are encourged to ask questions, open issues, contribute and provide feedback on DAT.
+DAT is supported by Solution Architects of AWS on best effort basis. However, users are encouraged to ask questions, open issues, contribute and provide feedback on DAT.
 
 
 ## Next Steps
