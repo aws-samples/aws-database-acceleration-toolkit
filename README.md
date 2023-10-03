@@ -18,7 +18,7 @@ We are in alpha state currently and updates may introduce breaking changes. Solu
 
 ## DAT Features
 
-Some of the key features of DAT include automation of initial aurora setup and provisioning (day 1) and on-going maintenance (day2) activities:
+Some of the key features of DAT include automation of initial aurora setup and provisioning and on-going maintenance activities:
    1. Provisioning of new Aurora cluster
    2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
    3. Monitoring Aurora database 
@@ -31,6 +31,7 @@ Some of the key features of DAT include automation of initial aurora setup and p
    6. Restore cluster from S3
 
 ## DAT Blueprint Examples
+
 DAT comprises of below examples. Click each link to get more details on running these examples.
 1. [aurora-postgres-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-existing-vpc) - Creates new Aurora Postgres Cluster. 
 2. [db-proxy-to-existing-postgres-cluster](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/db-proxy-to-existing-postgres-cluster) - Creates proxy to existing Aurora Postgres. 
