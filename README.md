@@ -1,20 +1,22 @@
 # Database Acceleration Toolkit (DAT) 
+Welcome to the **Database Acceleration Toolkit (DAT)** !!! 
 
-'Database Acceleration Toolkit' is a collection of Terraform modules which simplify and automate initial setup and provisioning (day 1) and on-going maintainance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
+The **Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based (Terraform) single click solution to simplify and automate initial setup, provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
 
-## Note: 
-We are in alpha state currently and updates may introduce breaking changes. Solution is not recommended for production use at this time.
+It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
 
-## FAQ
+## Architecture: 
 
-Q: Who is the intended audience for DAT? 
+To be done 
 
-A: The intended audience for DAT are AWS customers who are migrating from commercial databases such as SQL Server to Amazon Aurora.
+## Intended audience
 
+The intended audiences for DAT are AWS customers who are migrating from commercial databases such as SQL Server to Amazon Aurora.
 
-Q: What are some of the key features of DAT? 
+## Key Features
 
-A: Some of the key features of DAT include automation of common tasks:
+Key features of DAT include automation of initial aurora setup and provisioning and on-going maintenance activities:
+
    1. Provisioning of new Aurora cluster
    2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
    3. Monitoring Aurora database 
@@ -26,23 +28,17 @@ A: Some of the key features of DAT include automation of common tasks:
    5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
    6. Restore cluster from S3
 
+## Blueprint Examples
 
-Q: Is there any cost associated with using DAT? 
+DAT comprises of below examples. Click each link to get more details on running these examples.
+1. [aurora-postgres-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-existing-vpc) - Creates new Aurora Postgres Cluster. 
+2. [db-proxy-to-existing-postgres-cluster](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/db-proxy-to-existing-postgres-cluster) - Creates proxy to existing Aurora Postgres. 
+3. aurora-postgres-cluster-global-db - Creates new Aurora Postgres Clusters in Primary and Secondary region. (TODO: Add link)
+4. aurora-monitoring - Setup monitoring dashboard for aurora. (TODO: Add link)
 
-A: No, DAT is an open-source solution and is completely free to use. However, you will be responsible for any AWS costs associated with running your Aurora clusters and other AWS services.
+## Getting Started
 
-
-Q: Is there a community or support  for DAT? 
-
-A: DAT is supported by Solution Architects of AWS on best effort basis. However, users are encourged to ask questions, open issues, contribute and provide feedback on DAT.
-
-Q. What DB Engines are currently supported?
-
-A: Currently, we support PostgreSQL only. MySQL database engine is on the short-term (3-6 months) roadmap. 
-
-# Getting Started
-
-Below sample example demonstrate how you can leverage DAT to provision new cluster.
+This section demonstrate how you can leverage DAT to provision new cluster.
 
 ## Prerequisites
 
@@ -54,7 +50,7 @@ First, ensure that you have installed the following tools locally.
 
 ## Deployment Steps
 
-The following steps will walk you through the deployment of an example blueprint. This example expect you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. You can customize it however:
+The following steps will walk you through the deployment of `aurora-postgres-cluster-existing-vpc` example blueprint. This example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances:
 
 ### Step 1: Clone the repo using the command below
 
@@ -63,35 +59,86 @@ git clone https://github.com/awsdabra/aurora-accelerator-for-terraform
 ```
 
 ### Step 2: Review and update the terraform.tfvars
-Review the Terraform variable definition file called terraform.tfvars and update the values for the variables as per your use case. The following shows an example for the variable to specify AWS region for your database related resources.
+Navigate to `aurora-postgres-cluster-existing-vpc` under `examples` folder. 
+
+```shell script
+cd examples/aurora-postgres-cluster-existing-vpc
+```
+Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
+
+```
+# (mandatory) AWS Region where your resources will be located
+region = "<AWS_REGION>"
+
+# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# For example: "vpc-0759280XX50555743"
+vpc_id = "<VPC_ID>"
+
+# (mandatory) Instance class. 
+# For example: "db.t4g.micro" is a free tier instance 
+instance_class ="<DB_INSTANCE_CLASS>"
+
+# (mandatory) Database Engine for your Aurora Cluster. Options: "aurora-postgresql" or "aurora-mysql" 
+# For example: "aurora-postgresql"
+engine = "<DB_ENGINE>"
+
+# (mandatory) Number of instances 
+instances = {
+    one   = {}
+    two   = {}
+}
+
+# (optional) Default is "provisioned" database cluster; For serverless, select "serverless"
+engine_mode = "<DB_ENGINE_MODE>"
+
+# (optional) The database engine version. Note -Updating this argument results in an outage" 
+# For example: "15.3"
+engine_version = "<DB_ENGINE_VERSION>"
+
+# (optional) Database cluster name, for example 'aurora-pg-poc'
+# For example: "aurora-pg-poc"
+name = "<DB_CLUSTER_NAME>"
+
+# (optional) Database environment
+# For example: "dev"
+environment = "<ENVIRONMENT>"
+
+# (optional) Tagging : Team/Group Name
+# For example: "dev"
+groupname = "<TEAM_GROUP_NAME>"
+
+# (optional) Tagging : Project or Application Name
+# For example: "dev"
+project = "<PROJECT_NAME>"
+
+```
+The example below illustrates how to use the 'region' variable to define the AWS region for your database-related resources.
 ```shell script
 region = "us-east-2"
 ```
 
 ### Step 3: Run Terraform INIT
-Initialize a working directory with configuration files
-
+Initialize a working directory with configuration files by running `terraform init` 
 
 ```shell script
-cd examples/aurora-postgres-cluster-existing-vpc
 terraform init
 ```
 
 ### Step 4: Run Terraform PLAN
-Verify the resources created by this execution
+Verify the resources created by this execution using `terraform plan`
 
 ```shell script
 terraform plan -var-file terraform.tfvars
 ```
 
 ### Step 5: Terraform APPLY
-To create resources
+To create resources by running `terraform apply` commands
 
 ```shell script
 terraform apply -var-file terraform.tfvars
 ```
 
-### Cleanup
+### Cleanup: Terraform DESTROY
 
 To clean up your environment, destroy the AWS resources created 
 
@@ -99,9 +146,17 @@ To clean up your environment, destroy the AWS resources created
 terraform destroy -var-file terraform.tfvars
 ```
 
+## Cost Associated
+
+DAT is an open-source solution and is completely free to use. However, you will be responsible for any AWS costs associated with running your Aurora clusters and other AWS services.
+
+## Support 
+
+DAT is supported by Solution Architects of AWS on best effort basis. However, users are encouraged to ask questions, open issues, contribute and provide feedback on DAT.
+
 ## Next Steps
 
-TBD
+Currently, DAT supports PostgreSQL only. MySQL database engine is on the short-term roadmap. 
 
 ## Security
 
