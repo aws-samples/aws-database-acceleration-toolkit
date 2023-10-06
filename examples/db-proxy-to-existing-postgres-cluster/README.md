@@ -28,7 +28,8 @@ Create a Terraform variable definition file called terraform.tfvars and update t
 # (mandatory) AWS Region where your resources will be located. Update for your specific usecase
 region = "Primary Region"
 
-# (mandatory) VPC Id. For example: "vpc-04d0cfc912221b272"
+# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# For example: "vpc-0759280XX50555743"
 vpc_id = "VPC ID"
 
 # (mandatory) Existing aurora clustername. For example : "aurora-pg-poc-cluster-dev-a805da4a"
