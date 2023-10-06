@@ -91,6 +91,7 @@ variable "username" {
 variable "password" {
   description = "Master DB password"
   type        = string
+  default     = ""
 }
 
 variable "backup_retention_period" {
@@ -150,7 +151,7 @@ variable "engine_version_mysql" {
 variable "setup_globaldb" {
   description = "Setup Aurora Global Database with 1 Primary and 1 X-region Secondary cluster"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "setup_as_secondary" {

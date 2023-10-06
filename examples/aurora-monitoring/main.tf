@@ -24,6 +24,7 @@ locals {
   environment    = var.environment
   groupname      = var.groupname
   project        = var.project
+  database_identifiers = var.database_identifiers
   tags        = {
                   Name = local.name
                   GroupName = local.groupname
@@ -33,19 +34,13 @@ locals {
 }
 
 # deploy aurora database cluster
-module "aurora_poc" {
-    source = "../../modules/tffiles-rds"
-    instance_class  = local.instance_class 
+module "aurora_monitoring" {
+    source = "../../modules/tffiles-cloudwatch"
     region	    = local.region
-    vpc_id      = local.vpc_id
-    subnets     = tolist(data.aws_subnets.primary.ids)
-    engine      = local.engine
-    engine_mode = local.engine_mode
-    instances   = local.instances
-    engine_version  = local.engine_version 
     name		    = local.name
     environment	= local.environment
     groupname	  = local.groupname
     project	    = local.project
-    tags        = local.tags
+    database_identifiers = local.database_identifiers
+    //tags        = local.tags
 }

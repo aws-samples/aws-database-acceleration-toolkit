@@ -1,5 +1,7 @@
 variable "region" {}
 
+variable "sec_region" {}
+
 variable "aws_access_key" {
   description = "AWS Access key for terraform user"
   default     = ""
@@ -12,6 +14,19 @@ variable "aws_secret_key" {
 
 variable "vpc_id" {
   description = "ID of the VPC where to create security group"
+  type        = string
+  default     = ""
+}
+
+
+variable "vpc_id_sec" {
+  description = "ID of the Secondary region VPC where to create security group"
+  type        = string
+  default     = ""
+}
+
+variable "private_subnet_ids_p" {
+  description = "Subnet ID to create Subnet ID Group"
   type        = string
   default     = ""
 }

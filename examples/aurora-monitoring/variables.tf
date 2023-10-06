@@ -49,6 +49,7 @@ variable "name" {}
 variable "environment" {}
 variable "groupname" {}
 variable "project" {}
+variable "database_identifiers"{}
 
 variable "tags" {
   description = "A map of tags to add to all resources"

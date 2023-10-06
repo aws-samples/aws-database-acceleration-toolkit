@@ -1,0 +1,61 @@
+pipeline {
+
+    agent any
+
+      parameters {
+        string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
+        string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
+        string(defaultValue: "", description: 'VPC ID', name: 'VPC')   
+    }
+
+    environment {
+        REGION="${params.REGION}"
+        ENVIRONMENT = "${params.ENVIRONMENT}"
+        VPC = "${params.VPC}"
+        AWS_ACCESS_KEY_ID     = credentials('aws_access_key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws_secret_key')
+    }
+    stages {
+
+       stage('checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+        stage('Terraform init') {
+            steps{
+                 sh '''
+                 
+                   cd examples/aurora-postgres-cluster-existing-vpc
+                   /usr/local/bin/terraform init 
+                '''
+            }
+        }
+        stage('Terraform plan') {
+
+            steps {
+                 sh '''
+                   cd examples/aurora-postgres-cluster-existing-vpc
+                   /usr/local/bin/terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                '''
+               
+            }
+
+        }
+
+         stage('Terraform apply') {
+
+            steps {
+                 sh '''
+                   cd examples/aurora-postgres-cluster-existing-vpc
+                   /usr/local/bin/terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                '''  
+            }
+
+        }
+
+    }
+
+}
+
