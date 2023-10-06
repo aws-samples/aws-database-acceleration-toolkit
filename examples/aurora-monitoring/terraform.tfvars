@@ -6,6 +6,9 @@ region = "us-east-2"
 # For example: "vpc-0759280XX50555743"
 vpc_id = "VPC ID"
 
+# ARN for Aurora Database
+database_identifiers =["ARN for Aurora Database"]
+
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
 instance_class ="db.r6g.large"
@@ -36,6 +39,3 @@ groupname = "dev"
 
 # (optional) Tagging : Project or Application Name
 project = "dev"
-
-# ARN for Aurora Database
-database_identifiers =["ARN for Aurora Database"]
