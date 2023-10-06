@@ -5,11 +5,11 @@ The **Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a
 
 It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
 
-## Architecture: 
+## Architecture
 
 To be done 
 
-## Architecture: 
+## Documentation
 
 To explore the complete project documentation, please visit our [documentation](https://aws-samples.github.io/aws-database-acceleration-toolkit/) site.
 
