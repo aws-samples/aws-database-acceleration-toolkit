@@ -2,8 +2,9 @@ site_name: DAT - Database Acceleration Toolkit
 docs_dir: "docs"
 copyright: "Copyright © Amazon 2023"
 site_author: "AWS"
-#site_url: "https://aws-samples.github.io/aws-database-acceleration-toolkit/"
-#repo_url: https://github.com/aws-samples/aws-database-acceleration-toolkit
+site_url: "https://aws-samples.github.io/aws-database-acceleration-toolkit/"
+repo_name: "aws-database-acceleration-toolkit"
+repo_url: "https://github.com/aws-samples/aws-database-acceleration-toolkit"
 theme:
   logo: images/aws-logo.png
   favicon: images/aws-favicon.png
