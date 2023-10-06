@@ -1,17 +1,17 @@
 
 #(mandatory) AWS Region where your resources will be located
-region = "us-east-2"
+region = "Primary Region"
 
 # (mandatory) AWS Secondary Region where your resources will be located
-sec_region = "us-west-2"
+sec_region = "Secondary Region"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-042229eafe1a7f93f"
+vpc_id = "Primary Region VPC ID"
 
 # (mandatory) VPC Id for secondary region where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
-vpc_id_sec = "vpc-08e82f62e6e1d76cd"
+vpc_id_sec = "Secondary Region VPC ID"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 

@@ -4,7 +4,7 @@ region = "us-east-2"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
-vpc_id = "***VPC ID***"
+vpc_id = "VPC ID"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
