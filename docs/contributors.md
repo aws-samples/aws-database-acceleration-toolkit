@@ -11,7 +11,7 @@ The core team include the following people, in alphabetical order:
 * KK (Krishna) Venkateswaran
 * Mitesh Purohit
 * Munish Dabra
-* Mythili Annamalai Seka
+* Mythili Annamalai Sekar
 * Piyush Mattoo
 * Prithvi Reddy
 
