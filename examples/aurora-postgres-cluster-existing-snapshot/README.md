@@ -1,4 +1,4 @@
-# Aurora PostgreSQL Database Cluster Provisioning in an existing VPC
+# Aurora PostgreSQL Database Cluster Provisioning using the latest snapshot
 
 This example deploys the Aurora PostgreSQL Database Cluster from the latest cluster snapshot
 
