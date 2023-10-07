@@ -37,5 +37,5 @@ groupname = "dev"
 # (optional) Tagging : Project or Application Name
 project = "dev"
 
-# instance identifier for DB
+# instance identifier for DB Cluster
 db_cluster_identifier = "aurora-pg-poc-cluster-dev-5c90fb53"

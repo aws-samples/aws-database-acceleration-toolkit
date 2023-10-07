@@ -1,8 +1,6 @@
 # Aurora PostgreSQL Database Cluster Provisioning in an existing VPC
 
-This example deploys the Aurora PosgreSQL Database Cluster in an existing VPC
-
-- Creates a new Aurora PostgreSQL cluster - One writer and one reader database instance
+This example deploys the Aurora PostgreSQL Database Cluster from the latest cluster snapshot
 
 ## How to Deploy
 
@@ -30,6 +28,9 @@ region = "Primary Region"
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
 vpc_id = "VPC ID"
+
+# instance identifier for DB Cluster
+db_cluster_identifier = "DB Cluster Instance Identifier"
 ```
 
 #### Step3: Run Terraform INIT
@@ -37,7 +38,7 @@ Initialize a working directory with configuration files
 
 
 ```shell script
-cd examples/aurora-postgres-cluster-existing-vpc
+cd examples/aurora-postgres-cluster-existing-snapshot
 terraform init
 ```
 
