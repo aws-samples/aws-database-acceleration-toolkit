@@ -1,5 +1,3 @@
-## Getting Started
-
 This section demonstrate how you can leverage DAT to provision new cluster.
 
 ## Prerequisites
