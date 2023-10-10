@@ -7,7 +7,7 @@ It's designed to minimize the heavy lifting required for AWS customers to migrat
 
 ## Architecture
 
-![image](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/docs/images/DAT-Architecture.png)
+![image](docs/images/DAT-Architecture.png)
 
 ## Documentation
 
