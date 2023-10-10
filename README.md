@@ -59,14 +59,14 @@ The following steps will walk you through the deployment of `aurora-postgres-clu
 ### Step 1: Clone the repo using the command below
 
 ```sh
-git clone https://github.com/awsdabra/aurora-accelerator-for-terraform
+git clone https://github.com/aws-samples/aws-database-acceleration-toolkit.git
 ```
 
 ### Step 2: Review and update the terraform.tfvars
-Navigate to `aurora-postgres-cluster-existing-vpc` under `examples` folder. 
+Navigate to `aurora-postgres-cluster-existing-vpc` under `cd aws-database-acceleration-toolkit/examples` folder. 
 
 ```shell script
-cd examples/aurora-postgres-cluster-existing-vpc
+cd aws-database-acceleration-toolkit/examples/aurora-postgres-cluster-existing-vpc
 ```
 Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
 
@@ -164,8 +164,8 @@ Currently, DAT supports PostgreSQL only. MySQL database engine is on the short-t
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
 ## License
 
-This library is licensed under the MIT-0 License. See the [LICENSE](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/LICENSE) file.
+This library is licensed under the MIT-0 License. See the [LICENSE](LICENSE) file.
