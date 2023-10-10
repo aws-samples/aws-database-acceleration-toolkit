@@ -23,7 +23,7 @@ git clone https://github.com/awsdabra/aurora-accelerator-for-terraform
 ### Step 2: Review and update the terraform.tfvars
 Navigate to `aurora-postgres-cluster-existing-vpc` under `examples` folder. 
 
-```shell script
+```sh
 cd examples/aurora-postgres-cluster-existing-vpc
 ```
 Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
@@ -75,28 +75,28 @@ project = "<PROJECT_NAME>"
 
 ```
 The example below illustrates how to use the 'region' variable to define the AWS region for your database-related resources.
-```shell script
+```sh
 region = "us-east-2"
 ```
 
 ### Step 3: Run Terraform INIT
 Initialize a working directory with configuration files by running `terraform init` 
 
-```shell script
+```sh
 terraform init
 ```
 
 ### Step 4: Run Terraform PLAN
 Verify the resources created by this execution using `terraform plan`
 
-```shell script
+```sh
 terraform plan -var-file terraform.tfvars
 ```
 
 ### Step 5: Terraform APPLY
 To create resources by running `terraform apply` commands
 
-```shell script
+```sh
 terraform apply -var-file terraform.tfvars
 ```
 
