@@ -20,6 +20,7 @@ Key features of DAT include automation of initial aurora setup and provisioning 
    5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
    6. Restore cluster from S3
 
-
+## Architecture 
+![image](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/docs/images/DAT-Architecture.png)
 
 
