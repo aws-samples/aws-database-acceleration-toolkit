@@ -41,7 +41,7 @@ nav:
   - Introduction: 'index.md'
   - Getting Started: 'getstarted.md'
   - Examples: 'examples.md'
-  - FAQ: 'faq.md'
+  - FAQs: 'faq.md'
   - Contributors: 'contributors.md'  
   - Get Involved: 'contributing.md'   
 markdown_extensions:
