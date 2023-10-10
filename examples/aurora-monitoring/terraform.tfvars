@@ -4,7 +4,10 @@ region = "us-east-2"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-04d0cfc912221b272"
+vpc_id = "VPC ID"
+
+# ARN for Aurora Database
+database_identifiers =["ARN for Aurora Database"]
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
@@ -36,6 +39,3 @@ groupname = "dev"
 
 # (optional) Tagging : Project or Application Name
 project = "dev"
-
-# ARN for Aurora Database
-database_identifiers =["arn:aws:rds:us-east-2:190864883972:cluster:aurora-us-east-2"]

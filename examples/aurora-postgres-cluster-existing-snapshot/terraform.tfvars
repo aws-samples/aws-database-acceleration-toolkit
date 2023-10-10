@@ -1,17 +1,10 @@
 
 #(mandatory) AWS Region where your resources will be located
-region = "Primary Region"
-
-# (mandatory) AWS Secondary Region where your resources will be located
-sec_region = "Secondary Region"
+region = "us-west-2"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
-vpc_id = "Primary Region VPC ID"
-
-# (mandatory) VPC Id for secondary region where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
-vpc_id_sec = "Secondary Region VPC ID"
+vpc_id = "vpc-066efdcc0ced84f0e"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
@@ -30,7 +23,7 @@ instances = {
 engine_mode = "provisioned"
 
 # (optional) The database engine version. Updating this argument results in an outage" 
-engine_version = "13.10.1"
+engine_version = "15.3"
 
 # (optional) Database cluster name
 name = "aurora-pg-poc"
@@ -43,3 +36,6 @@ groupname = "dev"
 
 # (optional) Tagging : Project or Application Name
 project = "dev"
+
+# instance identifier for DB Cluster
+db_cluster_identifier = "aurora-pg-poc-cluster-dev-5c90fb53"

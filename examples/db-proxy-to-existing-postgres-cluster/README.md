@@ -18,17 +18,22 @@ Ensure that you have installed the following tools in your Mac or Windows Laptop
 #### Step 1: Clone the repo using the command below
 
 ```sh
-git clone https://github.com/awsdabra/aurora-accelerator-for-terraform
+git clone https://github.com/aws-samples/aws-database-acceleration-toolkit
 ```
 
 #### Step2: Review and update the terraform.tfvars
 Create a Terraform variable definition file called terraform.tfvars and update the values for the variables. The following shows an example for the variable to specify AWS region for your database related resources and a few other mandatory resources.  
 
 ```shell script
-region = "us-east-2"
-name = "rds-proxy-ex-postgres"
-vpc_id = "vpc-04d0cfc912221b272""
-clusterName = "aurora-pg-poc-cluster-dev-a805da4a"
+# (mandatory) AWS Region where your resources will be located. Update for your specific usecase
+region = "Primary Region"
+
+# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# For example: "vpc-0759280XX50555743"
+vpc_id = "VPC ID"
+
+# (mandatory) Existing aurora clustername. For example : "aurora-pg-poc-cluster-dev-a805da4a"
+clusterName = "Existing Aurora ClusterName"
 
 ```
 
