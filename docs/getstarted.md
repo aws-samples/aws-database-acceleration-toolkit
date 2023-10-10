@@ -1,6 +1,6 @@
 This section demonstrate how you can leverage DAT to provision new cluster.
 
-### Prerequisites
+## Prerequisites
 
 First, ensure that you have installed the following tools locally.
 
@@ -8,7 +8,7 @@ First, ensure that you have installed the following tools locally.
 2. [kubectl](https://kubernetes.io/docs/tasks/tools/)
 3. [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
    
-### Deployment Steps
+## Deployment Steps
 
 The following steps will walk you through the deployment of `aurora-postgres-cluster-existing-vpc` example blueprint. This example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances:
 
