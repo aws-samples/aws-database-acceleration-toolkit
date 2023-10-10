@@ -1,13 +1,12 @@
-# FAQ
+
 This section lists the Frequently Asked Questions,
 
-- [FAQ](#faq)
-    - [Is DAT an open-source solution?](#is-dat-an-open-source-solution)
-    - [Who are the intended audiences for DAT?](#who-are-the-intended-audiences-for-dat)
-    - [Is there any cost associated with using DAT?](#is-there-any-cost-associated-with-using-dat)
-    - [What DB Engines are currently supported?](#what-db-engines-are-currently-supported)
-    - [How will customer deploy the solution?](#how-will-customer-deploy-the-solution)
-    - [Is there any community or support for DAT?](#is-there-any-community-or-support-for-dat)
+- [Is DAT an open-source solution?](#is-dat-an-open-source-solution)
+- [Who are the intended audiences for DAT?](#who-are-the-intended-audiences-for-dat)
+- [Is there any cost associated with using DAT?](#is-there-any-cost-associated-with-using-dat)
+- [What DB Engines are currently supported?](#what-db-engines-are-currently-supported)
+- [How will customer deploy the solution?](#how-will-customer-deploy-the-solution)
+- [Is there any community or support for DAT?](#is-there-any-community-or-support-for-dat)
 
 ### Is DAT an open-source solution?
  Yes, DAT is an open-source solution that customers can use and customize according to their needs.
