@@ -1,11 +1,10 @@
-# What is DAT?
+Welcome to Database Acceleration Toolkit(DAT) !
 
 The **Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based (Terraform) single click solution to simplify and automate initial setup, provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
 
 It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
 
-
-## Key Features
+**Key Features**
 
 Key features of DAT include automation of initial aurora setup and provisioning and on-going maintenance activities:
 
@@ -20,7 +19,7 @@ Key features of DAT include automation of initial aurora setup and provisioning 
    5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
    6. Restore cluster from S3
 
-## Architecture 
+**Architecture** 
 ![image](images/DAT-Architecture.png)
 
 
