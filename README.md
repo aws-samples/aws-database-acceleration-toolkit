@@ -63,7 +63,7 @@ git clone https://github.com/aws-samples/aws-database-acceleration-toolkit.git
 ```
 
 ### Step 2: Review and update the terraform.tfvars
-Navigate to `aurora-postgres-cluster-existing-vpc` under `cd aws-database-acceleration-toolkit/examples` folder. 
+Navigate to `aurora-postgres-cluster-existing-vpc` under `aws-database-acceleration-toolkit/examples` folder. 
 
 ```shell script
 cd aws-database-acceleration-toolkit/examples/aurora-postgres-cluster-existing-vpc
