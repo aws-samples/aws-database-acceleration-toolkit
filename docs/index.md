@@ -20,6 +20,7 @@ Key features of DAT include automation of initial aurora setup and provisioning 
    6. Restore cluster from S3
 
 **Architecture** 
+Below is the high level architectre of Database Acceleration Toolkit. 
 ![image](images/DAT-Architecture.png)
 
 
