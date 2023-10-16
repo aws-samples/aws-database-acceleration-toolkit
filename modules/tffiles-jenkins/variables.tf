@@ -1,4 +1,4 @@
-variable "myregion" {
+variable "region" {
   default =""
 }
 
