@@ -161,7 +161,7 @@ DAT is supported by Solution Architects of AWS on best effort basis. However, us
 
 Currently, DAT supports PostgreSQL only. MySQL database engine is on the short-term roadmap. 
 
-## Security
+## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
