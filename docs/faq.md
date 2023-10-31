@@ -1,10 +1,10 @@
-This section lists the Frequently Asked Questions,
+This section lists the Frequently Asked Questions
 
 **Q: Is DAT an open-source solution?**
  Yes, DAT is an open-source solution that customers can use and customize according to their needs.
 
 **Q: Who are the intended audiences for DAT?**
- The intended audiences for DAT are AWS customers who are migrating from commercial databases such as SQL Server to Amazon Aurora.
+ The intended audiences for DAT are AWS customers who are migrating from commercial databases such as SQL Server to Amazon Aurora PostgreSQL.
 
 **Q: Is there any cost associated with using DAT?**
  No, DAT is an open-source solution and is completely free to use. However, you will be responsible for any AWS costs associated with running your Aurora clusters and other AWS services.
