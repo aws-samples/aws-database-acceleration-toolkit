@@ -149,7 +149,7 @@ To clean up your environment, destroy the AWS resources created
 terraform destroy -var-file terraform.tfvars
 ```
 
-## Cost Associated
+## Associated Cost
 
 DAT is an open-source solution and is completely free to use. However, you will be responsible for any AWS costs associated with running your Aurora clusters and other AWS services.
 
