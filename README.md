@@ -19,15 +19,15 @@ The intended audiences for DAT are AWS customers who are migrating from commerci
 
 ## Key Features
 
-Key features of DAT include automation of initial aurora setup and provisioning and on-going maintenance activities:
+Key features of DAT include automation of initial aurora setup, provisioning and on-going maintenance activities,
 
    1. Provisioning of new Aurora cluster
    2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
    3. Monitoring Aurora database 
-   	a. [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
-   	b. [Amazon Managed Grafana](https://aws.amazon.com/grafana/)
-	c. Curated CloudWatch and Grafana Dashboards
-	d. Curated Performance Insights Dashboard for both Amazon CloudWatch and Amazon Managed Grafana
+   	* a. [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
+   	* b. [Amazon Managed Grafana](https://aws.amazon.com/grafana/)
+	* c. Curated CloudWatch and Grafana Dashboards
+	* d. Curated Performance Insights Dashboard for both Amazon CloudWatch and Amazon Managed Grafana
    4. Provisioning and Integration with [RDS Proxy](https://aws.amazon.com/rds/proxy/) to reuse database connections and improved reliability
    5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
    6. Restore cluster from S3
@@ -121,28 +121,28 @@ The example below illustrates how to use the 'region' variable to define the AWS
 region = "us-east-2"
 ```
 
-### Step 3: Run Terraform INIT
+### Step 3: Run Terraform Init
 Initialize a working directory with configuration files by running `terraform init` 
 
 ```shell script
 terraform init
 ```
 
-### Step 4: Run Terraform PLAN
+### Step 4: Run Terraform Plan
 Verify the resources created by this execution using `terraform plan`
 
 ```shell script
 terraform plan -var-file terraform.tfvars
 ```
 
-### Step 5: Terraform APPLY
+### Step 5: Terraform Apply
 To create resources by running `terraform apply` commands
 
 ```shell script
 terraform apply -var-file terraform.tfvars
 ```
 
-### Cleanup: Terraform DESTROY
+### Cleanup: Terraform Destroy
 
 To clean up your environment, destroy the AWS resources created 
 
