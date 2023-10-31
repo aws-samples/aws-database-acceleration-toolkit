@@ -1,5 +1,5 @@
 The content on this site is maintained by the Solutions Architects and Technical Account Managers from the
-AWS observability team with support from the AWS service teams and other
+Database Acceleration Toolkit team with support from the AWS service teams and other
 volunteers from across the organization.
 
 Our goal is to make it easier to use AWS Native and Open Source Observability Services.
