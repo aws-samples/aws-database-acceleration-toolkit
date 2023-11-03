@@ -5,6 +5,7 @@ github_org      = "aws-samples"
 github_repo     = "aws-database-acceleration-toolkit"
 credentials_id  = "8678d978-323c-4bf8-bf0a-5b6979538c6b"
 
+
 // Function(s)
 // ----------------------
 def handleCheckout = {
@@ -55,9 +56,7 @@ pipeline {
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'VPC ID', name: 'VPC')   
     }
-    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'198e2989-345b-45de-afb5-716f69b3250b',
-  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']
-    ])
+   
     environment {
         REGION="${params.REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}"
@@ -85,7 +84,9 @@ stage('checkout') {
             }
         }
         stage('Terraform plan') {
-
+ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'198e2989-345b-45de-afb5-716f69b3250b',
+  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']
+    ])
             steps {
                  sh '''
                    cd ./examples/aurora-monitoring
