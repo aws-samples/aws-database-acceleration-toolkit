@@ -85,7 +85,7 @@ stage('checkout') {
         stage('Terraform plan') {
 
             steps {
-withAWS(profile:'deault')
+withAWS(profile:'default')
 {
                  sh '''
                    cd ./examples/aurora-postgres-cluster-existing-vpc
