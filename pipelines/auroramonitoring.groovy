@@ -3,7 +3,11 @@
 github_source   = "main"
 github_org      = "aws-samples"
 github_repo     = "aws-database-acceleration-toolkit"
+<<<<<<< HEAD:pipelines/aurora-monitoring
 credentials_id  = "8678d978-323c-4bf8-bf0a-5b6979538c6b"
+=======
+credentials_id  = ""
+>>>>>>> 4ee5bfb0d0feed07480918317c9e21c8098d3d9b:pipelines/auroramonitoring.groovy
 
 // Function(s)
 // ----------------------
@@ -77,7 +81,7 @@ stage('checkout') {
             steps{
                  sh '''
                  pwd
-                   cd ./examples/db-proxy-to-existing-postgres-cluster
+                   cd ./examples/aurora-monitoring
                    terraform init 
                 '''
             }
@@ -86,7 +90,7 @@ stage('checkout') {
 
             steps {
                  sh '''
-                   cd ./examples/db-proxy-to-existing-postgres-cluster
+                   cd ./examples/aurora-monitoring
                    terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
                 '''
                
@@ -98,7 +102,7 @@ stage('checkout') {
 
             steps {
                  sh '''
-                   cd examples/db-proxy-to-existing-postgres-cluster
+                   cd examples/aurora-monitoring
                    terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
                 '''  
             }

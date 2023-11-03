@@ -17,17 +17,8 @@ module "jenkins" {
   subnet_ids         = tolist(data.aws_subnets.primary.ids)[0]
   }
 
-  output "db_password" {
-  value     = data.aws_subnets.primary
+output "Jenkins_IP" {
+  value     = module.jenkins.ec2instance
 
 }
 
-output "ami1" {
-  value     = module.jenkins.ami
-
-}
-
-output "key" {
-  value     = module.jenkins.key
-
-}
