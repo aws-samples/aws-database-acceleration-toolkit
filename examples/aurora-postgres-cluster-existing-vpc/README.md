@@ -12,6 +12,7 @@ Ensure that you have installed the following tools in your Mac or Windows Laptop
 
 1. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 2. [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+3. VPC (Refer [this](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.html) documentation for VPC guidelines for Aurora DB cluster
 
 ### Deployment Steps
 
