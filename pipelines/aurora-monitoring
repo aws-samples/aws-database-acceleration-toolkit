@@ -84,13 +84,11 @@ stage('checkout') {
         stage('Terraform plan') {
 
             steps {
- withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'198e2989-345b-45de-afb5-716f69b3250b',
-  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
-    ]) 
+withAWS(profile:'default') 
 {
                  sh '''
                    cd ./examples/aurora-monitoring
-                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}""
                 '''
 }
                
