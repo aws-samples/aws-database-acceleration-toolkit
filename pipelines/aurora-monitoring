@@ -88,7 +88,7 @@ withAWS(profile:'default')
 {
                  sh '''
                    cd ./examples/aurora-monitoring
-                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}""
+                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}"
                 '''
 }
                
