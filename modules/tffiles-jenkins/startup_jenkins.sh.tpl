@@ -34,7 +34,7 @@ sudo cat <<EOF >seedJob.xml
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/devops-arch-cloud/test-devops1.git</url>
+        <url>https://github.com/aws-samples/aws-database-acceleration-toolkit.git</url>
        
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
@@ -58,7 +58,7 @@ sudo cat <<EOF >seedJob.xml
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
-      <targets>seed_jobdsl.groovy</targets>
+      <targets>pipelines/seed_jobdsl.groovy</targets>
       <usingScriptText>false</usingScriptText>
       <sandbox>false</sandbox>
       <ignoreExisting>false</ignoreExisting>
