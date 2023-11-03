@@ -5,9 +5,13 @@ The **Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a
 
 It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
 
-## Architecture: 
+## Architecture
 
-To be done 
+![image](docs/images/DAT-Architecture.png)
+
+## Documentation
+
+To explore the complete project documentation, please visit our [documentation](https://aws-samples.github.io/aws-database-acceleration-toolkit/) site.
 
 ## Intended audience
 
@@ -15,26 +19,26 @@ The intended audiences for DAT are AWS customers who are migrating from commerci
 
 ## Key Features
 
-Key features of DAT include automation of initial aurora setup and provisioning and on-going maintenance activities:
-
-   1. Provisioning of new Aurora cluster
-   2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
-   3. Monitoring Aurora database 
-   	a. [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
-   	b. [Amazon Managed Grafana](https://aws.amazon.com/grafana/)
-	c. Curated CloudWatch and Grafana Dashboards
-	d. Curated Performance Insights Dashboard for both Amazon CloudWatch and Amazon Managed Grafana
-   4. Provisioning and Integration with [RDS Proxy](https://aws.amazon.com/rds/proxy/) to reuse database connections and improved reliability
-   5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
-   6. Restore cluster from S3
+Key features of DAT include automation of initial aurora setup, provisioning and on-going maintenance activities,
+1. Provisioning of new Aurora cluster
+2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
+3. Monitoring Aurora database 
+	1. [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
+	2. [Amazon Managed Grafana](https://aws.amazon.com/grafana/)
+	3. Curated CloudWatch and Grafana Dashboards
+	4. Curated Performance Insights Dashboard for both Amazon CloudWatch and Amazon Managed Grafana
+4. Provisioning and Integration with [RDS Proxy](https://aws.amazon.com/rds/proxy/) to reuse database connections and improved reliability
+5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
+6. Restore cluster from S3
 
 ## Blueprint Examples
 
 DAT comprises of below examples. Click each link to get more details on running these examples.
-1. [aurora-postgres-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-existing-vpc) - Creates new Aurora Postgres Cluster. 
-2. [db-proxy-to-existing-postgres-cluster](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/db-proxy-to-existing-postgres-cluster) - Creates proxy to existing Aurora Postgres. 
-3. aurora-postgres-cluster-global-db - Creates new Aurora Postgres Clusters in Primary and Secondary region. (TODO: Add link)
-4. aurora-monitoring - Setup monitoring dashboard for aurora. (TODO: Add link)
+1. [aurora-postgres-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-existing-vpc) - Creates new Aurora Postgres Cluster.
+2. [db-proxy-to-existing-postgres-cluster](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/db-proxy-to-existing-postgres-cluster) - Creates proxy to existing Aurora Postgres.
+3. [aurora-postgres-cluster-global-db](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-global-db) - Creates new Aurora Postgres Clusters in Primary and Secondary region.
+4. [aurora-monitoring](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-monitoring) - Setup monitoring dashboard for aurora.
+5. [aurora-postgres-cluster-latest-snapshot](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-latest-snapshot) - Deploys the Aurora PostgreSQL Database Cluster from the latest cluster snapshot
 
 ## Getting Started
 
@@ -55,14 +59,14 @@ The following steps will walk you through the deployment of `aurora-postgres-clu
 ### Step 1: Clone the repo using the command below
 
 ```sh
-git clone https://github.com/awsdabra/aurora-accelerator-for-terraform
+git clone https://github.com/aws-samples/aws-database-acceleration-toolkit.git
 ```
 
 ### Step 2: Review and update the terraform.tfvars
-Navigate to `aurora-postgres-cluster-existing-vpc` under `examples` folder. 
+Navigate to `aurora-postgres-cluster-existing-vpc` under `aws-database-acceleration-toolkit/examples` folder. 
 
 ```shell script
-cd examples/aurora-postgres-cluster-existing-vpc
+cd aws-database-acceleration-toolkit/examples/aurora-postgres-cluster-existing-vpc
 ```
 Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
 
@@ -117,28 +121,28 @@ The example below illustrates how to use the 'region' variable to define the AWS
 region = "us-east-2"
 ```
 
-### Step 3: Run Terraform INIT
+### Step 3: Run Terraform Init
 Initialize a working directory with configuration files by running `terraform init` 
 
 ```shell script
 terraform init
 ```
 
-### Step 4: Run Terraform PLAN
+### Step 4: Run Terraform Plan
 Verify the resources created by this execution using `terraform plan`
 
 ```shell script
 terraform plan -var-file terraform.tfvars
 ```
 
-### Step 5: Terraform APPLY
+### Step 5: Terraform Apply
 To create resources by running `terraform apply` commands
 
 ```shell script
 terraform apply -var-file terraform.tfvars
 ```
 
-### Cleanup: Terraform DESTROY
+### Cleanup: Terraform Destroy
 
 To clean up your environment, destroy the AWS resources created 
 
@@ -146,7 +150,7 @@ To clean up your environment, destroy the AWS resources created
 terraform destroy -var-file terraform.tfvars
 ```
 
-## Cost Associated
+## Associated Cost
 
 DAT is an open-source solution and is completely free to use. However, you will be responsible for any AWS costs associated with running your Aurora clusters and other AWS services.
 
@@ -158,10 +162,10 @@ DAT is supported by Solution Architects of AWS on best effort basis. However, us
 
 Currently, DAT supports PostgreSQL only. MySQL database engine is on the short-term roadmap. 
 
-## Security
+## Contributing
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
 ## License
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
+This library is licensed under the MIT-0 License. See the [LICENSE](LICENSE) file.
