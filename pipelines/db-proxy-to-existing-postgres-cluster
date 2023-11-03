@@ -1,9 +1,9 @@
 // Variables
 // ----------------------
 github_source   = "main"
-github_org      = "devops-arch-cloud"
-github_repo     = "test-devops1"
-credentials_id  = ""
+github_org      = "aws-samples"
+github_repo     = "aws-database-acceleration-toolkit"
+credentials_id  = "8678d978-323c-4bf8-bf0a-5b6979538c6b"
 
 // Function(s)
 // ----------------------
