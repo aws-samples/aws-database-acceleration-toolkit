@@ -55,13 +55,15 @@ pipeline {
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'VPC ID', name: 'VPC')   
     }
-
+    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'198e2989-345b-45de-afb5-716f69b3250b',
+  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']
+    ])
     environment {
         REGION="${params.REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}"
         VPC = "${params.VPC}"
-        AWS_ACCESS_KEY_ID     = "abc"
-        AWS_SECRET_ACCESS_KEY = "bcd"
+        AWS_ACCESS_KEY_ID     = "${USERNAME}"
+        AWS_SECRET_ACCESS_KEY = "${PASSWORD}"
     }
     stages {
 stage('checkout') {
