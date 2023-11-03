@@ -3,7 +3,7 @@
 github_source   = "main"
 github_org      = "aws-samples"
 github_repo     = "aws-database-acceleration-toolkit"
-credentials_id  = "8678d978-323c-4bf8-bf0a-5b6979538c6b"
+credentials_id  = "de327535-cbf0-4460-af60-ee15330bacf7"
 
 
 // Function(s)
