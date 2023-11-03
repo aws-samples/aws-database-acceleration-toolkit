@@ -61,8 +61,6 @@ pipeline {
         REGION="${params.REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}"
         VPC = "${params.VPC}"
-        AWS_ACCESS_KEY_ID     = "${USERNAME}"
-        AWS_SECRET_ACCESS_KEY = "${PASSWORD}"
     }
     stages {
 stage('checkout') {
@@ -85,7 +83,7 @@ stage('checkout') {
         }
         stage('Terraform plan') {
  withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'198e2989-345b-45de-afb5-716f69b3250b',
-  usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
     ])
             steps {
                  sh '''
