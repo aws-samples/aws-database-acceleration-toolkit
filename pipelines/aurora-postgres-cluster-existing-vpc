@@ -64,6 +64,16 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = "bcd"
     }
     stages {
+ stage("parameterizing") {
+            steps {
+                script {
+                    if ("${params.Invoke_Parameters}" == "Yes") {
+                        currentBuild.result = 'ABORTED'
+                        error('DRY RUN COMPLETED. JOB PARAMETERIZED.')
+                    }
+                }
+            }
+        }
 stage('checkout') {
   
       steps {
