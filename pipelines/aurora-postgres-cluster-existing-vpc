@@ -90,7 +90,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'198e298
     ]) 
 {
                  sh '''
-                   cd ./examples/aurora-monitoring
+                   cd ./examples/aurora-postgres-cluster-existing-vpc
                    terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
                   
                 '''
