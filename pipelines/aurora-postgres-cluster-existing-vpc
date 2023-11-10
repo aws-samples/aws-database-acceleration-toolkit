@@ -54,8 +54,7 @@ pipeline {
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'VPC ID', name: 'VPC')
-        checkboxParameter(name: 'Platforms1', format: 'JSON',
-                pipelineSubmitContent: '{"CheckboxParameter": [{"key": "Destroy","value": "Yes"}]}', description: '')
+        
     }
 
     environment {
