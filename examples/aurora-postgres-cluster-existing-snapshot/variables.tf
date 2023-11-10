@@ -1,5 +1,6 @@
 variable "region" {}
 
+variable "statefile" {}
 variable "aws_access_key" {
   description = "AWS Access key for terraform user"
   default     = ""
