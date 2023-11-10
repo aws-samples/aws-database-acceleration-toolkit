@@ -102,7 +102,7 @@ WORKDIR /home/root
 RUN apt-get update
 
 RUN apt-get install -y build-essential libssl-dev apt-utils
-ENV JAVA_ARGS -Djenkins.install.runSetupWizard=false
+ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 
 # Install Terraform
 RUN mkdir bin \
