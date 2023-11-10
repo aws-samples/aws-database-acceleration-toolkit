@@ -100,7 +100,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
 {
                  sh '''
                    cd ./examples/aurora-postgres-cluster-existing-vpc
-                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -state="{$JOB_NAME}_{$BUILD_NUMBER}.tfstate" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -state="env.JOB_BASE_NAME_env.$BUILD_NUMBER.tfstate" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
                   
                 '''
 }
@@ -118,7 +118,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
 {
                  sh '''
                    cd ./examples/aurora-postgres-cluster-existing-vpc
-                   terraform apply -auto-approve -var-file=terraform.tfvars -state="{env.JOB_BASE_NAME}_{env.$BUILD_NUMBER}.tfstate" -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform apply -auto-approve -var-file=terraform.tfvars -state="env.JOB_BASE_NAME_env.$BUILD_NUMBER.tfstate" -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
                   
                 '''
 }
