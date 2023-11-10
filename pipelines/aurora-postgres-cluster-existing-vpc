@@ -95,7 +95,7 @@ stage('checkout') {
         stage('Terraform plan') {
 
             steps {
-withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'198e2989-345b-45de-afb5-716f69b3250b',
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
   usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
     ]) 
 {
