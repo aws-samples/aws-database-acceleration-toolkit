@@ -7,7 +7,7 @@ region = "us-east-2"
 vpc_id = "VPC ID"
 
 # ARN for Aurora Database
-database_identifiers =["ARN for Aurora Database"]
+database_identifiers ="ARN for Aurora Database"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 

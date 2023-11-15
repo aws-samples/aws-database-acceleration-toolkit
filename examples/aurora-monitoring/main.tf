@@ -24,7 +24,7 @@ locals {
   environment    = var.environment
   groupname      = var.groupname
   project        = var.project
-  database_identifiers = var.database_identifiers
+  database_identifiers = [var.database_identifiers]
   tags        = {
                   Name = local.name
                   GroupName = local.groupname
