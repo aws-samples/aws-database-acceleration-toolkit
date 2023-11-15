@@ -5,7 +5,6 @@ github_org      = "aws-samples"
 github_repo     = "aws-database-acceleration-toolkit"
 credentials_id  = "githubcred"
 
-
 // Function(s)
 // ----------------------
 def handleCheckout = {
@@ -47,6 +46,7 @@ def handleCheckout = {
   ]);
 }
 
+
 pipeline {
 
     agent any
@@ -56,10 +56,10 @@ pipeline {
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'VPC ID', name: 'VPC')   
     }
-   
+
     environment {
         REGION="${params.REGION}"
-        ENVIRONMENT = "${params.ENVIRONMENT}"
+        ENVIRONMENT = "${params.ENVIRONMENT}".trim()
         VPC = "${params.VPC}"
     }
     stages {
@@ -67,46 +67,50 @@ stage('checkout') {
   
       steps {
         script {
-          cleanWs()
+         
           handleCheckout()
         }
       }
 }
-        stage('Terraform init') {
-            steps{
-                 sh '''
-                 pwd
-                   cd ./examples/aurora-monitoring
-                   terraform init 
-                '''
-            }
-        }
+
         stage('Terraform plan') {
 
             steps {
-withAWS(profile:'default') 
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
+    ]) 
 {
                  sh '''
                    cd ./examples/aurora-monitoring
-                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}"
-                '''
-}
-               
+                    
+                   terraform init
+	               terraform workspace select dev || terraform workspace new dev
+                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+        
+                '''       
             }
-
+        }
         }
 
          stage('Terraform apply') {
 
             steps {
-withAWS(profile:'default')
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
+    ]) 
 {
-                 sh '''
-                   cd examples/aurora-monitoring
-                   terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
-                '''  
+     sh '''
+                   cd ./examples/aurora-monitoring
+                    
+                   terraform init
+	                 terraform workspace select dev || terraform workspace new dev
+                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+        
+                '''   
             }
+
 }
+
         }
 
     }

@@ -46,6 +46,7 @@ def handleCheckout = {
   ]);
 }
 
+
 pipeline {
 
     agent any
@@ -58,48 +59,58 @@ pipeline {
 
     environment {
         REGION="${params.REGION}"
-        ENVIRONMENT = "${params.ENVIRONMENT}"
+        ENVIRONMENT = "${params.ENVIRONMENT}".trim()
         VPC = "${params.VPC}"
+    
     }
     stages {
 stage('checkout') {
   
       steps {
         script {
-          cleanWs()
+         
           handleCheckout()
         }
       }
 }
-        stage('Terraform init') {
-            steps{
-                 sh '''
-                 pwd
-                   cd ./examples/db-proxy-to-existing-postgres-cluster
-                   terraform init 
-                '''
-            }
-        }
+
         stage('Terraform plan') {
 
             steps {
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
+    ]) 
+{
                  sh '''
                    cd ./examples/db-proxy-to-existing-postgres-cluster
-                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
-                '''
-               
+                    
+                   terraform init
+	               terraform workspace select dev || terraform workspace new dev
+                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+        
+                '''       
             }
-
+        }
         }
 
          stage('Terraform apply') {
 
             steps {
-                 sh '''
-                   cd examples/db-proxy-to-existing-postgres-cluster
-                   terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
-                '''  
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
+    ]) 
+{
+     sh '''
+                   cd ./examples/db-proxy-to-existing-postgres-cluster
+                    
+                   terraform init
+	                 terraform workspace select dev || terraform workspace new dev
+                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+        
+                '''   
             }
+
+}
 
         }
 

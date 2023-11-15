@@ -61,8 +61,7 @@ pipeline {
         REGION="${params.REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}".trim()
         VPC = "${params.VPC}"
-        AWS_ACCESS_KEY_ID     = "abc"
-        AWS_SECRET_ACCESS_KEY = "bcd"
+  
     }
     stages {
 stage('checkout') {
