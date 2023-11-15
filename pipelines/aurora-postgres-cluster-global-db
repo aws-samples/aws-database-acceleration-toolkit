@@ -87,7 +87,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
                  sh '''
-                   cd ./examples/aurora-postgres-cluster-global-vpc
+                   cd ./examples/aurora-postgres-cluster-global-db
                     
                    terraform init
 	               terraform workspace select ${TF_WORKSPACE_Jenkins} || terraform workspace new ${TF_WORKSPACE_Jenkins} 
@@ -108,7 +108,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
      sh '''
-                   cd ./examples/aurora-postgres-cluster-global-vpc
+                   cd ./examples/aurora-postgres-cluster-global-db
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
@@ -130,7 +130,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
      sh '''
-                   cd ./examples/aurora-postgres-cluster-global-vpc
+                   cd ./examples/aurora-postgres-cluster-global-db
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
