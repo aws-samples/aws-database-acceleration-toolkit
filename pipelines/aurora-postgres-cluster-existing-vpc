@@ -81,15 +81,7 @@ stage('checkout') {
         }
       }
 }
-        stage('Terraform init') {
-            steps{
-                 sh '''
-                 pwd
-                   cd ./examples/aurora-postgres-cluster-existing-vpc
-                   terraform init 
-                '''
-            }
-        }
+
         stage('Terraform plan') {
 
             steps {
