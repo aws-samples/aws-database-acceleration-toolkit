@@ -55,20 +55,16 @@ pipeline {
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'VPC ID', name: 'VPC')  
-       
-    booleanParam(
-        name: 'Delete the stack?',
-        defaultValue: false,
-        description: 'Destroy'
-    )
-} 
+        booleanParam(defaultValue: false, description: 'Delete the stack?', name: 'Deletethestack')   
     }
+
 
     environment {
         REGION="${params.REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}".trim()
         VPC = "${params.VPC}"
-  
+        AWS_ACCESS_KEY_ID     = "abc"
+        AWS_SECRET_ACCESS_KEY = "bcd"
     }
     stages {
 stage('checkout') {
