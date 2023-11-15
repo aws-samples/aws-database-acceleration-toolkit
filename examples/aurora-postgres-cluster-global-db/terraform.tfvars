@@ -30,7 +30,7 @@ instances = {
 engine_mode = "provisioned"
 
 # (optional) The database engine version. Updating this argument results in an outage" 
-engine_version = "13.10.1"
+engine_version = "15.3"
 
 # (optional) Database cluster name
 name = "aurora-pg-poc"
