@@ -55,7 +55,7 @@ pipeline {
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'VPC ID', name: 'VPC')  
-        booleanParam(defaultValue: false, description: 'Delete the stack?', name: 'Deletethestack')   
+        booleanParam(defaultValue: false, description: 'Delete the stack?', name: 'Destroy')   
     }
 
 
@@ -63,8 +63,6 @@ pipeline {
         REGION="${params.REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}".trim()
         VPC = "${params.VPC}"
-        AWS_ACCESS_KEY_ID     = "abc"
-        AWS_SECRET_ACCESS_KEY = "bcd"
     }
     stages {
 stage('checkout') {
@@ -97,7 +95,9 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
         }
 
          stage('Terraform apply') {
-
+when {
+         expression { params.Destroy != true }
+     }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
   usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
@@ -109,6 +109,28 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                    terraform init
 	                 terraform workspace select dev || terraform workspace new dev
                    terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+        
+                '''   
+            }
+
+}
+
+        }
+             stage('Terraform apply') {
+when {
+         expression { params.Destroy != false }
+     }
+            steps {
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
+    ]) 
+{
+     sh '''
+                   cd ./examples/aurora-postgres-cluster-existing-vpc
+                    
+                   terraform init
+	                 terraform workspace select dev || terraform workspace new dev
+                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }
