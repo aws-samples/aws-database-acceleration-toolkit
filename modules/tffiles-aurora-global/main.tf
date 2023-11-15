@@ -1,4 +1,16 @@
+###########
+# Defaults
+###########
 
+provider "aws" {
+  alias  = "primary"
+  
+}
+
+provider "aws" {
+  alias  = "secondary"
+  
+}
 
 #########################
 # Collect data
