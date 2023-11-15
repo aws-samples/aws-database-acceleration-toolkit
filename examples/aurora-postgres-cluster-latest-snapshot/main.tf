@@ -18,7 +18,6 @@ locals {
   name           = var.name
   engine         = var.engine
   engine_version = var.engine_version
-  engine_version_pg = var.engine_version
   engine_mode    = var.engine_mode
   instances      = var.instances
   instance_class = var.instance_class

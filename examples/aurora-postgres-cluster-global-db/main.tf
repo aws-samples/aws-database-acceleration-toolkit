@@ -58,6 +58,7 @@ module "aurora_poc" {
     instance_class  = local.instance_class 
     region	    = local.region
     sec_region  = local.sec_region
+    engine_version_pg = var.engine_version
     //vpc_id      = local.vpc_id
     //vpc_id_sec     = local.vpc_id
     //private_subnet_ids_p = local.private_subnet_ids_p
