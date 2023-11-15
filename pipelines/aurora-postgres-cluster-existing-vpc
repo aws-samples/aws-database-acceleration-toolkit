@@ -46,6 +46,14 @@ def handleCheckout = {
   ]);
 }
 
+def tfCmd(String command,String env_name String options = '') {
+	ACCESS = "export AWS_PROFILE=${PROFILE} && export TF_ENV_profile=${PROFILE}"
+	sh ("terraform init") 
+	sh ("terraform workspace select ${ENVIRONMENT} || terraform workspace new ${ENVIRONMENT}")
+	sh ("echo ${command} ${options}") 
+  sh ("terraform init && terraform ${command} ${options} && terraform show -no-color > show-${ENVIRONMENT}.txt")
+}
+
 pipeline {
 
     agent any
@@ -53,31 +61,22 @@ pipeline {
       parameters {
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
-        string(defaultValue: "", description: 'VPC ID', name: 'VPC')
-        
+        string(defaultValue: "", description: 'VPC ID', name: 'VPC')   
     }
 
     environment {
         REGION="${params.REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}"
         VPC = "${params.VPC}"
+        AWS_ACCESS_KEY_ID     = "abc"
+        AWS_SECRET_ACCESS_KEY = "bcd"
     }
     stages {
- stage("parameterizing") {
-            steps {
-                script {
-                    if ("${params.Invoke_Parameters}" == "Yes") {
-                        currentBuild.result = 'ABORTED'
-                        error('DRY RUN COMPLETED. JOB PARAMETERIZED.')
-                    }
-                }
-            }
-        }
 stage('checkout') {
   
       steps {
         script {
-          cleanWs()
+         
           handleCheckout()
         }
       }
@@ -100,12 +99,11 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
 {
                  sh '''
                    cd ./examples/aurora-postgres-cluster-existing-vpc
-                   terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -state="$JOB_NAME_$BUILD_NUMBER.tfstate" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   tfCmd('plan', '-var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY} -detailed-exitcode -out=tfplan')
                   
                 '''
-}
-
-}
+               
+            }
 
         }
 
@@ -117,11 +115,10 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
                  sh '''
-                   cd ./examples/aurora-postgres-cluster-existing-vpc
-                   terraform apply -auto-approve -var-file=terraform.tfvars -state="$JOB_NAME_$BUILD_NUMBER.tfstate" -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
-                  
-                '''
-}
+                   cd ./sexamples/aurora-postgres-cluster-existing-vpc
+                   terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                '''  
+            }
 
 }
 
