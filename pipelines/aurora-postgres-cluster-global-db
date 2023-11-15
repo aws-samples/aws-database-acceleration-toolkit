@@ -53,6 +53,7 @@ pipeline {
 
       parameters {
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
+        string(defaultValue: "us-west-2", description: 'Region', name: 'REGION_Secondary') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'Primary VPC ID', name: 'VPC')  
         string(defaultValue: "", description: 'Secondary VPC ID', name: 'VPC_Secondary') 
@@ -91,7 +92,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	               terraform workspace select ${TF_WORKSPACE_Jenkins} || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''       
             }
@@ -112,7 +113,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }
@@ -134,7 +135,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }
