@@ -116,7 +116,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
 }
 
         }
-             stage('Terraform apply') {
+             stage('Terraform destroy') {
 when {
          expression { params.Destroy != false }
      }
