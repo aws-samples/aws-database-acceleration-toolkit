@@ -99,7 +99,6 @@ FROM jenkins/jenkins:lts
 USER root
 WORKDIR /home/root
 
-sudo apt install awscli
 RUN apt-get update
 
 RUN apt-get install -y build-essential libssl-dev apt-utils

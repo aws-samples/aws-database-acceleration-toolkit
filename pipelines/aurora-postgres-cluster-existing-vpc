@@ -46,7 +46,7 @@ def handleCheckout = {
   ]);
 }
 
-def tfCmd(String command,String env_name String options = '') {
+def tfCmd(String command, String options = '') {
 	ACCESS = "export AWS_PROFILE=${PROFILE} && export TF_ENV_profile=${PROFILE}"
 	sh ("terraform init") 
 	sh ("terraform workspace select ${ENVIRONMENT} || terraform workspace new ${ENVIRONMENT}")
