@@ -64,6 +64,11 @@ module "aurora_poc" {
     //private_subnet_ids_p = local.private_subnet_ids_p
     private_subnet_ids_p     = tolist(data.aws_subnets.primary.ids)
     private_subnet_ids_s   = tolist(data.aws_subnets.secondary.ids)
+    providers = {
+    aws.primary = aws.primary,
+    aws.secondary = aws.secondary,
+
+  }
     engine      = local.engine
     //engine_mode = local.engine_mode
     //instances   = local.instances
