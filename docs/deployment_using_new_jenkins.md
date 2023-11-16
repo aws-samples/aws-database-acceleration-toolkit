@@ -61,9 +61,9 @@ Go to "Global Credentials(unrestricted) under system and click add credentials. 
 
 Seed job is used to setup example pipelines. Go to Dashboard in Jenkins and schedule a build for Seed Job by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.  
 
-## Part 3 - Deploy DAT modules 
+### Part 3 - Run pipelines to deploy DAT modules 
 
-### Step 8: Run pipelines in Jenkins
+#### Step 8: Run pipelines in Jenkins
 
  The following step will walk you through the deployment of `aurora-postgres-cluster-existing-vpc` example using pipeline. This example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances:
 
