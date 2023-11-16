@@ -56,7 +56,7 @@ First, ensure that you have installed the following tools locally.
 ## DAT Deployment
 
 1. [Deployment Steps using new Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_jenkins.md)
-2. [Deployment Steps using existing Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_jenkins.md)
+2. Deployment Steps using existing Jenkins
 3. [Deployment Steps using CLI](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_cli.md)
 
 
