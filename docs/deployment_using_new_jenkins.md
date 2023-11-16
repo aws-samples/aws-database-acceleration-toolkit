@@ -1,4 +1,4 @@
-## Deployment Steps using Jenkins
+## Deployment Steps using New Jenkins Setup
 
 The following steps will walk you through the deployment of toolkit using Jenkins. This will configure new Jenkins on EC2 in your VPC.
 
