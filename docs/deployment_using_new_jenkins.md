@@ -61,7 +61,7 @@ Go to "Global Credentials(unrestricted) under system and click add credentials. 
 
 Seed job is used to setup example pipelines. Go to Dashboard in Jenkins and schedule a build for Seed Job by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.  
 
-## **Part 3 - Run pipelines to deploy DAT modules** 
+## Part 3 - Run pipelines to deploy DAT modules
 
 ### Step 8: Run pipelines in Jenkins
 
