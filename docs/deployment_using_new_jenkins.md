@@ -1,6 +1,9 @@
-## Deployment Steps using New Jenkins Setup
+# Deployment Steps using New Jenkins Setup
 
-The following steps will walk you through the deployment of toolkit using Jenkins. This will configure new Jenkins on EC2 in your VPC.
+The following steps will walk you through the deployment of toolkit using Jenkins. 
+
+## Part 1 - Setup new Jenkins
+This will create new EC2 instance in your VPC and install Jenkins on the docker in EC2.
 
 ### Step 1: Clone the repo using the command below
 ```sh
@@ -38,13 +41,15 @@ Verify the resources created by this execution using `terraform plan`
 terraform plan -var-file terraform.tfvars
 ```
 
-### Step 5: Terraform Apply
+### Step 5: Terraform Apply to create Ec2 instance and setup Jenkins
 To create resources by running `terraform apply` commands
 
 ```shell script
 terraform apply -var-file terraform.tfvars
 ```
 Once terraform apply is completed, console will show EC2 IP address as output. It takes 2-3 minutes for Jenkins to be configure after terraform apply is complete. Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output] with EC2 IP address shown in console.
+
+## Part 2 - Configure Jenkins
 
 ### Step 6: Setup AWS credentials in Jenkins
 
@@ -56,6 +61,8 @@ Go to "Global Credentials(unrestricted) under system and click add credentials. 
 
 Seed job is used to setup example pipelines. Go to Dashboard in Jenkins and schedule a build for Seed Job by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.  
 
+## Part 3 - Deploy DAT modules 
+
 ### Step 8: Run pipelines in Jenkins
 
  The following step will walk you through the deployment of `aurora-postgres-cluster-existing-vpc` example using pipeline. This example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances:
@@ -65,7 +72,7 @@ Seed job is used to setup example pipelines. Go to Dashboard in Jenkins and sche
  It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS. 
 
 
-### Cleanup: Terraform Destroy
+### Cleanup: Terraform Destroy - This will destroy Ec2 instance and Jenkins 
 
 To clean up your environment, destroy the AWS resources created 
 
