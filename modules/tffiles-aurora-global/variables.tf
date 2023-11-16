@@ -8,6 +8,15 @@ variable "sec_region" {
   description = "The name of the secondary AWS region you wish to deploy into"
 }
 
+variable "aws_access_key" {
+  description = "AWS Access key for terraform user"
+  default     = ""
+} 
+variable "aws_secret_key" {
+  description = "AWS Security key for terraform user"
+  default     = ""
+}
+
 variable "identifier" {
   description = "Cluster identifier"
   type        = string
@@ -20,22 +29,17 @@ variable "name" {
   default     = "aurora"
 }
 
-/*
+
 variable "vpc_id" {
   type        = string
   description = "VPC id"
 }
-*/
-
-variable "private_subnet_ids_p" {
-  type        = list(string)
-  description = "A list of private subnet IDs in your Primary AWS region VPC"
+variable "vpc_id_sec" {
+  type        = string
+  description = "Secondary VPC id"
 }
 
-variable "private_subnet_ids_s" {
-  type        = list(string)
-  description = "A list of private subnet IDs in your Secondary AWS region VPC"
-}
+
 
 /*
 variable "allowed_security_groups" {

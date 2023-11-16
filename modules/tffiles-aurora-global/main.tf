@@ -1,4 +1,17 @@
+provider "aws" { 
+  alias  = "primary"
+  region = var.region
+  access_key = var.aws_access_key 
+  secret_key = var.aws_secret_key 
+} 
 
+
+provider "aws" {
+  alias  = "secondary"
+  region = var.sec_region
+  access_key = var.aws_access_key 
+  secret_key = var.aws_secret_key 
+}
 
 #########################
 # Collect data
@@ -14,6 +27,24 @@ data "aws_availability_zones" "region_s" {
   provider = aws.secondary
 }
 
+data "aws_subnets" "primary" {
+  filter {
+    name   = "vpc-id"
+    values = [var.vpc_id]
+  }
+  provider = aws.primary
+}
+
+data "aws_subnets" "secondary" {
+  filter {
+    name   = "vpc-id"
+    values = [var.vpc_id_sec]
+  }
+  provider = aws.secondary
+}
+
+
+   
 /*
 data "aws_subnet_ids" "private" {
   vpc_id = var.vpc_id
@@ -68,7 +99,7 @@ resource "random_id" "snapshot_id" {
 resource "aws_db_subnet_group" "private_p" {
   provider   = aws.primary
   name       = "${var.name}-sg"
-  subnet_ids = var.private_subnet_ids_p
+  subnet_ids = tolist(data.aws_subnets.primary.ids)
   tags = {
     Name = "My DB subnet group"
   }
@@ -78,7 +109,7 @@ resource "aws_db_subnet_group" "private_s" {
   provider   = aws.secondary
   count      = var.setup_globaldb ? 1 : 0
   name       = "${var.name}-sg"
-  subnet_ids = var.private_subnet_ids_s
+  subnet_ids = tolist(data.aws_subnets.secondary.ids)
   tags = {
     Name = "My DB subnet group"
   }

@@ -1,34 +1,5 @@
-provider "aws" { 
-  alias  = "primary"
-  region = local.region
-  access_key = var.aws_access_key 
-  secret_key = var.aws_secret_key 
-} 
 
 
-provider "aws" {
-  alias  = "secondary"
-  region = local.sec_region
-  access_key = var.aws_access_key 
-  secret_key = var.aws_secret_key 
-}
-
-
-data "aws_subnets" "primary" {
-  filter {
-    name   = "vpc-id"
-    values = [var.vpc_id]
-  }
-  provider = aws.primary
-}
-
-data "aws_subnets" "secondary" {
-  filter {
-    name   = "vpc-id"
-    values = [var.vpc_id_sec]
-  }
-  provider = aws.secondary
-}
 
 locals {
   region         = var.region
@@ -58,24 +29,15 @@ module "aurora_poc" {
     instance_class  = local.instance_class 
     region	    = local.region
     sec_region  = local.sec_region
-    engine_version_pg = var.engine_version
-    //vpc_id      = local.vpc_id
-    //vpc_id_sec     = local.vpc_id
-    //private_subnet_ids_p = local.private_subnet_ids_p
-    private_subnet_ids_p     = tolist(data.aws_subnets.primary.ids)
-    private_subnet_ids_s   = tolist(data.aws_subnets.secondary.ids)
-    providers = {
-    aws.primary = aws.primary
-    aws.secondary = aws.secondary
+ 
 
-  }
+aws_access_key = var.aws_access_key
+aws_secret_key = var.aws_secret_key
+
+    engine_version_pg = var.engine_version
+    vpc_id      = local.vpc_id
+    vpc_id_sec     = local.vpc_id
     engine      = local.engine
-    //engine_mode = local.engine_mode
-    //instances   = local.instances
-    //engine_version  = local.engine_version 
     name		    = local.name
-    //environment	= local.environment
-    //groupname	  = local.groupname
-    //project	    = local.project
     tags        = local.tags
 }
