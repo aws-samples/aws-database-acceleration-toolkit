@@ -1,6 +1,6 @@
 provider "aws" { 
   alias  = "primary"
-  region = var.region
+
   access_key = var.aws_access_key 
   secret_key = var.aws_secret_key 
 } 
@@ -8,7 +8,7 @@ provider "aws" {
 
 provider "aws" {
   alias  = "secondary"
-  region = var.sec_region
+  
   access_key = var.aws_access_key 
   secret_key = var.aws_secret_key 
 }
