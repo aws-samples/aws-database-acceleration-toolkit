@@ -38,8 +38,7 @@ def handleCheckout = {
         reference: '', 
         shallow: true, 
         trackingSubmodules: false
-      ], 
-      [$class: 'GitLFSPull']
+      ]
     ], 
     submoduleCfg: [], 
     userRemoteConfigs: [[ credentialsId: credentials_id, url: 'https://github.com/' + github_org + '/' + github_repo + '.git']]
