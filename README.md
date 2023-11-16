@@ -48,9 +48,10 @@ This section demonstrate how you can leverage DAT to provision new cluster.
 
 First, ensure that you have installed the following tools locally.
 
-1. [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-2. [kubectl](https://kubernetes.io/docs/tasks/tools/)
-3. [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+1. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+2. [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
+3. [kubectl](https://kubernetes.io/docs/tasks/tools/)
+4. [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
 ## Deployment Steps using Jenkins
 
