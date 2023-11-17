@@ -161,7 +161,7 @@ resource "aws_iam_role" "rds_enhanced_monitoring" {
 resource "aws_rds_global_cluster" "globaldb" {
   count                     = var.setup_globaldb ? 1 : 0
   provider                  = aws.primary
-  global_cluster_identifier = "${var.identifier}-globaldb"
+  global_cluster_identifier = "${terraform.workspace}-globaldb"
   engine                    = var.engine
   engine_version            = var.engine == "aurora-postgresql" ? var.engine_version_pg : var.engine_version_mysql
   database_name             = (var.snapshot_identifier != "") ? null : var.database_name
