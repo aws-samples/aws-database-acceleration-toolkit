@@ -1,6 +1,10 @@
 # Deployment Steps using New Jenkins Setup
 
-The following steps will walk you through the deployment of toolkit using Jenkins. 
+The following steps will walk you through the deployment of toolkit using Jenkins and running pipelines DAT modules. 
+
+**1. Part 1 - Setup new Jenkins in Ec2**
+**2. Part 2 - Configure Jenkins**
+**3. Part 3 - Run Jenkins pipelines and deploy DAT modules**
 
 ## Part 1 - Setup new Jenkins
 This will create new EC2 instance in your VPC and install Jenkins on the docker in EC2.
@@ -47,13 +51,17 @@ To create resources by running `terraform apply` commands
 ```shell script
 terraform apply -var-file terraform.tfvars
 ```
-Once terraform apply is completed, console will show EC2 IP address as output. It takes 2-3 minutes for Jenkins to be configure after terraform apply is complete. Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output] with EC2 IP address shown in console.
+
+Once terraform apply is completed, console will show EC2 IP address as output. Save this IP address, we need to configure in next steps. 
+`Note : It takes 2-3 minutes for Jenkins to be configure after terraform apply is complete` . 
+
+Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output] with EC2 IP address shown in console.
 
 ## Part 2 - Configure Jenkins
 
 ### Step 6: Setup AWS credentials in Jenkins
 
-Browse Jenkins URL as mentioned in step 5, go to "Manage Jenkins" -> "credentials" -> "system"
+Browse Jenkins URL as mentioned in step 5, go to `Manage Jenkins` -> `credentials` -> `system`
 
 Go to "Global Credentials(unrestricted) under system and click add credentials. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in ID field.
 
