@@ -67,7 +67,7 @@ pipeline {
         REGION_Secondary="${params.REGION_Secondary}"
         ENVIRONMENT = "${params.ENVIRONMENT}".trim()
         VPC = "${params.VPC}"
-        TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}_${env.BUILD_NUMBER}"
+      TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}-${params.ENVIRONMENT}".trim()
       
     }
     stages {

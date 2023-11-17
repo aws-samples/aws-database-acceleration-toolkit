@@ -67,7 +67,7 @@ pipeline {
         VPC = "${params.VPC}"
         CLUSTERNAME = "${params.CLUSETERNAME}"
         
-        TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}_${env.BUILD_NUMBER}"
+      TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}-${params.ENVIRONMENT}".trim()
       
     }
     stages {
