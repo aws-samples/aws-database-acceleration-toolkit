@@ -64,6 +64,7 @@ pipeline {
 
     environment {
         REGION="${params.REGION}"
+        REGION_Secondary="${params.REGION_Secondary}"
         ENVIRONMENT = "${params.ENVIRONMENT}".trim()
         VPC = "${params.VPC}"
         TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}_${env.BUILD_NUMBER}"
