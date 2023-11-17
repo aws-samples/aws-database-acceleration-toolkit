@@ -3,8 +3,11 @@
 The following steps will walk you through the deployment of toolkit using Jenkins and running pipelines DAT modules. 
 
 **1. Part 1 - Setup new Jenkins in Ec2**
+
 **2. Part 2 - Configure Jenkins**
+
 **3. Part 3 - Run Jenkins pipelines and deploy DAT modules**
+
 
 ## Part 1 - Setup new Jenkins
 This will create new EC2 instance in your VPC and install Jenkins on the docker in EC2.
