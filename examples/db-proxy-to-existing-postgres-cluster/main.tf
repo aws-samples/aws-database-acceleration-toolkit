@@ -195,7 +195,7 @@ module "rds_proxy_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 4.0"
 
-  name        = "${local.name}"-sg
+  name        = "${local.name}-sg"
   description = "PostgreSQL RDS Proxy example security group"
   vpc_id      = data.aws_vpc.selected.id 
 
