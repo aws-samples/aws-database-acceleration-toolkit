@@ -8,4 +8,4 @@ vpc_id = "VPC ID"
 clusterName = "Existing Aurora ClusterName"
 
 # (mandatory) DB proxy name. Customize name as per your use specific usecase
-name = "rds-proxy-ex-postgres"
+name = "rds-proxy-postgres"
