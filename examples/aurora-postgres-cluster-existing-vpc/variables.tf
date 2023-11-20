@@ -34,6 +34,12 @@ variable "engine_version" {
   default     = ""
 }
 
+variable "skip_final_snapshot" {
+  description = "Determines whether a final snapshot is created before the cluster is deleted. If true is specified, no snapshot is created"
+  type        = bool
+  default     = true
+}
+
 variable "instance_class" {
   description = "Instance type to use at master instance. Note: if `autoscaling_enabled` is `true`, this will be the same instance class used on instances created by autoscaling"
   type        = string

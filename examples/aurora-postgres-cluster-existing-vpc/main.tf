@@ -46,6 +46,7 @@ module "aurora_poc" {
     name		    = local.name
     environment	= local.environment
     groupname	  = local.groupname
+    skip_final_snapshot = var.skip_final_snapshot
     project	    = local.project
     tags        = local.tags
 }

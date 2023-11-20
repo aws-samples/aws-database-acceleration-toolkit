@@ -36,3 +36,5 @@ groupname = "dev"
 
 # (optional) Tagging : Project or Application Name
 project = "dev"
+
+skip_final_snapshot= "true"
