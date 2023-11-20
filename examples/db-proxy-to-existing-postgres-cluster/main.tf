@@ -7,8 +7,8 @@ provider "aws" {
 
 locals {
   region = var.region  
-  name   = var.name 
 
+  name   = "${var.name}_${var.environment}"
   db_username = random_pet.users.id # using random here due to secrets taking at least 7 days before fully deleting from account
   db_password = random_password.password.result
 
