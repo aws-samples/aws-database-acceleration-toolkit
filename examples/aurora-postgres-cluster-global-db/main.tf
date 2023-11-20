@@ -36,7 +36,7 @@ aws_secret_key = var.aws_secret_key
 
     engine_version_pg = var.engine_version
     vpc_id      = local.vpc_id
-    vpc_id_sec     = local.vpc_id
+    vpc_id_sec     = local.vpc_id_sec
     engine      = local.engine
     name		    = local.name
     tags        = local.tags
