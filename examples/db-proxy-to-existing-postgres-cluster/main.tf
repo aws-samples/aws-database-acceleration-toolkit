@@ -9,6 +9,8 @@ locals {
   region = var.region  
 
   name   = "${var.name}-${var.environment}"
+  write_endpoint   = "read-write-endpoint-${var.environment}"
+  read_endpoint   = "read-only-endpoint-${var.environment}"
   db_username = random_pet.users.id # using random here due to secrets taking at least 7 days before fully deleting from account
   db_password = random_password.password.result
 
@@ -57,13 +59,13 @@ module "rds_proxy" {
 
   db_proxy_endpoints = {
     read_write = {
-      name                   = "read-write-endpoint"
+      name                   = local.write_endpoint
       vpc_subnet_ids         = data.aws_subnets.private.ids
       vpc_security_group_ids = [module.rds_proxy_sg.security_group_id]
       tags                   = local.tags
     },
     read_only = {
-      name                   = "read-only-endpoint"
+      name                   = local.read_endpoint
       vpc_subnet_ids         = data.aws_subnets.private.ids
       vpc_security_group_ids = [module.rds_proxy_sg.security_group_id]
       target_role            = "READ_ONLY"
@@ -193,7 +195,7 @@ module "rds_proxy_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 4.0"
 
-  name        = "rds_proxy"
+  name        = "${local.name}"-sg
   description = "PostgreSQL RDS Proxy example security group"
   vpc_id      = data.aws_vpc.selected.id 
 
