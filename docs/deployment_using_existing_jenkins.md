@@ -1,19 +1,23 @@
 # Deployment Steps using New Jenkins Setup
 
-The following steps will walk you through the deployment of toolkit using Jenkins and running pipelines DAT modules. 
+The following steps will walk you through the deployment of toolkit using your own Jenkins and running pipelines DAT modules. 
+
+1. Step 1 - Setup Job DSL Plugin in Jenkins
+2. Step 2 - Configure Seed Job
+3. Step 3 - Add AWS credentials in Jenkins
+4. Step 4 - Configure DAT pipelines for examples in Jenkins
+5. Step 5 - Run pipelines to deploy DAT modules
 
 
 ### Step 1: Setup Job DSL Plugin in Jenkins
 
-Login to existing Jenkins and validate if "Job DSL" plugin is installed
+Job DSL plugin is required to setup DAT pipelines. Validate if Jenkins already have it installed and enabled by going to Manage Jenkins -> Plugins -> Installed Plugins
 
-Go to Manage Jenkins -> Plugins -> Installed Plugins
-
-Search for "Job DSL". If the search shows plugin is installed and enabled, skip to Step 2
+![image](../docs/images/jenkins/job_dsl_available.png)
 
 To install DSL Plugin go to Manage Jenkins -> Plugins -> Available Plugins
 
-Check "Job DSL" and click install. Make sure plugin is enabled after installation
+Search for "Job DSL" and install. Make sure plugin is enabled after installation
 
 ### Step 2: Configure Seed Job
 
@@ -25,7 +29,9 @@ Enter an Item name as "Seed Job"
 
 Select "Freestyle Project" -> Click Ok
 
-In Configure page enter below values
+![image](../docs/images/jenkins/SeedJob.png)
+
+Once redirected to Configure page enter below values
 
 Source Code Management: select git and enter "https://github.com/aws-samples/aws-database-acceleration-toolkit" in Repository URL and branch name as "*/main"
 
