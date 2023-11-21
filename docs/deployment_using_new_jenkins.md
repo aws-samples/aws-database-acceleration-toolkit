@@ -118,12 +118,13 @@ The below section describes steps for running `aurora-postgres-cluster-existing-
 
 This **aurora-postgres-cluster-existing-vpc** example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances
 
-1. Navigate to `Dashboard` in Jenkins and select the `aurora-postgres-cluster-existing-vpc` module. Select `Buid with Parameters` option,
+1. Navigate to `Dashboard` in Jenkins and select the `aurora-postgres-cluster-existing-vpc` module. Select `Buid with Parameters` option.
+   
 ![image](../docs/images/jenkins/setup-jenkin12.png)
 
-2. Enter the input parameters and click `Build`
+3. Enter the input parameters and click `Build`
 
-![image](../docs/images/jenkins/setup-jenkin12.png)
+![image](../docs/images/jenkins/setup-jenkin13.png)
 
 `Note: It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS.` 
 
