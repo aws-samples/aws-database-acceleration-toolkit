@@ -66,7 +66,7 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 ## Step 2: Unlock Jenkins & Setup user
 1. Browse jenkin url **http://[jenkins_ip]:8080** by replacing **[jenkins_ip]** with EC2 IP address copied in step 1. You will get the below Jenkins console 
 
-   <img src="../docs/images/jenkins/setup-jenkin3.png" width="500" height="200" />
+   <img src="../docs/images/jenkins/setup-jenkin3.png" width="300" height="200" />
 
 3. To get the admin password, we need to login to Ec2 instance where Jenkin is deployed and run below commands
    ```shell script
@@ -131,14 +131,12 @@ This **aurora-postgres-cluster-existing-vpc** example expects you to leverage an
 ### 2. Destroy `aurora-postgres-cluster-existing-vpc` module
 1. Navigate to `Dashboard` in Jenkins and select the `aurora-postgres-cluster-existing-vpc` module. Select the Job that created the successful aurora cluster,
 2. Select `Rebuild` option and review the input parameters and make sure it reflects the aurora db cluster that you want destroy.
-   
-   ![image](../docs/images/jenkins/setup-jenkin14.png)
-   <img src="../docs/images/jenkins/setup-jenkin14.png" width="400" height="500" />
+
+   <img src="../docs/images/jenkins/setup-jenkin14.png" width="500" height="300" />
    
 4. Select `Destroy` checkbox and click `Rebuild`
-   
-   ![image](../docs/images/jenkins/setup-jenkin15.png)
-   <img src="../docs/images/jenkins/setup-jenkin15.png" width="400" height="500" />
+ 
+   <img src="../docs/images/jenkins/setup-jenkin15.png" width="500" height="300" />
 
 `Note: It takes 12-15 minutes to destroy RDS in your vpc. You can navigate to AWS console and verify` 
 
