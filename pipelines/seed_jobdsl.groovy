@@ -92,5 +92,5 @@ pipelineJob('db-proxy-to-existing-postgres-cluster') {
 
 
 
-queue('db-proxy-to-existing-postgres-cluster')
+queue('aurora-postgres-cluster-existing-vpc')
    
