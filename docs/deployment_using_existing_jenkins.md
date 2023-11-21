@@ -96,31 +96,55 @@ Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output
 
 ## Part 2 - Configure Jenkins
 
-### Step 6: Setup AWS credentials in Jenkins
+### 1. Add AWS credentials in Jenkins
 
-Browse Jenkins URL as mentioned in step 5, go to `Manage Jenkins` -> `credentials` -> `system`
+1. Login to (http://[jenkins_ip]:8080) using the admin user credentials 
+2. Navigate to `Dashboard` -> `Manage Jenkins` -> `Credentials` -> `System`
 
-Go to "Global Credentials(unrestricted) under system and click add credentials. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in ID field.
+   ![image](../docs/images/jenkins/setup-jenkin8.png)
 
-### Step 7: Configure pipelines in Jenkins
+4. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
+5. Enter AWS credentials of your environment, make sure you enter **jenkinsaws** in the ID field.
 
-Seed job is used to setup example pipelines. Go to Dashboard in Jenkins and schedule a build for Seed Job by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.  
+   <img src="../docs/images/jenkins/setup-jenkin9.png" width="400" height="500" />
 
-## Part 3 - Run pipelines to deploy DAT modules
+### 2. Configure DAT pipelines for examples in Jenkins
 
-### Step 8: Run pipelines in Jenkins
+1. Navigate to `Dashboard` in Jenkins. you will see `Seed job` pipeline created by default. It is used to setup `example` pipelines. 
+2. Schedule a build for `Seed Job` by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.
 
- The following step will walk you through the deployment of `aurora-postgres-cluster-existing-vpc` example using pipeline. This example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances:
+   ![image](../docs/images/jenkins/setup-jenkin10.png)
 
- Click on aurora-postgres-cluster-existing-vpc job on Jenkins console and click "Build with Parameters". Enter the values and click Build.
+3. you will see additional pipelines for **DAT examples** on the console
 
- It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS. 
+   ![image](../docs/images/jenkins/setup-jenkin11.png)
+   
+## Step 4: Run pipelines to deploy DAT modules
+The below section describes steps for deploying `aurora-postgres-cluster-existing-vpc` module using pipelines.  The same steps are applicable for other modules also. 
 
+### 1. Deploy `aurora-postgres-cluster-existing-vpc` module
 
-### Cleanup: Terraform Destroy - This will destroy Ec2 instance and Jenkins 
+This **aurora-postgres-cluster-existing-vpc** example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances
 
-To clean up your environment, destroy the AWS resources created 
+1. Navigate to `Dashboard` in Jenkins and select the `aurora-postgres-cluster-existing-vpc` module. Select `Buid with Parameters` option.
+   
+   <img src="../docs/images/jenkins/setup-jenkin12.png" width="300" height="300" />
 
-```sh
-terraform destroy -var-file terraform.tfvars
-```
+3. Enter the input parameters and click `Build`
+
+   <img src="../docs/images/jenkins/setup-jenkin13.png" width="400" height="400" />
+
+`Note: It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS.` 
+
+### 2. Destroy `aurora-postgres-cluster-existing-vpc` module
+1. Navigate to `Dashboard` in Jenkins and select the `aurora-postgres-cluster-existing-vpc` module. Select the Job that created the successful aurora cluster,
+2. Select `Rebuild` option and review the input parameters and make sure it reflects the aurora db cluster that you want destroy.
+
+   <img src="../docs/images/jenkins/setup-jenkin14.png" width="600" height="400" />
+   
+4. Select `Destroy` checkbox and click `Rebuild`
+ 
+   <img src="../docs/images/jenkins/setup-jenkin15.png" width="400" height="300" />
+
+`Note: It takes 12-15 minutes to destroy RDS in your vpc. You can navigate to AWS console and verify` 
+
