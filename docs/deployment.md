@@ -9,7 +9,7 @@ First, ensure that you have installed the following tools locally.
 3. [kubectl](https://kubernetes.io/docs/tasks/tools/)
 4. [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
    
-## DAT Deployment
+## Deployment Options
 DAT modules can be deployed using any one of the following options
 
 1. [Deployment Steps using new Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_new_jenkins.md)
