@@ -120,11 +120,11 @@ This **aurora-postgres-cluster-existing-vpc** example expects you to leverage an
 
 1. Navigate to `Dashboard` in Jenkins and select the `aurora-postgres-cluster-existing-vpc` module. Select `Buid with Parameters` option.
    
-   <img src="../docs/images/jenkins/setup-jenkin12.png" width="600" height="400" />
+   <img src="../docs/images/jenkins/setup-jenkin12.png" width="300" height="300" />
 
 3. Enter the input parameters and click `Build`
 
-   <img src="../docs/images/jenkins/setup-jenkin13.png" width="600" height="400" />
+   <img src="../docs/images/jenkins/setup-jenkin13.png" width="400" height="300" />
 
 `Note: It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS.` 
 
