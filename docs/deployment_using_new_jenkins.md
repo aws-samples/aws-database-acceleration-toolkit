@@ -69,10 +69,10 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
    <img src="../docs/images/jenkins/setup-jenkin3.png" width="500" height="200" />
 
 3. To get the admin password, we need to login to Ec2 instance where Jenkin is deployed and run below commands
-```shell script
-sudo docker exec -it jenkins-docker bash
-cat /var/jenkins_home/secrets/initialAdminPassword
-```
+   ```shell script
+   sudo docker exec -it jenkins-docker bash
+   cat /var/jenkins_home/secrets/initialAdminPassword
+   ```
 
    ![image](../docs/images/jenkins/setup-jenkin4.png)
 
@@ -93,23 +93,23 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 1. Login to (http://[jenkins_ip]:8080) using the admin user credentials 
 2. Navigate to `Dashboard` -> `Manage Jenkins` -> `Credentials` -> `System`
 
-![image](../docs/images/jenkins/setup-jenkin8.png)
+   ![image](../docs/images/jenkins/setup-jenkin8.png)
 
 4. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
 5. Enter AWS credentials of your environment, make sure you enter **jenkinsaws** in the ID field.
 
-![image](../docs/images/jenkins/setup-jenkin9.png)
+   ![image](../docs/images/jenkins/setup-jenkin9.png)
 
 ### 2. Configure DAT pipelines for examples in Jenkins
 
 1. Navigate to `Dashboard` in Jenkins. you will see `Seed job` pipeline created by default. It is used to setup `example` pipelines. 
 2. Schedule a build for `Seed Job` by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.
 
-![image](../docs/images/jenkins/setup-jenkin10.png)
+   ![image](../docs/images/jenkins/setup-jenkin10.png)
 
 3. you will see additional pipelines for **DAT examples** on the console
 
-![image](../docs/images/jenkins/setup-jenkin11.png)
+   ![image](../docs/images/jenkins/setup-jenkin11.png)
    
 ## Step 4: Run pipelines to deploy DAT modules
 The below section describes steps for deploying `aurora-postgres-cluster-existing-vpc` module using pipelines.  The same steps are applicable for other modules also. 
@@ -148,12 +148,12 @@ To clean up your environment, destroy the AWS resources created
 
 Goto `aws-database-acceleration-toolkit` -> `pipelines` -> `Jenkins`  folder. 
 
-```shell script
-cd aws-database-acceleration-toolkit/pipelines/Jenkins
-```
+   ```shell script
+   cd aws-database-acceleration-toolkit/pipelines/Jenkins
+   ```
 
 Run Terraform destroy 
 
-```sh
-terraform destroy -var-file terraform.tfvars
-```
+   ```sh
+   terraform destroy -var-file terraform.tfvars
+   ```
