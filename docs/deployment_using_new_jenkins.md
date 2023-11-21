@@ -80,7 +80,7 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 6. Select `Install suggested plugins` Option
 7. Complete First Admin User setup. 
 
-   <img src="../docs/images/jenkins/setup-jenkin6.png" width="400" height="500" />
+   <img src="../docs/images/jenkins/setup-jenkin6.png" width="300" height="400" />
 
 7. Jenkin Initial setup is done
 
@@ -124,7 +124,7 @@ This **aurora-postgres-cluster-existing-vpc** example expects you to leverage an
 
 3. Enter the input parameters and click `Build`
 
-   <img src="../docs/images/jenkins/setup-jenkin13.png" width="400" height="300" />
+   <img src="../docs/images/jenkins/setup-jenkin13.png" width="300" height="400" />
 
 `Note: It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS.` 
 
