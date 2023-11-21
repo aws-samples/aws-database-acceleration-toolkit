@@ -83,7 +83,7 @@ stage('checkout') {
 
         stage('Terraform plan') {
 when {
-         expression { params.Destroy != true }
+         expression { params.Destroy != true && params.VPC != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -104,7 +104,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
 
          stage('Terraform apply') {
 when {
-         expression { params.Destroy != true }
+         expression { params.Destroy != true && params.VPC != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -126,7 +126,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
         }
              stage('Terraform destroy') {
 when {
-         expression { params.Destroy != false }
+         expression { params.Destroy != false && params.VPC != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',

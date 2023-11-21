@@ -89,3 +89,10 @@ pipelineJob('db-proxy-to-existing-postgres-cluster') {
  
    }
 }
+
+
+queue('aurora-monitoring')
+queue('aurora-postgres-cluster-existing-vpc')
+queue('aurora-postgres-cluster-global-db')
+queue('db-proxy-to-existing-postgres-cluster')
+   
