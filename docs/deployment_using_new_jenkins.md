@@ -80,7 +80,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 6. Select `Install suggested plugins` Option
 7. Complete First Admin User setup. 
 
-<img src="../docs/images/jenkins/setup-jenkin6.png" width="200" height="400" />
+<img src="../docs/images/jenkins/setup-jenkin6.png" width="400" height="400" />
 
 7. Jenkin Initial setup is done
 
