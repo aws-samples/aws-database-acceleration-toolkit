@@ -84,7 +84,9 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 7. Jenkin Initial setup is done
    
-![image](../docs/images/jenkins/setup-jenkin7.png =100x20)
+![image](../docs/images/jenkins/setup-jenkin7.png)
+
+<img src="../docs/images/jenkins/setup-jenkin7.png" width="200" height="200" />
 
 ## Step 3 - Configure Jenkins
 
