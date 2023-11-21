@@ -1,4 +1,4 @@
-This section demonstrate how you can leverage DAT to provision new cluster.
+This section demonstrates how you can leverage DAT to provision new cluster.
 
 ## Prerequisites
 
