@@ -91,9 +91,12 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 ### 1. Setup AWS credentials in Jenkins
 
 1. Login to (http://[jenkins_ip]:8080) using the admin user credentials 
-2. Navigate to `Manage Jenkins` -> `credentials` -> `system`
-3. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
-4. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in the ID field.
+2. Navigate to `Dashboard-> Manage Jenkins` -> `Credentials` -> `System`
+
+![image](../docs/images/jenkins/setup-jenkin9.png)
+
+4. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
+5. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in the ID field.
 
 ### 2. Configure pipelines in Jenkins
 
