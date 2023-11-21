@@ -90,8 +90,6 @@ pipelineJob('db-proxy-to-existing-postgres-cluster') {
    }
 }
 
-def example1 = job('db-proxy-to-existing-postgres-cluster') {
-    displayName('first run')
+if (!jenkins.model.Jenkins.instance.getItemByFullName('db-proxy-to-existing-postgres-cluster')) {
+    queue('my-job')
 }
-
-queue(example1)
