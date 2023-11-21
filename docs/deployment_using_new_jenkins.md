@@ -121,11 +121,19 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
  It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS. 
 
-## Step 5: Destroy Jenkin
+## Step 5: Destroy Jenkins
 
 ### Cleanup: Terraform Destroy - This will destroy Ec2 instance and Jenkins 
 
 To clean up your environment, destroy the AWS resources created 
+
+Goto `aws-database-acceleration-toolkit` -> `pipelines` -> `Jenkins`  folder. 
+
+```shell script
+cd aws-database-acceleration-toolkit/pipelines/Jenkins
+```
+
+Run Terraform destroy 
 
 ```sh
 terraform destroy -var-file terraform.tfvars
