@@ -90,9 +90,7 @@ pipelineJob('db-proxy-to-existing-postgres-cluster') {
    }
 }
 
-job('db-proxy-to-existing-postgres-cluster') {
-    displayName('db-proxy-to-existing-postgres-cluster')
-}
+
 
 queue('db-proxy-to-existing-postgres-cluster')
    
