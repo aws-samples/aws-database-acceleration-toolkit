@@ -88,7 +88,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 ## Step 3 - Configure Jenkins
 
-### 1. Setup AWS credentials in Jenkins
+### 1. Add AWS credentials in Jenkins
 
 1. Login to (http://[jenkins_ip]:8080) using the admin user credentials 
 2. Navigate to `Dashboard` -> `Manage Jenkins` -> `Credentials` -> `System`
@@ -100,11 +100,17 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 ![image](../docs/images/jenkins/setup-jenkin9.png)
 
-### 2. Configure pipelines in Jenkins
+### 2. Configure DAT pipelines for examples in Jenkins
 
-1. Navigate to Dashboard in Jenkins. you will see `Seed job` pipeline created by default. It is used to setup `example` pipelines. 
-2. Schedule a build for `Seed Job` by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.  
+1. Navigate to `Dashboard` in Jenkins. you will see `Seed job` pipeline created by default. It is used to setup `example` pipelines. 
+2. Schedule a build for `Seed Job` by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.
 
+![image](../docs/images/jenkins/setup-jenkin10.png)
+
+3. you will see additional pipelines for **DAT examples** on the console
+
+![image](../docs/images/jenkins/setup-jenkin11.png)
+   
 ## Step 4: Run pipelines to deploy DAT modules
 
 ### 1. Run pipelines in Jenkins
