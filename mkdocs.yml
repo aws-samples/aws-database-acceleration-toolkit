@@ -39,10 +39,7 @@ theme:
       accent: lime  
 nav:
   - Introduction: 'index.md'
-  - Getting Started: 'getstarted.md'
-      - Deployment using new Jenkins: 'deployment_using_new_jenkins.md'
-      - Deployment using CLI: 'deployment_using_new_jenkins.md'
-      - Deployment using existing Jenkins: 'deployment_using_existing_jenkins.md'
+  - Deployment: 'getstarted.md'
   - Examples: 'examples.md'
   - FAQs: 'faq.md'
   - Contributors: 'contributors.md'  
