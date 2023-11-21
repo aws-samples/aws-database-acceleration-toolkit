@@ -85,13 +85,15 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 
 ![image](../docs/images/jenkins/setup-jenkin6.png)
 
+7. Jenkin Initial setup is done
+   
 ![image](../docs/images/jenkins/setup-jenkin7.png)
 
 ## Step 3 - Configure Jenkins
 
 ### 1. Setup AWS credentials in Jenkins
 
-1. Browse jenkin url (http://[jenkins_ip]:8080) by replacing [jenkins_ip] with EC2 IP address copied in step 1
+1. Login to (http://[jenkins_ip]:8080) using the admin user credentials 
 2. Navigate to `Manage Jenkins` -> `credentials` -> `system`
 3. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
 4. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in the ID field.
