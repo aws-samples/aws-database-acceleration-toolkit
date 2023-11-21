@@ -40,7 +40,7 @@ theme:
 nav:
   - Introduction: 'index.md'
   - Getting Started: 'getstarted.md'
-    -  Deployment: 'deployment_using_existing_jenkins.md'
+  -  Deployment: 'deployment_using_existing_jenkins.md'
   - Examples: 'examples.md'
   - FAQs: 'faq.md'
   - Contributors: 'contributors.md'  
