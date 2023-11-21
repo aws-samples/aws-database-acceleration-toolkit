@@ -9,12 +9,12 @@ It's designed to minimize the heavy lifting required for AWS customers to migrat
 Key features of DAT include automation of initial aurora setup and provisioning and on-going maintenance activities:
 
    1. Provisioning of new Amazon Aurora database cluster
-   2. Provisioning and Integration with RDS Proxy to reuse database connections and improved reliability
-   3. Provisioning of new Aurora Global Database
-   4. Monitoring Aurora database
-      - Amazon CloudWatch
-      - Curated CloudWatch Dashboards for database monitoring
-   6. Restore cluster from S3
+   2. Provisioning and Integration with [RDS Proxy](https://aws.amazon.com/rds/proxy/) to reuse database connections and improved reliability
+   3. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
+   4. Monitoring Aurora database 
+   	1. [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
+   	2. Curated CloudWatch Dashboards for database monitoring
+   5. Restore cluster from S3
 
 **Architecture** 
 
