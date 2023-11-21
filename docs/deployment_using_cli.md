@@ -1,4 +1,4 @@
-## Deployment Steps using CLI
+# Deployment Steps using CLI
 
 The following steps will walk you through the deployment of `aurora-postgres-cluster-existing-vpc` example blueprint. This example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances:
 
