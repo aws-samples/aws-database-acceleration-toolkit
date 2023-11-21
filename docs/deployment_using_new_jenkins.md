@@ -2,21 +2,21 @@
 
 The following steps will walk you through the deployment of toolkit using Jenkins and running pipelines DAT modules. 
 
-1. [Part 1 - Setup new Jenkins in Ec2](#part-1---setup-new-jenkins)
-2. Part 2 - Jenkins User Setup
-3. Part 3 - Configure Jenkins
-4. Part 4 - Run Jenkins pipelines and deploy DAT modules
-5. Part 5 - Destroy Jenkin
+1. Step 1 - Setup new Jenkins in Ec2
+2. Step 2 - Jenkins User Setup
+3. Step 3 - Configure Jenkins
+4. Step 4 - Run Jenkins pipelines and deploy DAT modules
+5. Step 5 - Destroy Jenkin
 
-## Part 1 - Setup new Jenkins
+## Step 1: Setup new Jenkins
 The steps below guide you to create new EC2 instance in  VPC and install Jenkins on the docker in EC2.
 
-### Step 1: Clone the repo using the command below
+### 1. Clone the repo using the command below
 ```sh
 git clone https://github.com/aws-samples/aws-database-acceleration-toolkit.git
 ```
 
-### Step 2: Review and update the terraform.tfvars
+### 2. Review and update the terraform.tfvars
 
 Goto `aws-database-acceleration-toolkit` -> `pipelines` -> `Jenkins`  folder. 
 
@@ -34,21 +34,21 @@ region = "us-east-2"
 # For example: "vpc-0759280XX50555743"
 vpc_id = "vpc-042229eafe1a7f93f"
 ```
-### Step 3: Run Terraform Init
+### 3. Run Terraform Init
 Initialize a working directory with configuration files by running `terraform init` 
 
 ```shell script
 terraform init
 ```
 
-### Step 4: Run Terraform Plan
+### 4. Run Terraform Plan
 Verify the resources created by this execution using `terraform plan`
 
 ```shell script
 terraform plan -var-file terraform.tfvars
 ```
 
-### Step 5: Terraform Apply to create Ec2 instance and setup Jenkins
+### 5. Terraform Apply to create Ec2 instance and setup Jenkins
 To create resources by running `terraform apply` commands
 
 ```shell script
@@ -60,26 +60,26 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 
 Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output] with EC2 IP address shown in console.
 
-## Part 2 -  Part 2 - Jenkins User Setup
+## Step 2: Jenkins User Setup
 
 
-## Part 3 - Configure Jenkins
+## Step 3 - Configure Jenkins
 
-### Step 6: Setup AWS credentials in Jenkins
+### 1. Setup AWS credentials in Jenkins
 
 1. Browse [Jenkins](http://[jenkins_ip_output]:8080) URL as mentioned in step 5
 2. Navigate to `Manage Jenkins` -> `credentials` -> `system`
 3. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
 4. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in the ID field.
 
-### Step 7: Configure pipelines in Jenkins
+### 2. Configure pipelines in Jenkins
 
 1. Navigate to Dashboard in Jenkins. you will see `Seed job` pipeline created by default. It is used to setup `example` pipelines. 
 2. Schedule a build for `Seed Job` by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.  
 
-## Part 4 - Run pipelines to deploy DAT modules
+## Step 4: Run pipelines to deploy DAT modules
 
-### Step 8: Run pipelines in Jenkins
+### 1. Run pipelines in Jenkins
 
  The following step will walk you through the deployment of `aurora-postgres-cluster-existing-vpc` example using pipeline. This example expects you to leverage an existing VPC and provision a new Aurora Cluster with one writer and one reader instance. However you can customize the reader and writer instances:
 
@@ -87,7 +87,7 @@ Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output
 
  It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS. 
 
-## Part 5 - Destroy Jenkin
+## Step 5: Destroy Jenkin
 
 ### Cleanup: Terraform Destroy - This will destroy Ec2 instance and Jenkins 
 
