@@ -41,10 +41,10 @@ nav:
   - Introduction: 'index.md'
   - Getting Started: 'getstarted.md'
   - label: Deployment
-  children:
-    - Deployment using new Jenkins: 'deployment_using_new_jenkins.md'
-    - Deployment using CLI: 'deployment_using_new_jenkins.md'
-    - Deployment using existing Jenkins: 'deployment_using_existing_jenkins.md'
+    children:
+      - Deployment using new Jenkins: 'deployment_using_new_jenkins.md'
+      - Deployment using CLI: 'deployment_using_new_jenkins.md'
+      - Deployment using existing Jenkins: 'deployment_using_existing_jenkins.md'
   - Examples: 'examples.md'
   - FAQs: 'faq.md'
   - Contributors: 'contributors.md'  
