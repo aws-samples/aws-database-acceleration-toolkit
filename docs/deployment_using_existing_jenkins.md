@@ -15,8 +15,13 @@ To install DSL Plugin go to Manage Jenkins -> Plugins -> Available Plugins
 
 Check "Job DSL" and click install. Make sure plugin is enabled after installation
 
+### Step 2: Setup AWS credentials in Jenkins
 
-### Step 2: Configure Seed Job
+Browse Jenkins URL as mentioned in step 5, go to `Manage Jenkins` -> `credentials` -> `system`
+
+Go to "Global Credentials(unrestricted) under system and click add credentials. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in ID field.
+
+### Step 3: Configure Seed Job
 
 Seed job is used to configure deployment piplelines.
 
@@ -28,10 +33,19 @@ Select "Freestyle Project" -> Click Ok
 
 In Configure page enter below values
 
-Source Code Management: select git and enter "https://github.com/aws-samples/aws-database-acceleration-toolkit" in Repository URL
+Source Code Management: select git and enter "https://github.com/aws-samples/aws-database-acceleration-toolkit" in Repository URL and branch name as "*/main"
 
-![Alt text](image.png)
+![image](../docs/images/jenkins/source_code.png)
 
+In Build section add build steps and select Process Job DSLs
+
+![image](../docs/images/jenkins/job_dsl.png)
+
+Select checkbox "Look on Filesystem" and enter "pipelines/seed_jobdsl.groovy" value in DSL Scripts as shown below and click Save
+
+![image](../docs/images/jenkins/build_step.png.png)
+
+### Step 3: Configure Seed Job
 
 ```sh
 git clone https://github.com/aws-samples/aws-database-acceleration-toolkit.git
