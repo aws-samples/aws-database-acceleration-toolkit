@@ -57,12 +57,11 @@ terraform apply -var-file terraform.tfvars
 
 Once terraform apply is completed, console will show EC2 IP address as output. Save this IP address, we need this to login to jenkin console.
 
-   <img src="../docs/images/jenkins/setup-jenkin1.png" width="500" height="100" />
-
+   ![image](../docs/images/jenkins/setup-jenkin1.png)
 
 `Note : It takes 2-3 minutes for Jenkins installation after terraform apply is complete. Wait till Status check is completed in EC2 console`
 
-    ![image](../docs/images/jenkins/setup-jenkin2.png)
+   ![image](../docs/images/jenkins/setup-jenkin2.png)
 
 ## Step 2: Unlock Jenkins & Setup user
 1. Browse jenkin url **http://[jenkins_ip]:8080** by replacing **[jenkins_ip]** with EC2 IP address copied in step 1. You will get the below Jenkins console 
@@ -75,7 +74,7 @@ sudo docker exec -it jenkins-docker bash
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-![image](../docs/images/jenkins/setup-jenkin4.png)
+   ![image](../docs/images/jenkins/setup-jenkin4.png)
 
 5. Copy the AdminPassword and enter into the Jenkins console and click `continue`
 6. Select `Install suggested plugins` Option
