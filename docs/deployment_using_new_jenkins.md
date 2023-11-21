@@ -2,7 +2,7 @@
 
 The following steps will walk you through the deployment of toolkit using Jenkins and running pipelines DAT modules. 
 
-1. [Part 1 - Setup new Jenkins in Ec2](#Part 1 - Setup new Jenkins)
+1. [Part 1 - Setup new Jenkins in Ec2](#part-1---setup-new-jenkins)
 2. Part 2 - Jenkins User Setup
 3. Part 3 - Configure Jenkins
 4. Part 4 - Run Jenkins pipelines and deploy DAT modules
