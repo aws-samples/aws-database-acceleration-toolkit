@@ -11,6 +11,7 @@ The core team include the following people, in alphabetical order:
 * Mythili Annamalai Sekar
 * Piyush Mattoo
 * Prithvi Reddy
+* Ravi Mathur
 
 We welcome the wider open source community to this project.
 
