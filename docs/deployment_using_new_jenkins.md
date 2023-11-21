@@ -93,7 +93,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 1. Login to (http://[jenkins_ip]:8080) using the admin user credentials 
 2. Navigate to `Dashboard-> Manage Jenkins` -> `Credentials` -> `System`
 
-![image](../docs/images/jenkins/setup-jenkin9.png)
+![image](../docs/images/jenkins/setup-jenkin8.png)
 
 4. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
 5. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in the ID field.
