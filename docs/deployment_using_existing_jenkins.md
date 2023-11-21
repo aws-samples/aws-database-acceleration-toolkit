@@ -43,7 +43,7 @@ In Build section add build steps and select Process Job DSLs
 
 Select checkbox "Look on Filesystem" and enter "pipelines/seed_jobdsl.groovy" value in DSL Scripts as shown below and click Save
 
-![image](../docs/images/jenkins/build_step.png.png)
+![image](../docs/images/jenkins/build_step.png)
 
 ### Step 3: Configure Seed Job
 
