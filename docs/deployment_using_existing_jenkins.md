@@ -1,6 +1,6 @@
 # Deployment Steps using New Jenkins Setup
 
-The following steps will walk you through the deployment of toolkit using your own Jenkins and running pipelines DAT modules. We assume that the basic installation of the Jenkins server is available either locally or on one of the virtual machines. If not, use [Deployment Steps using new Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_new_jenkins.md)
+The following steps will walk you through the deployment of toolkit using your own Jenkins and running pipelines DAT modules. We assume that the basic installation of the Jenkins server is available either locally or on one of the virtual machines. If not, use [Deployment Steps using new Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_new_jenkins.md) deployment approach.
 
 1. Step 1 - Setup Job DSL Plugin in Jenkins
 2. Step 2 - Configure Seed Job
@@ -44,7 +44,6 @@ In Build section add build steps and select Process Job DSLs
 Select checkbox "Look on Filesystem" and enter "pipelines/seed_jobdsl.groovy" value in DSL Scripts as shown below and click Save
 
 ![image](../docs/images/jenkins/build_step.png)
-
 
 
 ### Step 3: Add AWS credentials in Jenkins
