@@ -77,9 +77,6 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 ![image](../docs/images/jenkins/setup-jenkin4.png)
 
 5. Copy the AdminPassword and enter into the Jenkins console and click `continue`
-
-![image](../docs/images/jenkins/setup-jenkin5.png)
-
 6. Select `Install suggested plugins` Option
 7. Complete First Admin User setup
 
