@@ -89,3 +89,9 @@ pipelineJob('db-proxy-to-existing-postgres-cluster') {
  
    }
 }
+
+def example1 = job('db-proxy-to-existing-postgres-cluster') {
+    displayName('first run')
+}
+
+queue(example1)
