@@ -73,13 +73,13 @@ Currently, DAT supports PostgreSQL only. MySQL database engine is on the short-t
 
 The core team for AWS Database Acceleration Toolkit (DAT) include the following, in alphabetical order:
 
-KK (Krishna) Venkateswaran
-Mitesh Purohit
-Munish Dabra
-Mythili Annamalai Sekar
-Piyush Mattoo
-Prithvi Reddy
-Ravi Mathur
+* KK (Krishna) Venkateswaran
+* Mitesh Purohit
+* Munish Dabra
+* Mythili Annamalai Sekar
+* Piyush Mattoo
+* Prithvi Reddy
+* Ravi Mathur
 
 However, we welcome the wider open-source community to this project. See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
