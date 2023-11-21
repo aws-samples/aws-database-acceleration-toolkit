@@ -98,7 +98,7 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 4. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
 5. Enter AWS credentials of your environment, make sure you enter **jenkinsaws** in the ID field.
 
-   <img src="../docs/images/jenkins/setup-jenkin9.png" width="300" height="400" />
+   <img src="../docs/images/jenkins/setup-jenkin9.png" width="400" height="500" />
 
 ### 2. Configure DAT pipelines for examples in Jenkins
 
