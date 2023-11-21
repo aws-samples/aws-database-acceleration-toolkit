@@ -90,6 +90,5 @@ pipelineJob('db-proxy-to-existing-postgres-cluster') {
    }
 }
 
-if (!jenkins.model.Jenkins.instance.getItemByFullName('db-proxy-to-existing-postgres-cluster')) {
+
     queue('db-proxy-to-existing-postgres-cluster')
-}
