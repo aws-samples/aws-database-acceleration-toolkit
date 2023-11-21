@@ -124,7 +124,7 @@ This **aurora-postgres-cluster-existing-vpc** example expects you to leverage an
 
 3. Enter the input parameters and click `Build`
 
-   <img src="../docs/images/jenkins/setup-jenkin13.png" width="350" height="400" />
+   <img src="../docs/images/jenkins/setup-jenkin13.png" width="400" height="400" />
 
 `Note: It takes 12-15 minutes to setup RDS in your vpc. You can navigate to AWS console and search for RDS.` 
 
