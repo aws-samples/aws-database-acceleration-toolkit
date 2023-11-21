@@ -49,14 +49,13 @@ Select checkbox "Look on Filesystem" and enter "pipelines/seed_jobdsl.groovy" va
 
 ### Step 3: Add AWS credentials in Jenkins
 
-
-1. Login to (http://[jenkins_ip]:8080) using the admin user credentials 
-2. Navigate to `Dashboard` -> `Manage Jenkins` -> `Credentials` -> `System`
+ 
+1. Navigate to `Dashboard` -> `Manage Jenkins` -> `Credentials` -> `System`
 
    ![image](../docs/images/jenkins/setup-jenkin8.png)
 
-4. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
-5. Enter AWS credentials of your environment, make sure you enter **jenkinsaws** in the ID field.
+2. Navigate to `Global Credentials(unrestricted)` and click `Add credentials`.
+3. Enter AWS credentials of your environment, make sure you enter **jenkinsaws** in the ID field.
 
    <img src="../docs/images/jenkins/setup-jenkin9.png" width="400" height="500" />
 
