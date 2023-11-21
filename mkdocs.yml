@@ -40,6 +40,9 @@ theme:
 nav:
   - Introduction: 'index.md'
   - Deployment: 'getstarted.md'
+  - Deployment:
+      - Deployment using CLI: deployment_using_cli.md
+      - Deployment using new Jenkins: deployment_using_new_jenkins.md
   - Examples: 'examples.md'
   - FAQs: 'faq.md'
   - Contributors: 'contributors.md'  
