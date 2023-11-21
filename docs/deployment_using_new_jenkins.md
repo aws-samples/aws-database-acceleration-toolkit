@@ -64,7 +64,7 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 ![image](../docs/images/jenkins/setup-jenkin2.png)
 
 ## Step 2: Unlock Jenkins & Setup user
-1. Browse jenkin url (http://[jenkins_ip]:8080) by replacing [jenkins_ip] with EC2 IP address copied in step 1. You will get the below Jenkins console 
+1. Browse jenkin url **http://[jenkins_ip]:8080** by replacing **[jenkins_ip]** with EC2 IP address copied in step 1. You will get the below Jenkins console 
 
 ![image](../docs/images/jenkins/setup-jenkin3.png)
 
