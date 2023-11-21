@@ -78,13 +78,13 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 5. Copy the AdminPassword and enter into the Jenkins console and click `continue`
 6. Select `Install suggested plugins` Option
-7. Complete First Admin User setup
+7. Complete First Admin User setup. 
 
 ![image](../docs/images/jenkins/setup-jenkin6.png)
 
 7. Jenkin Initial setup is done
    
-![image](../docs/images/jenkins/setup-jenkin7.png)
+![image](../docs/images/jenkins/setup-jenkin7.png =100x20)
 
 ## Step 3 - Configure Jenkins
 
