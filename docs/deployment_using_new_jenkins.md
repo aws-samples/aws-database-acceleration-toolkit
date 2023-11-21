@@ -70,9 +70,10 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 
 3. To get the admin password, we need to login to Ec2 instance where Jenkin is deployed and run below commands
    ```shell script
-sudo docker exec -it jenkins-docker bash
-cat /var/jenkins_home/secrets/initialAdminPassword
-```
+   sudo docker exec -it jenkins-docker bash
+   cat /var/jenkins_home/secrets/initialAdminPassword
+   ```
+
 ![image](../docs/images/jenkins/setup-jenkin4.png)
 
 5. Copy the AdminPassword and enter into the Jenkins console and click `continue`
