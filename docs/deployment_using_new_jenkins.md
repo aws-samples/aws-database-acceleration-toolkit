@@ -66,7 +66,7 @@ Once terraform apply is completed, console will show EC2 IP address as output. S
 ## Step 2: Unlock Jenkins & Setup user
 1. Browse jenkin url **http://[jenkins_ip]:8080** by replacing **[jenkins_ip]** with EC2 IP address copied in step 1. You will get the below Jenkins console 
 
-![image](../docs/images/jenkins/setup-jenkin3.png)
+![image](../docs/images/jenkins/setup-jenkin3a.png)
 
 3. To get the admin password, we need to login to Ec2 instance where Jenkin is deployed and run below commands
 ```shell script
@@ -80,7 +80,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 6. Select `Install suggested plugins` Option
 7. Complete First Admin User setup
 
-![image](../docs/images/jenkins/setup-jenkin6.png)
+![image](../docs/images/jenkins/setup-jenkin6a.png)
 
 7. Jenkin Initial setup is done
    
