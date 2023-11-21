@@ -15,13 +15,7 @@ To install DSL Plugin go to Manage Jenkins -> Plugins -> Available Plugins
 
 Check "Job DSL" and click install. Make sure plugin is enabled after installation
 
-### Step 2: Setup AWS credentials in Jenkins
-
-Browse Jenkins URL as mentioned in step 5, go to `Manage Jenkins` -> `credentials` -> `system`
-
-Go to "Global Credentials(unrestricted) under system and click add credentials. Enter AWS credentials of your environment, make sure you enter "jenkinsaws" in ID field.
-
-### Step 3: Configure Seed Job
+### Step 2: Configure Seed Job
 
 Seed job is used to configure deployment piplelines.
 
@@ -45,58 +39,10 @@ Select checkbox "Look on Filesystem" and enter "pipelines/seed_jobdsl.groovy" va
 
 ![image](../docs/images/jenkins/build_step.png)
 
-### Step 3: Configure Seed Job
 
-```sh
-git clone https://github.com/aws-samples/aws-database-acceleration-toolkit.git
-```
 
-### Step 2: Review and update the terraform.tfvars
+### Step 3: Add AWS credentials in Jenkins
 
-Navigate to `Jenkins` under `aws-database-acceleration-toolkit/pipelines` folder. 
-
-```shell script
-cd aws-database-acceleration-toolkit/pipelines/Jenkins
-```
-Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
-
-```
-# (mandatory) AWS Region where your resources will be located
-region = "us-east-2"
-
-# (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-042229eafe1a7f93f"
-```
-### Step 3: Run Terraform Init
-Initialize a working directory with configuration files by running `terraform init` 
-
-```shell script
-terraform init
-```
-
-### Step 4: Run Terraform Plan
-Verify the resources created by this execution using `terraform plan`
-
-```shell script
-terraform plan -var-file terraform.tfvars
-```
-
-### Step 5: Terraform Apply to create Ec2 instance and setup Jenkins
-To create resources by running `terraform apply` commands
-
-```shell script
-terraform apply -var-file terraform.tfvars
-```
-
-Once terraform apply is completed, console will show EC2 IP address as output. Save this IP address, we need to configure in next steps. 
-`Note : It takes 2-3 minutes for Jenkins to be configure after terraform apply is complete` . 
-
-Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output] with EC2 IP address shown in console.
-
-## Part 2 - Configure Jenkins
-
-### 1. Add AWS credentials in Jenkins
 
 1. Login to (http://[jenkins_ip]:8080) using the admin user credentials 
 2. Navigate to `Dashboard` -> `Manage Jenkins` -> `Credentials` -> `System`
@@ -108,7 +54,8 @@ Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output
 
    <img src="../docs/images/jenkins/setup-jenkin9.png" width="400" height="500" />
 
-### 2. Configure DAT pipelines for examples in Jenkins
+
+### Step 4: Configure DAT pipelines for examples in Jenkins
 
 1. Navigate to `Dashboard` in Jenkins. you will see `Seed job` pipeline created by default. It is used to setup `example` pipelines. 
 2. Schedule a build for `Seed Job` by clicking green button. Job takes 2-5 seconds to complete and you will see addtional pipelines on the console.
@@ -119,7 +66,7 @@ Browse the url using http://[jenkins_ip_output]:8080. Replace [jenkins_ip_output
 
    ![image](../docs/images/jenkins/setup-jenkin11.png)
    
-## Step 4: Run pipelines to deploy DAT modules
+### Step 5: Run pipelines to deploy DAT modules
 The below section describes steps for deploying `aurora-postgres-cluster-existing-vpc` module using pipelines.  The same steps are applicable for other modules also. 
 
 ### 1. Deploy `aurora-postgres-cluster-existing-vpc` module
