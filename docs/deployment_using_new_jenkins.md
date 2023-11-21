@@ -112,7 +112,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 ![image](../docs/images/jenkins/setup-jenkin11.png)
    
 ## Step 4: Run pipelines to deploy DAT modules
-The below section describes steps for running `aurora-postgres-cluster-existing-vpc` module.  The same steps are applicable for other modules also. 
+The below section describes steps for deploying `aurora-postgres-cluster-existing-vpc` module using pipelines.  The same steps are applicable for other modules also. 
 
 ### 1. Deploy `aurora-postgres-cluster-existing-vpc` module
 
