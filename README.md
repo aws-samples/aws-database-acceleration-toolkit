@@ -1,9 +1,9 @@
-# Database Acceleration Toolkit (DAT) 
-Welcome to the **Database Acceleration Toolkit (DAT)** !!! 
+# AWS Database Acceleration Toolkit (DAT) 
+Welcome to the **AWS Database Acceleration Toolkit (DAT)** !!! 
 
-The **Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based (Terraform) single click solution to simplify and automate initial setup, provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
+The **AWS Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based (Terraform) single click solution to simplify and automate initial setup, provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
 
-It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as SQL Server to Amazon Aurora and operating these databases in production.
+It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as MS SQL Server to Amazon Aurora database and operating these databases in production.
 
 ## Architecture
 
@@ -15,18 +15,17 @@ To explore the complete project documentation, please visit our [documentation](
 
 ## Intended audience
 
-The intended audiences for DAT are AWS customers who are migrating from commercial databases such as SQL Server to Amazon Aurora.
+The intended audiences for DAT are AWS customers who are migrating from commercial databases such as MS SQL Server to Amazon Aurora.
 
 ## Key Features
 
-Key features of DAT include automation of initial aurora setup, provisioning and on-going maintenance activities,
-1. Provisioning of new Aurora cluster
-2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
-3. Monitoring Aurora database 
+Key features of DAT include automation of initial Amazon Aurora setup, provisioning and on-going maintenance activities,
+1. Provisioning of new Amazon Aurora database cluster
+2. Provisioning and Integration with [RDS Proxy](https://aws.amazon.com/rds/proxy/) to reuse database connections and improved reliability
+3. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
+4. Monitoring Aurora database 
 	1. [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
-	2. Curated CloudWatch Dashboards
-	3. Curated Performance Insights Dashboard for both Amazon CloudWatch and Amazon Managed Grafana
-4. Provisioning and Integration with [RDS Proxy](https://aws.amazon.com/rds/proxy/) to reuse database connections and improved reliability
+	2. Curated CloudWatch Dashboards for database monitoring
 5. Restore cluster from S3
 
 ## Blueprint Examples
@@ -40,7 +39,7 @@ DAT comprises of below examples. Click each link to get more details on running 
 
 ## Getting Started
 
-This section demonstrate how you can leverage DAT to provision new cluster.
+This section demonstrate how you can leverage DAT to provision new database cluster.
 
 ## Prerequisites
 
