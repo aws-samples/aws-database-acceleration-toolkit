@@ -24,12 +24,10 @@ Key features of DAT include automation of initial aurora setup, provisioning and
 2. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
 3. Monitoring Aurora database 
 	1. [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
-	2. [Amazon Managed Grafana](https://aws.amazon.com/grafana/)
-	3. Curated CloudWatch and Grafana Dashboards
-	4. Curated Performance Insights Dashboard for both Amazon CloudWatch and Amazon Managed Grafana
+	2. Curated CloudWatch Dashboards
+	3. Curated Performance Insights Dashboard for both Amazon CloudWatch and Amazon Managed Grafana
 4. Provisioning and Integration with [RDS Proxy](https://aws.amazon.com/rds/proxy/) to reuse database connections and improved reliability
-5. Provisioning of [AWS Data Migration Services (DMS)](https://aws.amazon.com/dms/) Instances to migrate data to Aurora
-6. Restore cluster from S3
+5. Restore cluster from S3
 
 ## Blueprint Examples
 
