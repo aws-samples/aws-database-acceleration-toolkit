@@ -132,11 +132,11 @@ This **aurora-postgres-cluster-existing-vpc** example expects you to leverage an
 1. Navigate to `Dashboard` in Jenkins and select the `aurora-postgres-cluster-existing-vpc` module. Select the Job that created the successful aurora cluster,
 2. Select `Rebuild` option and review the input parameters and make sure it reflects the aurora db cluster that you want destroy.
 
-   <img src="../docs/images/jenkins/setup-jenkin14.png" width="500" height="300" />
+   <img src="../docs/images/jenkins/setup-jenkin14.png" width="600" height="400" />
    
 4. Select `Destroy` checkbox and click `Rebuild`
  
-   <img src="../docs/images/jenkins/setup-jenkin15.png" width="500" height="300" />
+   <img src="../docs/images/jenkins/setup-jenkin15.png" width="400" height="300" />
 
 `Note: It takes 12-15 minutes to destroy RDS in your vpc. You can navigate to AWS console and verify` 
 
