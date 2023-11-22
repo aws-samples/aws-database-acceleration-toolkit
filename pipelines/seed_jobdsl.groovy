@@ -90,9 +90,22 @@ pipelineJob('db-proxy-to-existing-postgres-cluster') {
    }
 }
 
+pipelineJob('aurora-postgres-cluster-latest-snapshot') {
+   definition {
+               
+    cps {
+      script(readFileFromWorkspace('pipelines/aurora-postgres-cluster-latest-snapshot'))
+      sandbox()     
+    }
+ 
+   }
+}
+
 
 queue('aurora-monitoring')
 queue('aurora-postgres-cluster-existing-vpc')
 queue('aurora-postgres-cluster-global-db')
 queue('db-proxy-to-existing-postgres-cluster')
+queue('aurora-postgres-cluster-latest-snapshot')
+
    
