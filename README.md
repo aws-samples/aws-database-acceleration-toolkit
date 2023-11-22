@@ -53,9 +53,9 @@ First, ensure that you have installed the following tools locally.
 ## DAT Deployment
 DAT modules can be deployed using any one of the following options
 
-1. [Deployment Steps using CLI](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_cli.md)
-2. [Deployment Steps using new Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_new_jenkins.md)
-3. [Deployment Steps using existing Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_existing_jenkins.md)
+1. [Deployment using Terraform CLI](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_cli.md)
+2. [Deployment using new Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_new_jenkins.md)
+3. [Deployment using existing Jenkins](https://github.com/aws-samples/aws-database-acceleration-toolkit/blob/main/docs/deployment_using_existing_jenkins.md)
 
 ## Associated Cost
 
