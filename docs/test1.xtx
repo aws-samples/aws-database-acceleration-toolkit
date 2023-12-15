@@ -1,0 +1,9 @@
+DAT Blueprints 
+As a part of DAT, we have built below Blueprints, a collection of Terraform modules, with the aim to make it easier and faster for customers to adopt Amazon Aurora and start provisioning typical clusters. Click each link to get more details on running these examples.
+
+1. aurora-postgres-cluster-existing-vpc - Creates new Aurora Postgres Cluster.
+2. db-proxy-to-existing-postgres-cluster - Creates proxy to existing Aurora Postgres.
+3. aurora-postgres-cluster-global-db - Creates new Aurora Postgres Clusters in Primary and Secondary region.
+4. aurora-monitoring - Setup monitoring dashboard for aurora.
+5. aurora-postgres-cluster-latest-snapshot - Deploys the Aurora PostgreSQL Database Cluster from the latest cluster snapshot
+
