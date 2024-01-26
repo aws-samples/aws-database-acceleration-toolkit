@@ -38,7 +38,7 @@ variable "debug_logging" {
 
 variable "engine_family" {
   type        = string
-  default     = "POSTGRESQL"
+  default     = ""
   description = "Valid values are MYSQL and POSTGRESQL"
 }
 

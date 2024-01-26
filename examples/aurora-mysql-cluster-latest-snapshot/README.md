@@ -1,8 +1,6 @@
-# Enabling Aurora MySQL Database Cluster Monitoring in an existing VPC
+# Aurora MySQL Database Cluster Provisioning using the latest snapshot
 
-This example is to enable cluster monitoring for the existing Aurora PosgreSQL Database Cluster
-
-- Creates a new Aurora MySQL cluster - One writer and one reader database instance
+This example deploys the Aurora MySQL Database Cluster from the latest cluster snapshot
 
 ## How to Deploy
 
@@ -31,9 +29,8 @@ region = "Primary Region"
 # For example: "vpc-0759280XX50555743"
 vpc_id = "VPC ID"
 
-#ARAN for Existing Aurora Database
-database_identifiers =["ARN for Aurora Database"]
-
+# instance identifier for DB Cluster
+db_cluster_identifier = "DB Cluster Instance Identifier"
 ```
 
 #### Step3: Run Terraform INIT
@@ -41,7 +38,7 @@ Initialize a working directory with configuration files
 
 
 ```shell script
-cd examples/aurora-mysql-monitoring
+cd examples/aurora-mysql-cluster-latest-snapshot
 terraform init
 ```
 
