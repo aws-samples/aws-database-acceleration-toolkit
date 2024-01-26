@@ -1,8 +1,8 @@
-# Enabling Aurora PostgresSQL Database Cluster Monitoring in an existing VPC
+# Enabling Aurora PostgreSQL Database Cluster Monitoring in an existing VPC
 
 This example is to enable cluster monitoring for the existing Aurora PosgreSQL Database Cluster
 
-- Creates a new Aurora PostgresSQL cluster - One writer and one reader database instance
+- Creates a new Aurora PostgreSQL cluster - One writer and one reader database instance
 
 ## How to Deploy
 
