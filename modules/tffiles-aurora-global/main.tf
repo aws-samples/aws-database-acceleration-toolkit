@@ -53,7 +53,7 @@ data "aws_subnet_ids" "private" {
 
 data "aws_rds_engine_version" "family" {
   engine   = var.engine
-  version  = var.engine == "aurora-postgresql" ? var.engine_version_pg : var.engine_version_mysql
+  version  = var.engine_version
   provider = aws.primary
 }
 
@@ -161,9 +161,9 @@ resource "aws_iam_role" "rds_enhanced_monitoring" {
 resource "aws_rds_global_cluster" "globaldb" {
   count                     = var.setup_globaldb ? 1 : 0
   provider                  = aws.primary
-  global_cluster_identifier = "${terraform.workspace}-globaldb"
+  global_cluster_identifier = "${terraform.workspace}-globaldb-${random_id.this.hex}"
   engine                    = var.engine
-  engine_version            = var.engine == "aurora-postgresql" ? var.engine_version_pg : var.engine_version_mysql
+  engine_version            = var.engine_version
   database_name             = (var.snapshot_identifier != "") ? null : var.database_name
   storage_encrypted         = var.storage_encrypted
 }
@@ -171,9 +171,9 @@ resource "aws_rds_global_cluster" "globaldb" {
 resource "aws_rds_cluster" "primary" {
   provider                         = aws.primary
   global_cluster_identifier        = var.setup_globaldb ? aws_rds_global_cluster.globaldb[0].id : null
-  cluster_identifier               = "${var.identifier}-${var.region}"
+  cluster_identifier               = "${var.identifier}-${var.region}-${random_id.this.hex}"
   engine                           = var.engine
-  engine_version                   = var.engine == "aurora-postgresql" ? var.engine_version_pg : var.engine_version_mysql
+  engine_version                   = var.engine_version
   allow_major_version_upgrade      = var.allow_major_version_upgrade
   availability_zones               = [data.aws_availability_zones.region_p.names[0], data.aws_availability_zones.region_p.names[1], data.aws_availability_zones.region_p.names[2]]
   db_subnet_group_name             = aws_db_subnet_group.private_p.name
@@ -213,10 +213,10 @@ resource "aws_rds_cluster" "primary" {
 resource "aws_rds_cluster_instance" "primary" {
   count                        = var.primary_instance_count
   provider                     = aws.primary
-  identifier                   = "${var.name}-${var.region}-${count.index + 1}"
+  identifier                   = "${var.name}-${var.environment}-${random_id.this.hex}-${count.index + 1}"
   cluster_identifier           = aws_rds_cluster.primary.id
   engine                       = aws_rds_cluster.primary.engine
-  engine_version               = var.engine == "aurora-postgresql" ? var.engine_version_pg : var.engine_version_mysql
+  engine_version               = var.engine_version
   auto_minor_version_upgrade   = var.setup_globaldb ? false : var.auto_minor_version_upgrade
   instance_class               = var.instance_class
   db_subnet_group_name         = aws_db_subnet_group.private_p.name
@@ -233,9 +233,9 @@ resource "aws_rds_cluster" "secondary" {
   count                            = var.setup_globaldb ? 1 : 0
   provider                         = aws.secondary
   global_cluster_identifier        = aws_rds_global_cluster.globaldb[0].id
-  cluster_identifier               = "${var.identifier}-${var.sec_region}"
+  cluster_identifier               = "${var.identifier}-${var.sec_region}-${random_id.this.hex}"
   engine                           = var.engine
-  engine_version                   = var.engine == "aurora-postgresql" ? var.engine_version_pg : var.engine_version_mysql
+  engine_version                   = var.engine_version
   allow_major_version_upgrade      = var.allow_major_version_upgrade
   availability_zones               = [data.aws_availability_zones.region_s.names[0], data.aws_availability_zones.region_s.names[1], data.aws_availability_zones.region_s.names[2]]
   db_subnet_group_name             = aws_db_subnet_group.private_s[0].name
@@ -271,10 +271,10 @@ resource "aws_rds_cluster" "secondary" {
 resource "aws_rds_cluster_instance" "secondary" {
   count                        = var.setup_globaldb ? var.secondary_instance_count : 0
   provider                     = aws.secondary
-  identifier                   = "${var.name}-${var.sec_region}-${count.index + 1}"
+  identifier                   = "${var.name}-${var.environment}-${random_id.this.hex}-${count.index + 1}"
   cluster_identifier           = aws_rds_cluster.secondary[0].id
   engine                       = var.engine
-  engine_version               = var.engine == "aurora-postgresql" ? var.engine_version_pg : var.engine_version_mysql
+  engine_version               = var.engine_version
   auto_minor_version_upgrade   = false
   instance_class               = var.instance_class
   db_subnet_group_name         = aws_db_subnet_group.private_s[0].name

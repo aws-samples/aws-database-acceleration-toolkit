@@ -29,6 +29,13 @@ variable "name" {
   default     = "aurora"
 }
 
+variable "environment" {
+  description = "environment"
+  type        = string
+  default     = "dev"
+}
+
+
 
 variable "vpc_id" {
   type        = string
@@ -139,7 +146,7 @@ variable "engine" {
   type        = string
   default     = "aurora-postgresql"
 }
-
+/*
 variable "engine_version_pg" {
   description = "Aurora database engine version."
   type        = string
@@ -149,7 +156,14 @@ variable "engine_version_pg" {
 variable "engine_version_mysql" {
   description = "Aurora database engine version."
   type        = string
-  default     = "5.7.mysql_aurora.2.10.2"
+  default     = "8.0.mysql_aurora.3.02.0"
+}
+*/
+
+variable "engine_version" {
+  description = "Aurora database engine version"
+  type        = string
+  default     = ""
 }
 
 variable "setup_globaldb" {
