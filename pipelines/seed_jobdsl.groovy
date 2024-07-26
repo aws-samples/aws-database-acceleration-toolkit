@@ -46,11 +46,11 @@ def handleCheckout = {
   ]);
 }
 
-pipelineJob('aurora-postgres-monitoring') {
+pipelineJob('aurora-monitoring') {
    definition {
                
     cps {
-      script(readFileFromWorkspace('pipelines/aurora-postgres-monitoring'))
+      script(readFileFromWorkspace('pipelines/aurora-monitoring'))
       sandbox()     
     }
  
@@ -79,11 +79,11 @@ pipelineJob('aurora-postgres-cluster-global-db') {
    }
 }
 
-pipelineJob('aurora-postgres-dbproxy') {
+pipelineJob('db-proxy-to-existing-postgres-cluster') {
    definition {
                
     cps {
-      script(readFileFromWorkspace('pipelines/aurora-postgres-dbproxy'))
+      script(readFileFromWorkspace('pipelines/db-proxy-to-existing-postgres-cluster'))
       sandbox()     
     }
  
@@ -100,12 +100,34 @@ pipelineJob('aurora-postgres-cluster-latest-snapshot') {
  
    }
 }
+pipelineJob('aurora-postgres-dbproxy') {
+   definition {
+               
+    cps {
+      script(readFileFromWorkspace('pipelines/aurora-postgres-dbproxy'))
+      sandbox()     
+    }
+ 
+   }
+}
+pipelineJob('aurora-postgres-monitoring') {
+   definition {
+               
+    cps {
+      script(readFileFromWorkspace('pipelines/aurora-postgres-monitoring'))
+      sandbox()     
+    }
+ 
+   }
+}
 
 
-queue('aurora-postgres-monitoring')
+queue('aurora-monitoring')
 queue('aurora-postgres-cluster-existing-vpc')
 queue('aurora-postgres-cluster-global-db')
-queue('aurora-postgres-dbproxy')
+queue('db-proxy-to-existing-postgres-cluster')
 queue('aurora-postgres-cluster-latest-snapshot')
+queue('aurora-postgres-dbproxy')
+queue('aurora-postgres-monitoring')
 
    
