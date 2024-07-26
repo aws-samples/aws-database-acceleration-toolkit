@@ -3,7 +3,7 @@
 region = "us-west-2"
 
 # ARN for Aurora Database
-database_identifiers ="arn:aws:rds:us-west-2:193438301004:cluster:aurora-mysql-poc-01252024-1-cluster-dev-203c98ba"
+database_identifiers ="arn:aws:rds:us-west-2:193438301004:db:aurora-mysql-cluster-snp-07242024-1-dev-232d7b11-one"
 
 # Dashboard name
 name = "aurora-mysql-db-01252024"

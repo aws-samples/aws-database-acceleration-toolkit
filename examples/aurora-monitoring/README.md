@@ -41,7 +41,7 @@ Initialize a working directory with configuration files
 
 
 ```shell script
-cd examples/aurora-monitoring
+cd examples/aurora-postgres-monitoring
 terraform init
 ```
 

@@ -1,13 +1,13 @@
 
 # (mandatory) AWS Region where your resources will be located
-region = "us-east-2"
+region = "us-west-2"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
-vpc_id = "VPC ID"
+vpc_id = "vpc-064e0b2cf16eaaa5a"
 
 # ARN for Aurora Database
-database_identifiers ="ARN for Aurora Database"
+database_identifiers ="arn:aws:rds:us-west-2:193438301004:db:aurora-pg-poc-0528-dev-f3f5b6ea-one"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 

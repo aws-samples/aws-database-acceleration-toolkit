@@ -23,10 +23,10 @@ instances = {
 engine_mode = "provisioned"
 
 # (optional) The database engine version. Updating this argument results in an outage" 
-engine_version = "8.0.mysql_aurora.3.02.0"
+engine_version = "8.0.mysql_aurora.3.05.2"
 
 # (optional) Database cluster name
-name = "aurora-mysql-cluster-snp-01252024-1"
+name = "aurora-mysql-cluster-snp-07242024-1"
 
 # (optional) Database environment
 environment = "dev"
@@ -38,4 +38,4 @@ groupname = "dev"
 project = "dev"
 
 # instance identifier for DB Cluster
-db_cluster_identifier = "aurora-mysql-poc-01252024-1-cluster-dev-203c98ba"
+db_cluster_identifier = "aurora-mysql-poc-0724-1-cluster-dev-a94bc61d"

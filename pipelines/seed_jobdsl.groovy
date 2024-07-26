@@ -46,11 +46,11 @@ def handleCheckout = {
   ]);
 }
 
-pipelineJob('aurora-monitoring') {
+pipelineJob('aurora-postgres-monitoring') {
    definition {
                
     cps {
-      script(readFileFromWorkspace('pipelines/aurora-monitoring'))
+      script(readFileFromWorkspace('pipelines/aurora-postgres-monitoring'))
       sandbox()     
     }
  
@@ -79,11 +79,11 @@ pipelineJob('aurora-postgres-cluster-global-db') {
    }
 }
 
-pipelineJob('db-proxy-to-existing-postgres-cluster') {
+pipelineJob('aurora-postgres-dbproxy') {
    definition {
                
     cps {
-      script(readFileFromWorkspace('pipelines/db-proxy-to-existing-postgres-cluster'))
+      script(readFileFromWorkspace('pipelines/aurora-postgres-dbproxy'))
       sandbox()     
     }
  
@@ -102,10 +102,10 @@ pipelineJob('aurora-postgres-cluster-latest-snapshot') {
 }
 
 
-queue('aurora-monitoring')
+queue('aurora-postgres-monitoring')
 queue('aurora-postgres-cluster-existing-vpc')
 queue('aurora-postgres-cluster-global-db')
-queue('db-proxy-to-existing-postgres-cluster')
+queue('aurora-postgres-dbproxy')
 queue('aurora-postgres-cluster-latest-snapshot')
 
    

@@ -4,7 +4,7 @@ region = "us-west-2"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-066efdcc0ced84f0e"
+vpc_id = "vpc-064e0b2cf16eaaa5a"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
@@ -26,7 +26,7 @@ engine_mode = "provisioned"
 engine_version = "15.3"
 
 # (optional) Database cluster name
-name = "aurora-pg-poc"
+name = "aurora-pg-poc-0528"
 
 # (optional) Database environment
 environment = "dev"

@@ -5,7 +5,7 @@ region = "us-west-2"
 vpc_id = "vpc-064e0b2cf16eaaa5a"
 
 # (mandatory) Existing aurora clustername. For example : "aurora-pg-poc-cluster-dev-a805da4a"
-clusterName = "aurora-mysql-poc-01252024-1-cluster-dev-203c98ba"
+clusterName = "aurora-mysql-poc-0724-1-cluster-dev-a94bc61d"
 
 # (mandatory) DB proxy name. Customize name as per your use specific usecase
 name = "rds-proxy-mysql-01252024-1"

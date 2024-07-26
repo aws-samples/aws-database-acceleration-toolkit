@@ -42,7 +42,7 @@ Initialize a working directory with configuration files
 
 
 ```shell script
-cd examples/db-proxy-to-existing-postgres-cluster
+cd examples/aurora-postgres-dbproxy
 terraform init
 ```
 

@@ -34,7 +34,7 @@ module "aurora_poc" {
 aws_access_key = var.aws_access_key
 aws_secret_key = var.aws_secret_key
 
-    engine_version_pg = var.engine_version
+    engine_version = var.engine_version
     vpc_id      = local.vpc_id
     vpc_id_sec     = local.vpc_id_sec
     engine      = local.engine

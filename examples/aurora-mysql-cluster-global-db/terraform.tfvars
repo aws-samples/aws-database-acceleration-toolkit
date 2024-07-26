@@ -30,10 +30,10 @@ instances = {
 engine_mode = "provisioned"
 
 # The database engine version. Updating this argument results in an outage" 
-engine_version = "8.0.mysql_aurora.3.02.0"
+engine_version = "8.0.mysql_aurora.3.05.2"
 
 # Global Database Name
-name = "aurora-mysql-poc"
+name = "aurora-mysql-poc-global-0724"
 
 # (optional) Database environment
 environment = "dev"
