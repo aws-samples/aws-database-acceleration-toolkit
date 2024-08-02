@@ -19,7 +19,6 @@ vpc_id_sec = "SECONDARY_VPC_ID"
 instance_class ="db.r6g.large"
 
 # (mandatory) Database Engine for your Aurora Cluster. 
-# Options: "aurora-postgresql" or "aurora-mysql" 
 engine = "aurora-mysql"
 
 # (mandatory) Number of instances 

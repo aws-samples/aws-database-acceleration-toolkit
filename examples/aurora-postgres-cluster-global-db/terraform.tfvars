@@ -17,7 +17,7 @@ vpc_id_sec = "vpc-0eedf111ef47f02d0"
 # For example: "db.t4g.micro" is a free tier instance 
 instance_class ="db.r6g.large"
 
-# (mandatory) Database Engine for your Aurora Cluster. Options: "aurora-postgresql" or "aurora-mysql" 
+# (mandatory) Database Engine for your Aurora Cluster. 
 engine = "aurora-postgresql"
 
 # (mandatory) Number of instances 

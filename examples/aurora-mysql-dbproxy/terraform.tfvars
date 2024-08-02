@@ -1,14 +1,18 @@
-# (mandatory) AWS Region where your resources will be located. Update for your specific usecase
-region = "us-west-2"
+#(mandatory) AWS Region where your resources will be located
+# For example: "us-west-2"
+region = "REGION"
 
-# (mandatory) VPC Id. For example: "vpc-04d0cfc912221b272"
-vpc_id = "vpc-064e0b2cf16eaaa5a"
+# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# For example: "vpc-12345678912345678"
+vpc_id = "VPC_ID"
 
-# (mandatory) Existing aurora clustername. For example : "aurora-pg-poc-cluster-dev-a805da4a"
-clusterName = "aurora-mysql-poc-0724-1-cluster-dev-a94bc61d"
+# (mandatory) Existing Aurora DB Cluster Name. 
+# For example : "aurora-pg-poc-cluster-dev"
+clusterName = "EXISTING_DB_CLUSTER_NAME"
 
-# (mandatory) DB proxy name. Customize name as per your use specific usecase
-name = "rds-proxy-mysql-01252024-1"
+# (mandatory) DB Proxy Name. Customize name as per your use specific usecase
+# For example : "rds-proxy-mysql-poc"
+name = "DB_PROXY_NAME"
 
 # (optional) Database environment
 environment = "dev"
