@@ -1,7 +1,7 @@
 
 # (mandatory) AWS Region where your resources will be located
 # For example: "us-west-2"
-region = "us-west-2"
+region = "REGION"
 
 # ARN for Aurora Database for which CloudWatch Dashboard needs to be created 
 # For example: "arn:aws:rds:<REGION>:<ACCOUNTID>:db:<DBINSTANCEID>"

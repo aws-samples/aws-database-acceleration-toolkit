@@ -1,23 +1,25 @@
+#(mandatory) Primary AWS Region where your resources will be located
+# For example: "us-west-2"
+region = "PRIMARY_REGION"
 
-#(mandatory) AWS Region where your resources will be located
-region = "us-west-2"
+# (mandatory) Secondary AWS Region where your resources will be located
+# For example: "us-east-2"
+sec_region = "SECONDARY_REGION"
 
-# (mandatory) AWS Secondary Region where your resources will be located
-sec_region = "us-east-2"
+# (mandatory) Primary VPC Id where your database and other AWS resources will be located. 
+# For example: "vpc-12345678901234567"
+vpc_id = "PRIMARY_VPC_ID"
 
-# (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-064e0b2cf16eaaa5a"
-
-# (mandatory) VPC Id for secondary region where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
-vpc_id_sec = "vpc-0eedf111ef47f02d0"
+# (mandatory) Secondary VPC Id where your database and other AWS resources will be located. 
+# For example: "vpc-12345678901234567"
+vpc_id_sec = "SECONDARY_VPC_ID"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
 instance_class ="db.r6g.large"
 
-# (mandatory) Database Engine for your Aurora Cluster. Options: "aurora-postgresql" or "aurora-mysql" 
+# (mandatory) Database Engine for your Aurora Cluster. 
+# Options: "aurora-postgresql" or "aurora-mysql" 
 engine = "aurora-mysql"
 
 # (mandatory) Number of instances 
@@ -33,7 +35,7 @@ engine_mode = "provisioned"
 engine_version = "8.0.mysql_aurora.3.05.2"
 
 # Global Database Name
-name = "aurora-mysql-poc-global-0724"
+name = "aurora-mysql-poc-globaldb"
 
 # (optional) Database environment
 environment = "dev"

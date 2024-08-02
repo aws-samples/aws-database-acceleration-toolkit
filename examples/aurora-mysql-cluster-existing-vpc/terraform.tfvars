@@ -1,16 +1,17 @@
-
 #(mandatory) AWS Region where your resources will be located
-region = "us-west-2"
+# For example: "us-west-2"
+region = "REGION"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-064e0b2cf16eaaa5a"
+# For example: "vpc-12345678901234567"
+vpc_id = "VPC_ID"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
 instance_class ="db.r6g.large"
 
-# (mandatory) Database Engine for your Aurora Cluster. Options: "aurora-postgresql" or "aurora-mysql" 
+# (mandatory) Database Engine for your Aurora Cluster. 
+# Options: "aurora-postgresql" or "aurora-mysql" 
 engine = "aurora-mysql"
 
 # (mandatory) Number of instances 
@@ -19,14 +20,17 @@ instances = {
     two   = {}
 }
 
-# (optional) Default is provisioned database cluster; For serverless, select "serverless"
+# Default is provisioned database cluster; For serverless, select "serverless"
 engine_mode = "provisioned"
 
-# (optional) The database engine version. Updating this argument results in an outage" 
+# The database engine version. Updating this argument results in an outage" 
 engine_version = "8.0.mysql_aurora.3.05.2"
 
-# (optional) Database cluster name
+# Database cluster name
 name = "aurora-mysql-poc-0724-1"
+
+# (optional) Retain final snapshot during clister deletion. Default is skip_final_snapshot= "true"
+skip_final_snapshot= "true"
 
 # (optional) Database environment
 environment = "dev"
@@ -36,5 +40,3 @@ groupname = "dev"
 
 # (optional) Tagging : Project or Application Name
 project = "dev"
-
-skip_final_snapshot= "true"

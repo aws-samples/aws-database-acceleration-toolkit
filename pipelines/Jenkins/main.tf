@@ -21,10 +21,7 @@ output "Jenkins_IP" {
   value     = module.jenkins.ec2instance
 
 }
-output "public_key" {
-  value     = module.jenkins.public_key
 
-}
-output "private_key" {
-  value = nonsensitive(module.jenkins.private_key)
-}
+#output "private_key" {
+#  value = nonsensitive(module.jenkins.private_key)
+#}
