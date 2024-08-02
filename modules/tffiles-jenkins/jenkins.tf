@@ -51,14 +51,14 @@ resource "aws_security_group" "jenkins_port" {
         from_port = 8080
         to_port = 8080
         protocol = "tcp"
-        cidr_blocks = ["52.94.133.136/32"]
+        cidr_blocks = ["0.0.0.0/0"]
     } 
 
        ingress {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = ["52.94.133.136/32"]
+        cidr_blocks = ["0.0.0.0/0"]
     } 
 
     lifecycle { create_before_destroy = true }

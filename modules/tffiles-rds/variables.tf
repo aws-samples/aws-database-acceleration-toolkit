@@ -153,7 +153,7 @@ variable "final_snapshot_identifier_prefix" {
 variable "skip_final_snapshot" {
   description = "Determines whether a final snapshot is created before the cluster is deleted. If true is specified, no snapshot is created"
   type        = bool
-  default     = null
+  default     = true
 }
 
 variable "deletion_protection" {
@@ -340,7 +340,7 @@ variable "performance_insights_retention_period" {
 variable "ca_cert_identifier" {
   description = "The identifier of the CA certificate for the DB instance"
   type        = string
-  default     = "rds-ca-2019"
+  default     = null
 }
 
 variable "instance_timeouts" {
