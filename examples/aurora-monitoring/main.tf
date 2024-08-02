@@ -4,28 +4,14 @@ provider "aws" {
     secret_key = var.aws_secret_key 
 } 
 
-
-data "aws_subnets" "primary" {
-  filter {
-    name   = "vpc-id"
-    values = [var.vpc_id]
-  }
-}
-
 locals {
   region         = var.region
-  vpc_id         = var.vpc_id
   name           = var.name
-  engine         = var.engine
-  engine_version = var.engine_version
-  engine_mode    = var.engine_mode
-  instances      = var.instances
-  instance_class = var.instance_class
   environment    = var.environment
   groupname      = var.groupname
   project        = var.project
   database_identifiers = [var.database_identifiers]
-  tags        = {
+  tags           = {
                   Name = local.name
                   GroupName = local.groupname
                   Environment = local.environment
