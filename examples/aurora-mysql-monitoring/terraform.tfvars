@@ -8,7 +8,7 @@ region = "REGION"
 database_identifiers ="<DB_INSTANCE_ARN>"
 
 # CloudWatch Dashboard name
-name = "aurora-pg-poc"
+name = "aurora-mysql-poc"
 
 # (optional) Environment
 environment = "dev"

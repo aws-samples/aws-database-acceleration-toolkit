@@ -7,7 +7,7 @@ region = "REGION"
 vpc_id = "VPC_ID"
 
 # (mandatory) Existing Aurora DB Cluster Name. 
-# For example : "aurora-pg-poc-cluster-dev"
+# For example : "aurora-mysql-poc-cluster-dev"
 clusterName = "EXISTING_DB_CLUSTER_NAME"
 
 # (mandatory) DB Proxy Name. Customize name as per your use specific usecase

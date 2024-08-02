@@ -1,37 +1,16 @@
 
 # (mandatory) AWS Region where your resources will be located
+# For example: "us-west-2"
 region = "us-west-2"
 
-# (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-064e0b2cf16eaaa5a"
+# ARN for Aurora Database for which CloudWatch Dashboard needs to be created 
+# For example: "arn:aws:rds:<REGION>:<ACCOUNTID>:db:<DBINSTANCEID>"
+database_identifiers ="<DB_INSTANCE_ARN>"
 
-# ARN for Aurora Database
-database_identifiers ="arn:aws:rds:us-west-2:193438301004:db:aurora-pg-poc-0528-dev-87dbf954-one"
+# CloudWatch Dashboard name
+name = "aurora-pg-poc"
 
-# (mandatory) Instance class. 
-# For example: "db.t4g.micro" is a free tier instance 
-instance_class ="db.r6g.large"
-
-# (mandatory) Database Engine for your Aurora Cluster. 
-engine = "aurora-postgresql"
-
-# (mandatory) Number of instances 
-instances = {
-    one   = {}
-    two   = {}
-}
-
-#(optional) Default is provisioned database cluster; For serverless, select "serverless".
-engine_mode = "provisioned"
-
-# (optional) The database engine version. Updating this argument results in an outage" 
-engine_version = "13.10.1"
-
-# (optional) Database cluster name
-name = "aurora-pg-poc-0723"
-
-# (optional) Database environment
+# (optional) Environment
 environment = "dev"
 
 # (optional) Tagging : Team/Group Name

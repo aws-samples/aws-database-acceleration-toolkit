@@ -28,7 +28,7 @@ engine_version = "8.0.mysql_aurora.3.05.2"
 # Database cluster name
 name = "aurora-mysql-poc-0724-1"
 
-# (optional) Retain final snapshot during clister deletion. Default is skip_final_snapshot= "true"
+# (optional) Skip final snapshot during cluster deletion. Default is "true"
 skip_final_snapshot= "true"
 
 # (optional) Database environment

@@ -32,7 +32,7 @@ region = "Primary Region"
 # For example: "vpc-0759280XX50555743"
 vpc_id = "VPC ID"
 
-# (mandatory) Existing aurora clustername. For example : "aurora-pg-poc-cluster-dev-a805da4a"
+# (mandatory) Existing aurora clustername. For example : "aurora-mysql-poc-cluster-dev-a805da4a"
 clusterName = "Existing Aurora ClusterName"
 
 ```
