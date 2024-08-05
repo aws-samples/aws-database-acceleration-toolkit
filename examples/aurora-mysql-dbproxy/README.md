@@ -32,7 +32,7 @@ region = "Primary Region"
 # For example: "vpc-0759280XX50555743"
 vpc_id = "VPC ID"
 
-# (mandatory) Existing aurora clustername. For example : "aurora-pg-poc-cluster-dev-a805da4a"
+# (mandatory) Existing aurora clustername. For example : "aurora-mysql-poc-cluster-dev-a805da4a"
 clusterName = "Existing Aurora ClusterName"
 
 ```
@@ -42,7 +42,7 @@ Initialize a working directory with configuration files
 
 
 ```shell script
-cd examples/db-proxy-to-existing-postgres-cluster
+cd examples/aurora-postgres-dbproxy
 terraform init
 ```
 

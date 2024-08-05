@@ -1,14 +1,14 @@
 
 # (mandatory) AWS Region where your resources will be located
 # For example: "us-west-2"
-region = "REGION"
+region = "us-west-2"
 
 # ARN for Aurora Database for which CloudWatch Dashboard needs to be created 
 # For example: "arn:aws:rds:<REGION>:<ACCOUNTID>:db:<DBINSTANCEID>"
 database_identifiers ="<DB_INSTANCE_ARN>"
 
 # CloudWatch Dashboard name
-name = "aurora-mysql-poc"
+name = "aurora-pg-poc"
 
 # (optional) Environment
 environment = "dev"

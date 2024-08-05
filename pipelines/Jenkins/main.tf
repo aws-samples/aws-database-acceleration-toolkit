@@ -22,3 +22,6 @@ output "Jenkins_IP" {
 
 }
 
+#output "private_key" {
+#  value = nonsensitive(module.jenkins.private_key)
+#}
