@@ -1,0 +1,154 @@
+// Variables
+// ----------------------
+github_source   = "main"
+github_org      = "aws-samples"
+github_repo     = "aws-database-acceleration-toolkit"
+credentials_id  = "githubcred"
+
+// Function(s)
+// ----------------------
+def handleCheckout = {
+  
+  def regGithubSource    = ~/^v[\d|.]+/
+  is_tag = regGithubSource.matcher(github_source).matches()
+  if (is_tag == true) {
+    gitref = 'refs/tags/'
+  } else {
+    gitref = 'refs/heads/'
+  }
+  
+  checkout([ 
+    $class: 'GitSCM',
+    branches: [[name: gitref + github_source]], 
+    doGenerateSubmoduleConfigurations: false, 
+    extensions: [
+      [
+        $class: 'CloneOption',
+        noTags: false,
+        shallow: false,
+        depth: 0,
+        reference: ''
+      ],
+      [ 
+        $class: 'SubmoduleOption', 
+        depth: 1, 
+        disableSubmodules: false, 
+        parentCredentials: true, 
+        recursiveSubmodules: true, 
+        reference: '', 
+        shallow: true, 
+        trackingSubmodules: false
+      ], 
+      [$class: 'GitLFSPull']
+    ], 
+    submoduleCfg: [], 
+    userRemoteConfigs: [[ credentialsId: credentials_id, url: 'https://github.com/' + github_org + '/' + github_repo + '.git']]
+  ]);
+}
+
+
+pipeline {
+
+    agent any
+
+      parameters {
+        string(defaultValue: "aurora-mysql-poc", description: 'AURORA Global DB prefix', name: 'NAME') 
+        string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
+        string(defaultValue: "us-west-2", description: 'Region', name: 'REGION_Secondary') 
+        string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
+        string(defaultValue: "", description: 'Primary VPC ID', name: 'VPC')  
+        string(defaultValue: "", description: 'Secondary VPC ID', name: 'VPC_Secondary') 
+        
+        booleanParam(defaultValue: false, description: 'Delete the stack?', name: 'Destroy')   
+    }
+
+
+    environment {
+        NAME="${params.NAME}"
+        REGION="${params.REGION}"
+        REGION_Secondary="${params.REGION_Secondary}"
+        ENVIRONMENT = "${params.ENVIRONMENT}".trim()
+        VPC = "${params.VPC}"
+      TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}-${params.ENVIRONMENT}".trim()
+      
+    }
+    stages {
+stage('checkout') {
+  
+      steps {
+        script {
+         
+          handleCheckout()
+        }
+      }
+}
+
+        stage('Terraform plan') {
+when {
+         expression { params.Destroy != true && params.VPC != "" }
+     }
+            steps {
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
+    ]) 
+{
+                 sh '''
+                   cd ./examples/aurora-mysql-cluster-global-db
+                    
+                   terraform init
+	               terraform workspace select ${TF_WORKSPACE_Jenkins} || terraform workspace new ${TF_WORKSPACE_Jenkins} 
+                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+        
+                '''       
+            }
+        }
+        }
+
+         stage('Terraform apply') {
+when {
+         expression { params.Destroy != true && params.VPC != "" }
+     }
+            steps {
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
+    ]) 
+{
+     sh '''
+                   cd ./examples/aurora-mysql-cluster-global-db
+                    
+                   terraform init
+	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
+                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+        
+                '''   
+            }
+
+}
+
+        }
+             stage('Terraform destroy') {
+when {
+         expression { params.Destroy != false && params.VPC != "" }
+     }
+            steps {
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
+  usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
+    ]) 
+{
+     sh '''
+                   cd ./examples/aurora-mysql-cluster-global-db
+                    
+                   terraform init
+	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
+                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+        
+                '''   
+            }
+
+}
+
+        }
+
+    }
+
+}

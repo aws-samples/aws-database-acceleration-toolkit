@@ -1,6 +1,6 @@
 # Aurora MySQL Database Global Cluster Provisioning in an existing VPC
 
-This example deploys the Aurora PosgreSQL Database Global Cluster in an existing VPC
+This example deploys the Aurora MySQL Database Global Cluster in an existing VPC
 
 - Creates a new Aurora MySQL cluster in two regions
 

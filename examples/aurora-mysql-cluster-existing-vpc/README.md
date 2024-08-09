@@ -1,6 +1,6 @@
 # Aurora MySQL Database Cluster Provisioning in an existing VPC
 
-This example deploys the Aurora PosgreSQL Database Cluster in an existing VPC
+This example deploys the Aurora MySQL Database Cluster in an existing VPC
 
 - Creates a new Aurora MySQL cluster - One writer and one reader database instance
 
