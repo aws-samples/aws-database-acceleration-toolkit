@@ -55,7 +55,6 @@ pipeline {
         string(defaultValue: "aurora-mysql-poc", description: 'Cloudwatch Dashboard prefix', name: 'NAME') 
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
-        string(defaultValue: "", description: 'VPC ID', name: 'VPC')  
         string(defaultValue: "", description: 'Aurora Database ARN', name: 'DATABASE_ARN') 
         booleanParam(defaultValue: false, description: 'Delete the stack?', name: 'Destroy')   
     }
@@ -65,7 +64,6 @@ pipeline {
        NAME="${params.NAME}"
         REGION="${params.REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}".trim()
-        VPC = "${params.VPC}"
         DATABASE_IDENTIFIER = "${params.DATABASE_ARN}"
             TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}-${params.ENVIRONMENT}".trim()
 
@@ -83,7 +81,7 @@ stage('checkout') {
 
         stage('Terraform plan') {
 when {
-         expression { params.Destroy != true && params.VPC != "" }
+         expression { params.Destroy != true && params.DATABASE_ARN != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -95,7 +93,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	               terraform workspace select ${TF_WORKSPACE_Jenkins} || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''       
             }
@@ -104,7 +102,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
 
          stage('Terraform apply') {
 when {
-         expression { params.Destroy != true && params.VPC != "" }
+         expression { params.Destroy != true && params.DATABASE_ARN != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -116,7 +114,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }
@@ -126,7 +124,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
         }
              stage('Terraform destroy') {
 when {
-         expression { params.Destroy != false && params.VPC != "" }
+         expression { params.Destroy != false && params.DATABASE_ARN != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -138,7 +136,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }

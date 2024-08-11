@@ -31,7 +31,7 @@ db_cluster_identifier = "SOURCE_DB_CLUSTER_IDENTIFIER"
 
 # New Database cluster name
 # For example: "aurora-pg-cluster-from-snapshot-0723"
-name = "NEW_DB_CLUSTER_NAME
+name = "NEW_DB_CLUSTER_NAME"
 
 # (optional) Database environment
 environment = "dev"

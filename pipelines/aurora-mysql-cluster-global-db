@@ -53,22 +53,21 @@ pipeline {
 
       parameters {
         string(defaultValue: "aurora-mysql-poc", description: 'AURORA Global DB prefix', name: 'NAME') 
-        string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
-        string(defaultValue: "us-west-2", description: 'Region', name: 'REGION_Secondary') 
-        string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
-        string(defaultValue: "", description: 'Primary VPC ID', name: 'VPC')  
-        string(defaultValue: "", description: 'Secondary VPC ID', name: 'VPC_Secondary') 
-        
+        string(defaultValue: "us-east-2", description: 'Primary Region', name: 'PRIMARY_REGION') 
+        string(defaultValue: "", description: 'Primary VPC ID', name: 'PRIMARY_VPC')  
+        string(defaultValue: "us-west-2", description: 'Secondary Region', name: 'SECONDARY_REGION')
+        string(defaultValue: "", description: 'Secondary VPC ID', name: 'SECONDARY_VPC') 
+        string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')
         booleanParam(defaultValue: false, description: 'Delete the stack?', name: 'Destroy')   
     }
 
 
     environment {
         NAME="${params.NAME}"
-        REGION="${params.REGION}"
-        REGION_Secondary="${params.REGION_Secondary}"
+        REGION="${params.PRIMARY_REGION}"
+        REGION_Secondary="${params.SECONDARY_REGION}"
         ENVIRONMENT = "${params.ENVIRONMENT}".trim()
-        VPC = "${params.VPC}"
+        VPC = "${params.PRIMARY_VPC}"
       TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}-${params.ENVIRONMENT}".trim()
       
     }
@@ -85,7 +84,7 @@ stage('checkout') {
 
         stage('Terraform plan') {
 when {
-         expression { params.Destroy != true && params.VPC != "" }
+         expression { params.Destroy != true && params.PRIMARY_VPC != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -97,7 +96,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	               terraform workspace select ${TF_WORKSPACE_Jenkins} || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${PRIMARY_REGION}" -var="sec_region=${SECONDARY_REGION}" -var="vpc_id=${PRIMARY_VPC}" -var="vpc_id_sec=${SECONDARY_VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''       
             }
@@ -106,7 +105,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
 
          stage('Terraform apply') {
 when {
-         expression { params.Destroy != true && params.VPC != "" }
+         expression { params.Destroy != true && params.PRIMARY_VPC != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -118,7 +117,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${PRIMARY_REGION}" -var="sec_region=${SECONDARY_REGION}" -var="vpc_id=${PRIMARY_VPC}" -var="vpc_id_sec=${SECONDARY_VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }
@@ -128,7 +127,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
         }
              stage('Terraform destroy') {
 when {
-         expression { params.Destroy != false && params.VPC != "" }
+         expression { params.Destroy != false && params.PRIMARY_VPC != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -140,7 +139,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="sec_region=${REGION_Secondary}" -var="vpc_id=${VPC}" -var="vpc_id_sec=${VPC_Secondary}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${PRIMARY_REGION}" -var="sec_region=${SECONDARY_REGION}" -var="vpc_id=${PRIMARY_VPC}" -var="vpc_id_sec=${SECONDARY_VPC}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }
