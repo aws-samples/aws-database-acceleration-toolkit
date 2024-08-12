@@ -51,7 +51,7 @@ pipeline {
     agent any
 
       parameters {
-        string(defaultValue: "aurora-pg-poc", description: 'Snapshot prefix', name: 'NAME') 
+        string(defaultValue: "aurora-mysql-poc", description: 'Snapshot prefix', name: 'NAME') 
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'VPC ID', name: 'VPC')  
