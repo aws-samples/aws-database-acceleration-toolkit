@@ -18,6 +18,6 @@ Key features of DAT include automation of initial Amazon Aurora setup, provision
 **Architecture** 
 
 Below is the high level architectre of Database Acceleration Toolkit. 
-![image](images/DAT-Architecture.png)
+![image](images/DAT-Architecture-new.png)
 
 
