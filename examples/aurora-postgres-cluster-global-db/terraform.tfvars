@@ -7,11 +7,11 @@ region = "PRIMARY_REGION"
 sec_region = "SECONDARY_REGION"
 
 # (mandatory) Primary VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-12345678901234567"
+# For example: "vpc-11112222333344445"
 vpc_id = "PRIMARY_VPC_ID"
 
 # (mandatory) Secondary VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-12345678901234567"
+# For example: "vpc-11112222333344445"
 vpc_id_sec = "SECONDARY_VPC_ID"
 
 # (mandatory) Instance class. 

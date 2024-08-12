@@ -3,7 +3,7 @@
 region = "REGION"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-12345678901234567"
+# For example: "vpc-11112222333344445"
 vpc_id = "VPC_ID"
 
 # (mandatory) Instance class. 

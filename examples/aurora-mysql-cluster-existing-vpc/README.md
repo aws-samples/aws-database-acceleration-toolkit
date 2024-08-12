@@ -31,7 +31,7 @@ Note: if you do not have existing VPC, please create one using VPC [this](https:
 region = "Primary Region"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
+# For example: "vpc-11112222333344445"
 vpc_id = "VPC ID"
 ```
 
