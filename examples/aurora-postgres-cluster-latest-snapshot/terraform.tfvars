@@ -3,7 +3,7 @@
 region = "REGION"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-12345678912345678"
+# For example: "vpc-11112222333344445"
 vpc_id = "VPC_ID"
 
 # (mandatory) Instance class. 
@@ -31,7 +31,7 @@ db_cluster_identifier = "SOURCE_DB_CLUSTER_IDENTIFIER"
 
 # New Database cluster name
 # For example: "aurora-pg-cluster-from-snapshot-0723"
-name = "NEW_DB_CLUSTER_NAME
+name = "NEW_DB_CLUSTER_NAME"
 
 # (optional) Database environment
 environment = "dev"

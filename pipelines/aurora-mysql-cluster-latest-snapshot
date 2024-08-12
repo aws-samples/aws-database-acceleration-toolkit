@@ -38,8 +38,7 @@ def handleCheckout = {
         reference: '', 
         shallow: true, 
         trackingSubmodules: false
-      ], 
-      [$class: 'GitLFSPull']
+      ]
     ], 
     submoduleCfg: [], 
     userRemoteConfigs: [[ credentialsId: credentials_id, url: 'https://github.com/' + github_org + '/' + github_repo + '.git']]
@@ -52,23 +51,24 @@ pipeline {
     agent any
 
       parameters {
-        string(defaultValue: "aurora-pg-poc", description: 'Cloudwatch Dashboard prefix', name: 'NAME') 
+        string(defaultValue: "aurora-mysql-poc", description: 'Snapshot prefix', name: 'NAME') 
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'VPC ID', name: 'VPC')  
-        string(defaultValue: "", description: 'Aurora Database ARN', name: 'DATABASE_ARN') 
+        string(defaultValue: "", description: 'CLUSETER NAME', name: 'CLUSETERNAME')  
+
         booleanParam(defaultValue: false, description: 'Delete the stack?', name: 'Destroy')   
     }
 
 
     environment {
-       NAME="${params.NAME}"
         REGION="${params.REGION}"
+        NAME="${params.NAME}"
         ENVIRONMENT = "${params.ENVIRONMENT}".trim()
         VPC = "${params.VPC}"
-        DATABASE_IDENTIFIER = "${params.DATABASE_ARN}"
-            TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}-${params.ENVIRONMENT}".trim()
-
+        CLUSETERNAME = "${params.CLUSETERNAME}"
+        TF_WORKSPACE_Jenkins = "${env.JOB_BASE_NAME}-${params.ENVIRONMENT}".trim()
+      
     }
     stages {
 stage('checkout') {
@@ -91,11 +91,11 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
                  sh '''
-                   cd ./examples/aurora-monitoring
+                   cd ./examples/aurora-mysql-cluster-latest-snapshot
                     
-                   terraform init
+                 terraform init
 	               terraform workspace select ${TF_WORKSPACE_Jenkins} || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                 terraform init && terraform plan -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="db_cluster_identifier=${CLUSETERNAME}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''       
             }
@@ -104,7 +104,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
 
          stage('Terraform apply') {
 when {
-         expression { params.Destroy != true && params.VPC != "" }
+          expression { params.Destroy != true && params.VPC != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -112,11 +112,11 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
      sh '''
-                   cd ./examples/aurora-monitoring
+                   cd ./examples/aurora-mysql-cluster-latest-snapshot
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform apply -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="db_cluster_identifier=${CLUSETERNAME}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }
@@ -126,7 +126,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
         }
              stage('Terraform destroy') {
 when {
-         expression { params.Destroy != false && params.VPC != "" }
+          expression { params.Destroy != false && params.VPC != "" }
      }
             steps {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkinsaws',
@@ -134,11 +134,11 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
      sh '''
-                   cd ./examples/aurora-monitoring
+                   cd ./examples/aurora-mysql-cluster-latest-snapshot
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
-                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="database_identifiers=${DATABASE_ARN}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                   terraform init && terraform destroy -auto-approve -var-file=terraform.tfvars -var="environment=${ENVIRONMENT}" -var="name=${NAME}" -var="region=${REGION}" -var="vpc_id=${VPC}" -var="db_cluster_identifier=${CLUSETERNAME}" -var="aws_access_key=${AWS_ACCESS_KEY_ID}" -var="aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
         
                 '''   
             }

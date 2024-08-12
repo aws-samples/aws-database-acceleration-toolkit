@@ -1,8 +1,8 @@
-# RDS Proxy - IAM Authentication & PostgreSQL Cluster
+# RDS Proxy - IAM Authentication & MySQL Cluster
 
 Configuration in this directory creates:
 
-- AWS RDS Proxy w/ IAM authentication enabled for an existing RDS Aurora PostgreSQL cluster
+- AWS RDS Proxy w/ IAM authentication enabled for an existing RDS Aurora MySQL cluster
 
 ## How to Deploy
 
@@ -29,7 +29,7 @@ Create a Terraform variable definition file called terraform.tfvars and update t
 region = "Primary Region"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
+# For example: "vpc-11112222333344445"
 vpc_id = "VPC ID"
 
 # (mandatory) Existing aurora clustername. For example : "aurora-mysql-poc-cluster-dev-a805da4a"
@@ -42,7 +42,7 @@ Initialize a working directory with configuration files
 
 
 ```shell script
-cd examples/aurora-postgres-dbproxy
+cd examples/aurora-mysql-dbproxy
 terraform init
 ```
 

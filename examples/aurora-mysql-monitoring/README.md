@@ -1,8 +1,8 @@
-# Enabling Aurora PostgreSQL Database Cluster Monitoring in an existing VPC
+# Enabling Aurora MySQL Database Cluster Monitoring in an existing VPC
 
-This example is to enable cluster monitoring for the existing Aurora PosgreSQL Database Cluster
+This example is to enable cluster monitoring for the existing Aurora MySQL Database Cluster
 
-- Creates a new Aurora PostgreSQL cluster - One writer and one reader database instance
+- Creates a new Aurora MySQL cluster - One writer and one reader database instance
 
 ## How to Deploy
 
@@ -28,7 +28,7 @@ Update the values in tfvars file for the variables. The following shows an examp
 region = "Primary Region"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
+# For example: "vpc-11112222333344445"
 vpc_id = "VPC ID"
 
 #ARAN for Existing Aurora Database
@@ -41,7 +41,7 @@ Initialize a working directory with configuration files
 
 
 ```shell script
-cd examples/aurora-postgres-monitoring
+cd examples/aurora-mysql-monitoring
 terraform init
 ```
 

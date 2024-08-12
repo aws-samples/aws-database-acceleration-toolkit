@@ -17,20 +17,20 @@ cd aws-database-acceleration-toolkit/examples/aurora-postgres-cluster-existing-v
 Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
 
 ```
-# (mandatory) AWS Region where your resources will be located
-region = "<AWS_REGION>"
+#(mandatory) AWS Region where your resources will be located
+# For example: "us-west-2"
+region = "REGION"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
-vpc_id = "<VPC_ID>"
+# For example: "vpc-11112222333344445"
+vpc_id = "VPC_ID"
 
 # (mandatory) Instance class. 
 # For example: "db.t4g.micro" is a free tier instance 
-instance_class ="<DB_INSTANCE_CLASS>"
+instance_class ="db.r6g.large"
 
-# (mandatory) Database Engine for your Aurora Cluster. Options: "aurora-postgresql" or "aurora-mysql" 
-# For example: "aurora-postgresql"
-engine = "<DB_ENGINE>"
+# (mandatory) Database Engine for your Aurora Cluster.
+engine = "aurora-postgresql"
 
 # (mandatory) Number of instances 
 instances = {
@@ -38,28 +38,26 @@ instances = {
     two   = {}
 }
 
-# (optional) Default is "provisioned" database cluster; For serverless, select "serverless"
-engine_mode = "<DB_ENGINE_MODE>"
+# Default is provisioned database cluster; For serverless, select "serverless"
+engine_mode = "provisioned"
 
-# (optional) The database engine version. Note -Updating this argument results in an outage" 
-# For example: "15.3"
-engine_version = "<DB_ENGINE_VERSION>"
+# The database engine version. Updating this argument results in an outage" 
+engine_version = "15.3"
 
-# (optional) Database cluster name, for example 'aurora-pg-poc'
-# For example: "aurora-pg-poc"
-name = "<DB_CLUSTER_NAME>"
+# Database cluster name
+name = "aurora-pg-poc"
+
+# (optional) Skip final snapshot during cluster deletion. Default is "true"
+skip_final_snapshot= "true"
 
 # (optional) Database environment
-# For example: "dev"
-environment = "<ENVIRONMENT>"
+environment = "dev"
 
 # (optional) Tagging : Team/Group Name
-# For example: "dev"
-groupname = "<TEAM_GROUP_NAME>"
+groupname = "dev"
 
 # (optional) Tagging : Project or Application Name
-# For example: "dev"
-project = "<PROJECT_NAME>"
+project = "dev"
 
 ```
 The example below illustrates how to use the 'region' variable to define the AWS region for your database-related resources.

@@ -52,7 +52,7 @@ pipeline {
     agent any
 
       parameters {
-        string(defaultValue: "aurora-pg-poc", description: 'Cloudwatch Dashboard prefix', name: 'NAME') 
+        string(defaultValue: "aurora-mysql-poc", description: 'Cloudwatch Dashboard prefix', name: 'NAME') 
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
         string(defaultValue: "", description: 'Aurora Database ARN', name: 'DATABASE_ARN') 
@@ -89,7 +89,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
                  sh '''
-                   cd ./examples/aurora-postgres-monitoring
+                   cd ./examples/aurora-mysql-monitoring
                     
                    terraform init
 	               terraform workspace select ${TF_WORKSPACE_Jenkins} || terraform workspace new ${TF_WORKSPACE_Jenkins} 
@@ -110,7 +110,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
      sh '''
-                   cd ./examples/aurora-postgres-monitoring
+                   cd ./examples/aurora-mysql-monitoring
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 
@@ -132,7 +132,7 @@ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins
     ]) 
 {
      sh '''
-                   cd ./examples/aurora-postgres-monitoring
+                   cd ./examples/aurora-mysql-monitoring
                     
                    terraform init
 	                 terraform workspace select ${TF_WORKSPACE_Jenkins}  || terraform workspace new ${TF_WORKSPACE_Jenkins} 

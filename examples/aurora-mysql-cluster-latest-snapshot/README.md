@@ -26,7 +26,7 @@ Update the values in tfvars file for the variables. The following shows an examp
 region = "Primary Region"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
+# For example: "vpc-11112222333344445"
 vpc_id = "VPC ID"
 
 # instance identifier for DB Cluster

@@ -1,9 +1,9 @@
 # AWS Database Acceleration Toolkit (DAT) 
 Welcome to the **AWS Database Acceleration Toolkit (DAT)** !!! 
 
-The **AWS Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based (Terraform) single click solution to simplify and automate initial setup, provisioning (day 1) and on-going maintenance (day 2 operations) for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
+The **AWS Database Acceleration Toolkit(DAT)** is an open-source Infrastructure-as-a-code based single click solution to simplify and automate initial setup, provisioning and on-going maintenance for [Amazon Aurora](https://aws.amazon.com/rds/aurora/) database on AWS Cloud. 
 
-It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases such as MS SQL Server to Amazon Aurora database and operating these databases in production.
+It's designed to minimize the heavy lifting required for AWS customers to migrate from commercial databases to Amazon Aurora database and operating these databases in production.
 
 ## Architecture
 
@@ -15,27 +15,33 @@ To explore the complete project documentation, please visit our [documentation](
 
 ## Intended audience
 
-The intended audiences for DAT are AWS customers who are migrating from commercial databases such as MS SQL Server to Amazon Aurora.
+The intended audiences for DAT are AWS customers who are migrating from commercial databases to Amazon Aurora.
 
 ## Key Features
 
 Key features of DAT include automation of initial Amazon Aurora setup, provisioning and on-going maintenance activities,
 1. Provisioning of new [Amazon Aurora database cluster](https://aws.amazon.com/rds/aurora/)
 2. Provisioning and Integration with [RDS Proxy](https://aws.amazon.com/rds/proxy/) to reuse database connections and improved reliability
-3. Provisioning of new [Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
+3. Provisioning of new [Amazon Aurora Global Database](https://aws.amazon.com/rds/aurora/global-database/)
 4. Monitoring Aurora database 
 	1. Amazon CloudWatch
 	2. Curated CloudWatch Dashboards for database monitoring
 5. Restore cluster from Snapshot 
 
-## Blueprint Examples
+## Usage Examples
 
 DAT comprises of below examples. Click each link to get more details on running these examples.
-1. [aurora-postgres-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-existing-vpc) - Creates new Aurora Postgres Cluster.
-2. [db-proxy-to-existing-postgres-cluster](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/db-proxy-to-existing-postgres-cluster) - Creates proxy to existing Aurora Postgres.
-3. [aurora-postgres-cluster-global-db](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-global-db) - Creates new Aurora Postgres Clusters in Primary and Secondary region.
-4. [aurora-monitoring](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-monitoring) - Setup monitoring dashboard for aurora.
-5. [aurora-postgres-cluster-latest-snapshot](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-latest-snapshot) - Deploys the Aurora PostgreSQL Database Cluster from the latest cluster snapshot
+
+1. [aurora-mysql-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-mysql-cluster-existing-vpc) - Creates new Amazon Aurora MySQL Cluster.
+2. [aurora-mysql-cluster-global-db](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-mysql-cluster-global-db) - Creates new Amazon Aurora MySQL Clusters in Primary and Secondary region.
+3. [aurora-mysql-cluster-latest-snapshot](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-mysql-cluster-latest-snapshot) - Deploys the Amazon Aurora MySQL Database Cluster from the latest cluster snapshot
+4. [aurora-mysql-dbproxy](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-mysql-dbproxy) - Creates proxy to existing Amazon Aurora MySQL.
+5. [aurora-mysql-monitoring](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-mysql-monitoring) - Setup monitoring dashboard for Amazon Aurora MySQL.
+6. [aurora-postgres-cluster-existing-vpc](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-existing-vpc) - Creates new Amazon Aurora PostgreSQL Cluster.
+7. [aurora-postgres-cluster-global-db](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-global-db) - Creates new Amazon Aurora PostgreSQL Clusters in Primary and Secondary region.
+8. [aurora-postgres-cluster-latest-snapshot](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/main/examples/aurora-postgres-cluster-latest-snapshot) - Deploys the Amazon Aurora PostgreSQL Database Cluster from the latest cluster snapshot
+9. [aurora-postgres-dbproxy](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/mythili-updates/examples/aurora-postgres-dbproxy) - Creates proxy to existing Amazon Aurora PostgreSQL.
+10. [aurora-postgres-monitoring](https://github.com/aws-samples/aws-database-acceleration-toolkit/tree/mythili-updates/examples/aurora-mysql-monitoring) - Setup monitoring dashboard for Amazon Aurora PostgreSQL.
 
 ## Getting Started
 
@@ -47,8 +53,7 @@ First, ensure that you have installed the following tools locally.
 
 1. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 2. [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
-3. [kubectl](https://kubernetes.io/docs/tasks/tools/)
-4. [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+3. [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
 ## DAT Deployment
 DAT modules can be deployed using any one of the following options

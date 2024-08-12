@@ -46,17 +46,6 @@ def handleCheckout = {
   ]);
 }
 
-pipelineJob('aurora-monitoring') {
-   definition {
-               
-    cps {
-      script(readFileFromWorkspace('pipelines/aurora-monitoring'))
-      sandbox()     
-    }
- 
-   }
-}
-
 pipelineJob('aurora-postgres-cluster-existing-vpc') {
    definition {
                
@@ -73,17 +62,6 @@ pipelineJob('aurora-postgres-cluster-global-db') {
                
     cps {
       script(readFileFromWorkspace('pipelines/aurora-postgres-cluster-global-db'))
-      sandbox()     
-    }
- 
-   }
-}
-
-pipelineJob('db-proxy-to-existing-postgres-cluster') {
-   definition {
-               
-    cps {
-      script(readFileFromWorkspace('pipelines/db-proxy-to-existing-postgres-cluster'))
       sandbox()     
     }
  
@@ -120,14 +98,66 @@ pipelineJob('aurora-postgres-monitoring') {
  
    }
 }
+pipelineJob('aurora-mysql-cluster-existing-vpc') {
+   definition {
+               
+    cps {
+      script(readFileFromWorkspace('pipelines/aurora-mysql-cluster-existing-vpc'))
+      sandbox()     
+    }
+ 
+   }
+}
+pipelineJob('aurora-mysql-cluster-global-db') {
+   definition {
+               
+    cps {
+      script(readFileFromWorkspace('pipelines/aurora-mysql-cluster-global-db'))
+      sandbox()     
+    }
+ 
+   }
+}
+pipelineJob('aurora-mysql-cluster-latest-snapshot') {
+   definition {
+               
+    cps {
+      script(readFileFromWorkspace('pipelines/aurora-mysql-cluster-latest-snapshot'))
+      sandbox()     
+    }
+ 
+   }
+}
+pipelineJob('aurora-mysql-dbproxy') {
+   definition {
+               
+    cps {
+      script(readFileFromWorkspace('pipelines/aurora-mysql-dbproxy'))
+      sandbox()     
+    }
+ 
+   }
+}
+pipelineJob('aurora-mysql-monitoring') {
+   definition {
+               
+    cps {
+      script(readFileFromWorkspace('pipelines/aurora-mysql-monitoring'))
+      sandbox()     
+    }
+ 
+   }
+}
 
-
-queue('aurora-monitoring')
 queue('aurora-postgres-cluster-existing-vpc')
 queue('aurora-postgres-cluster-global-db')
-queue('db-proxy-to-existing-postgres-cluster')
 queue('aurora-postgres-cluster-latest-snapshot')
 queue('aurora-postgres-dbproxy')
 queue('aurora-postgres-monitoring')
+queue('aurora-mysql-cluster-existing-vpc')
+queue('aurora-mysql-cluster-global-db')
+queue('aurora-mysql-cluster-latest-snapshot')
+queue('aurora-mysql-dbproxy')
+queue('aurora-mysql-monitoring')
 
    
