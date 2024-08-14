@@ -11,11 +11,11 @@ output cluster_id {
 }
 
 output cluster_master_password {
-     value         = module.aurora_poc.cluster_master_password
+     value         = nonsensitive(module.aurora_poc.cluster_master_password)
      sensitive     = true
 }
 
 output cluster_master_username {
-     value         = module.aurora_poc.cluster_master_username
+     value         = nonsensitive(module.aurora_poc.cluster_master_username)
      sensitive     = true
 }
