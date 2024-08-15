@@ -9,8 +9,8 @@ locals {
   region = var.region  
 
   name   = "${var.name}-${var.environment}"
-  write_endpoint   = "read-write-endpoint-${var.environment}"
-  read_endpoint   = "read-only-endpoint-${var.environment}"
+  write_endpoint   = "${var.name}-read-write-endpoint-${var.environment}"
+  read_endpoint   = "${var.name}-read-only-endpoint-${var.environment}"
   db_username = random_pet.users.id # using random here due to secrets taking at least 7 days before fully deleting from account
   db_password = random_password.password.result
 
