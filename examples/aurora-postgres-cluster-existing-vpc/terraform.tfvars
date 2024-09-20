@@ -24,8 +24,8 @@ instance_class ="db.r6g.large"
 # Optionally, you can pass the configuration parameters and values (e.g., instance_class="db.r6g.xlarge") for each instance within the curly braces.
 # If no parameters are specified, all the DB instances will be created with the same values.
 instances = {
-    one   = {}
-    two   = {}
+    instance1   = {}
+    instance2   = {}
 }
 
 # Database cluster name
