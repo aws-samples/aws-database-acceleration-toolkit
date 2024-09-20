@@ -55,7 +55,7 @@ pipeline {
         string(defaultValue: "aurora-mysql-poc", description: 'Cloudwatch Dashboard prefix', name: 'NAME') 
         string(defaultValue: "us-east-2", description: 'Region', name: 'REGION') 
         string(defaultValue: "dev", description: 'Environment', name: 'ENVIRONMENT')   
-        string(defaultValue: "", description: 'Aurora Database ARN', name: 'DATABASE_ARN') 
+        string(defaultValue: "", description: 'Aurora Database Cluster Identifier', name: 'DATABASE_ARN') 
         booleanParam(defaultValue: false, description: 'Delete the stack?', name: 'Destroy')   
     }
 
