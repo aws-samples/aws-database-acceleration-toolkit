@@ -1,0 +1,4 @@
+# Ignore below files
+.DS_Store
+.terraform.lock.hcl
+**/.terraform/*
