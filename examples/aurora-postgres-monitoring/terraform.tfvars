@@ -1,5 +1,4 @@
-
-# (mandatory) AWS Region where your resources will be located
+# AWS Region where your resources will be located
 # For example: "us-west-2"
 region = "<REGION>"
 
@@ -8,13 +7,17 @@ region = "<REGION>"
 database_identifiers ="<DB_CLUSTER_ID>"
 
 # CloudWatch Dashboard name
-name = "aurora-pg-poc"
+# For example: "aurora-pg-poc"  
+name = "<CLOUDWATCH_DASHBOARD_NAME>"
 
-# (optional) Environment
-environment = "dev"
+# Environment
+# For example: "dev"  
+environment = "<ENVIRONMENT>"
 
-# (optional) Tagging : Team/Group Name
-groupname = "dev"
+# Tagging : Team/Group Name
+# For example: "data-engineering"  
+groupname = "<GROUPNAME>"
 
-# (optional) Tagging : Project or Application Name
-project = "dev"
+# Tagging : Project or Application Name
+# For example: "myapp"  
+project = "<PROJECTNAME>"
