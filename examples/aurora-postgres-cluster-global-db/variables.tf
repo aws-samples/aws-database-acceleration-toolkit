@@ -38,7 +38,7 @@ variable "engine" {
 }
 
 variable "engine_mode" {
-  description = "The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`"
+  description = "description = "The database engine mode. Current Supported mode : provisioned"`"
   type        = string
   default     = ""
 }
