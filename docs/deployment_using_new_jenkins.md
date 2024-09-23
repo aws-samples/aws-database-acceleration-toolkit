@@ -28,11 +28,12 @@ Review the Terraform variable definition file called `terraform.tfvars` and upda
 
 ```
 # (mandatory) AWS Region where your resources will be located
-region = "us-east-2"
+# For example: "us-west-2"
+region = "<REGION>>"
 
 # (mandatory) VPC Id where your database and other AWS resources will be located. 
-# For example: "vpc-0759280XX50555743"
-vpc_id = "vpc-042229eafe1a7f93f"
+# For example: "vpc-11112222333344445"
+vpc_id = "<VPC_ID>"
 ```
 ### 3. Run Terraform Init
 Initialize a working directory with configuration files by running `terraform init` 

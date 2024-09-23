@@ -17,47 +17,56 @@ cd aws-database-acceleration-toolkit/examples/aurora-postgres-cluster-existing-v
 Review the Terraform variable definition file called `terraform.tfvars` and update the values for the variables as per your use case. 
 
 ```
-#(mandatory) AWS Region where your resources will be located
+# AWS Region where your resources will be located.
 # For example: "us-west-2"
-region = "REGION"
+region = "<REGION>"
 
-# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# VPC Id where your resources will be located. 
 # For example: "vpc-11112222333344445"
-vpc_id = "VPC_ID"
+vpc_id = "<VPC_ID>"
 
-# (mandatory) Instance class. 
-# For example: "db.t4g.micro" is a free tier instance 
-instance_class ="db.r6g.large"
-
-# (mandatory) Database Engine for your Aurora Cluster.
+# Database Engine for your Aurora mysql Cluster.
 engine = "aurora-postgresql"
 
-# (mandatory) Number of instances 
-instances = {
-    one   = {}
-    two   = {}
-}
+# Database engine version (optional). If not specified, the default version for the selected engine will be used.
+# For example: "15.3"  
+engine_version = "<ENGINE_VERSION>"
 
-# Default is provisioned database cluster; For serverless, select "serverless"
+# Database engine mode. Valid value: provisioned
+# Refer AWS documentation for supported regions and engine versions for engine mode 
 engine_mode = "provisioned"
 
-# The database engine version. Updating this argument results in an outage" 
-engine_version = "15.3"
+# DB Instance class. 
+# Refer AWS documentation for supported DB instance class for DB engine.
+# For example: "db.r6g.large"  
+instance_class ="<INSTANCE_CLASS>"
+
+# Specify number of DB instances to be created in the cluster.
+# Optionally, you can pass the configuration parameters and values (for e.g., instance_class="db.r6g.xlarge") for each instance within the curly braces.
+# If no parameters are specified, all the DB instances will be created with the same values.
+instances = {
+    instance1   = {}
+    instance2   = {}
+}
 
 # Database cluster name
-name = "aurora-pg-poc"
+# For example: "aurora-pg-poc"  
+name = "<CLUSTER_NAME>"
 
-# (optional) Skip final snapshot during cluster deletion. Default is "true"
+# Database environment
+# For example: "dev"  
+environment = "<ENVIRONMENT>"
+
+# Tagging : Team/Group Name
+# For example: "data-engineering"  
+groupname = "<GROUPNAME>"
+
+# Tagging : Project or Application Name
+# For example: "myapp"  
+project = "<PROJECTNAME>"
+
+# Skip final snapshot during cluster deletion (optional). If set to 'true' (default), no final snapshot will be taken before deleting the cluster.
 skip_final_snapshot= "true"
-
-# (optional) Database environment
-environment = "dev"
-
-# (optional) Tagging : Team/Group Name
-groupname = "dev"
-
-# (optional) Tagging : Project or Application Name
-project = "dev"
 
 ```
 The example below illustrates how to use the 'region' variable to define the AWS region for your database-related resources.

@@ -25,14 +25,14 @@ git clone https://github.com/aws-samples/aws-database-acceleration-toolkit
 Create a Terraform variable definition file called terraform.tfvars and update the values for the variables. The following shows an example for the variable to specify AWS region for your database related resources and a few other mandatory resources.  
 
 ```shell script
-# (mandatory) AWS Region where your resources will be located. Update for your specific usecase
+# AWS Region where your resources will be located. Update for your specific usecase
 region = "Primary Region"
 
-# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-11112222333344445"
 vpc_id = "VPC ID"
 
-# (mandatory) Existing aurora clustername. For example : "aurora-mysql-poc-cluster-dev-a805da4a"
+# Existing aurora clustername. For example : "aurora-mysql-poc-cluster-dev-a805da4a"
 clusterName = "Existing Aurora ClusterName"
 
 ```

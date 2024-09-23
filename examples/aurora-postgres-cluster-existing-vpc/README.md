@@ -27,10 +27,10 @@ Update the values in tfvars file for the variables. The following shows an examp
 Note: if you do not have existing VPC, please create one using VPC [this](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.html) documentation 
 
 ```shell script
-#(mandatory) AWS Region where your resources will be located
+# AWS Region where your resources will be located
 region = "Primary Region"
 
-# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-11112222333344445"
 vpc_id = "VPC ID"
 ```
