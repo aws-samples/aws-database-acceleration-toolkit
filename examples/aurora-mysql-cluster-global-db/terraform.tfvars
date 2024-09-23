@@ -1,16 +1,16 @@
-#(mandatory) Primary AWS Region where your resources will be located
+# Primary AWS Region where your resources will be located
 # For example: "us-west-2"
 region = "<PRIMARY_REGION>"
 
-# (mandatory) Secondary AWS Region where your resources will be located
+# Secondary AWS Region where your resources will be located
 # For example: "us-east-2"
 sec_region = "<SECONDARY_REGION>"
 
-# (mandatory) Primary VPC Id where your database and other AWS resources will be located. 
+# Primary VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-11112222333344445"
 vpc_id = "<PRIMARY_VPC_ID>"
 
-# (mandatory) Secondary VPC Id where your database and other AWS resources will be located. 
+# Secondary VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-11112222333344445"
 vpc_id_sec = "<SECONDARY_VPC_ID>"
 
