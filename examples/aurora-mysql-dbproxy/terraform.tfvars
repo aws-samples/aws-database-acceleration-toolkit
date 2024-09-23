@@ -6,7 +6,7 @@ region = "<REGION>"
 # For example: "vpc-11112222333344445"
 vpc_id = "<VPC_ID>"
 
-# Existing Aurora DB Cluster Name. 
+# Existing Aurora Mysql DB Cluster Name. 
 # For example : "aurora-mysql-poc-cluster-dev"
 clusterName = "<EXISTING_DB_CLUSTER_NAME>"
 
