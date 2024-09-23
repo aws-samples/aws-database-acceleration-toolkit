@@ -23,7 +23,7 @@ variable "engine" {
 }
 
 variable "engine_mode" {
-  description = "description = "The database engine mode. Current Supported mode : provisioned"`"
+  description = "The database engine mode. Current Supported mode : provisioned"
   type        = string
   default     = ""
 }
