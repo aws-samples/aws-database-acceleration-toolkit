@@ -22,10 +22,10 @@ git clone https://github.com/aws-samples/aws-database-acceleration-toolkit
 #### Step2: Review and update the terraform.tfvars
 Update the values in tfvars file for the variables. The following shows an example for the variable to specify AWS region for your database related resources.
 ```shell script
-#(mandatory) AWS Region where your resources will be located
+# AWS Region where your resources will be located
 region = "Primary Region"
 
-# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-11112222333344445"
 vpc_id = "VPC ID"
 

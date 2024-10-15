@@ -1,46 +1,47 @@
-#(mandatory) Primary AWS Region where your resources will be located
+# Primary AWS Region where your resources will be located
 # For example: "us-west-2"
-region = "PRIMARY_REGION"
+region = "<PRIMARY_REGION>"
 
-# (mandatory) Secondary AWS Region where your resources will be located
+# Secondary AWS Region where your resources will be located
 # For example: "us-east-2"
-sec_region = "SECONDARY_REGION"
+sec_region = "<SECONDARY_REGION>"
 
-# (mandatory) Primary VPC Id where your database and other AWS resources will be located. 
+# Primary VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-11112222333344445"
-vpc_id = "PRIMARY_VPC_ID"
+vpc_id = "<PRIMARY_VPC_ID>"
 
-# (mandatory) Secondary VPC Id where your database and other AWS resources will be located. 
+# Secondary VPC Id where your database and other AWS resources will be located. 
 # For example: "vpc-11112222333344445"
-vpc_id_sec = "SECONDARY_VPC_ID"
+vpc_id_sec = "<SECONDARY_VPC_ID>"
 
-# (mandatory) Instance class. 
-# For example: "db.t4g.micro" is a free tier instance 
-instance_class ="db.r6g.large"
+# DB Instance class. 
+# Refer AWS documentation for supported DB instance class for DB engine.
+# For example: "db.r6g.large"  
+instance_class ="<INSTANCE_CLASS>"
 
-# (mandatory) Database Engine for your Aurora Cluster. 
+# Database Engine for your Aurora Postgres Cluster. 
 engine = "aurora-postgresql"
 
-# (mandatory) Number of instances 
-instances = {
-    one   = {}
-    two   = {}
-}
-
-# (optional) Default is provisioned database cluster; For serverless, select "serverless"
+# Database engine mode. Valid value: provisioned
+# Refer AWS documentation for supported regions and engine versions for engine mode 
 engine_mode = "provisioned"
 
-# (optional) The database engine version. Updating this argument results in an outage" 
-engine_version = "15.3"
+# Database engine version (optional). If not specified, the default version for the selected engine will be used.
+# For example: "15.3"  
+engine_version = "<ENGINE_VERSION>"
 
-# (optional) Database cluster name
-name = "aurora-pg-poc-globaldb"
+# Global Database cluster name
+# For example: "aurora-pg-poc-globaldb"  
+name = "<CLUSTER_NAME>"
 
-# (optional) Database environment
-environment = "dev"
+# Database environment
+# For example: "dev"  
+environment = "<ENVIRONMENT>"
 
-# (optional) Tagging : Team/Group Name
-groupname = "dev"
+# Tagging : Team/Group Name
+# For example: "data-engineering"  
+groupname = "<GROUPNAME>"
 
-# (optional) Tagging : Project or Application Name
-project = "dev"
+# Tagging : Project or Application Name
+# For example: "myapp"  
+project = "<PROJECTNAME>"

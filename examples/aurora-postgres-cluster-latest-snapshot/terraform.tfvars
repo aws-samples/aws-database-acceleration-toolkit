@@ -1,43 +1,51 @@
-#(mandatory) AWS Region where your resources will be located
+# AWS Region where your resources will be located.
 # For example: "us-west-2"
-region = "REGION"
+region = "<REGION>"
 
-# (mandatory) VPC Id where your database and other AWS resources will be located. 
+# VPC Id where your resources will be located. 
 # For example: "vpc-11112222333344445"
-vpc_id = "VPC_ID"
+vpc_id = "<VPC_ID>"
 
-# (mandatory) Instance class. 
-# For example: "db.t4g.micro" is a free tier instance 
-instance_class ="db.r6g.large"
-
-# (mandatory) Database Engine for your Aurora Cluster. 
+# Database Engine for your Aurora mysql Cluster.
 engine = "aurora-postgresql"
 
-# (mandatory) Number of instances 
-instances = {
-    one   = {}
-    two   = {}
-}
+# Database engine version (optional). If not specified, the default version for the selected engine will be used.
+# For example: "15.3"  
+engine_version = "<ENGINE_VERSION>"
 
-# (optional) Default is provisioned database cluster; For serverless, select "serverless"
+# Database engine mode. Valid value: provisioned
+# Refer AWS documentation for supported regions and engine versions for engine mode 
 engine_mode = "provisioned"
 
-# (optional) The database engine version. Updating this argument results in an outage" 
-engine_version = "15.3"
+# DB Instance class. 
+# Refer AWS documentation for supported DB instance class for DB engine.
+# For example: "db.r6g.large"  
+instance_class ="<INSTANCE_CLASS>"
+
+# Specify number of DB instances to be created in the cluster.
+# Optionally, you can pass the configuration parameters and values (for e.g., instance_class="db.r6g.xlarge") for each instance within the curly braces.
+# If no parameters are specified, all the DB instances will be created with the same values.
+instances = {
+    instance1   = {}
+    instance2   = {}
+}
 
 # Source DB cluster identifier with atleast one snapshot available
 # For example: "aurora-mysql-poc-cluster-dev"
-db_cluster_identifier = "SOURCE_DB_CLUSTER_IDENTIFIER"
+db_cluster_identifier = "<SOURCE_DB_CLUSTER_IDENTIFIER>"
 
 # New Database cluster name
 # For example: "aurora-pg-cluster-from-snapshot-0723"
-name = "NEW_DB_CLUSTER_NAME"
+name = "<NEW_DB_CLUSTER_NAME>"
 
-# (optional) Database environment
-environment = "dev"
+# Database environment
+# For example: "dev"  
+environment = "<ENVIRONMENT>"
 
-# (optional) Tagging : Team/Group Name
-groupname = "dev"
+# Tagging : Team/Group Name
+# For example: "data-engineering"  
+groupname = "<GROUPNAME>"
 
-# (optional) Tagging : Project or Application Name
-project = "dev"
+# Tagging : Project or Application Name
+# For example: "myapp"  
+project = "<PROJECTNAME>"
